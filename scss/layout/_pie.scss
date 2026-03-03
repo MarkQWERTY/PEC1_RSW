@@ -1,0 +1,12 @@
+.pie {
+    background-color: $color-negro;
+    color: $color-gris;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+
+    &__texto {
+        margin: 0;
+        font-size: 0.9rem;
+    }
+}

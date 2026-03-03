@@ -1,0 +1,53 @@
+.formulario {
+    max-width: 600px;
+    margin: 0 auto;
+
+    &__grupo {
+        margin-bottom: 20px;
+    }
+
+    &__etiqueta {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 700;
+        color: $color-negro;
+    }
+
+    &__campo {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid $color-gris;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-family: $fuente;
+    }
+
+    &__opciones {
+        display: flex;
+        gap: 20px;
+    }
+
+    &__opcion {
+        font-size: 0.95rem;
+        cursor: pointer;
+    }
+
+    &__boton {
+        width: 100%;
+        padding: 15px;
+        background-color: $color-negro;
+        color: $color-gris;
+        border: 2px solid $color-gris;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        cursor: pointer;
+        font-family: $fuente;
+
+        &:hover {
+            background-color: $color-gris;
+            color: $color-negro;
+        }
+    }
+}

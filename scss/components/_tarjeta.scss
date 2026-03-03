@@ -1,0 +1,29 @@
+.tarjeta {
+    background-color: #fff;
+    border: 2px solid $color-gris;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+
+    &__img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-bottom: 2px solid $color-gris;
+        background-color: #e0e0e0;
+    }
+
+    &__nombre {
+        color: $color-negro;
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+}

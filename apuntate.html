@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Gym - ¡Apúntate!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="cabecera">
+        <div class="cabecera__contenedor">
+            <a href="index.html" class="cabecera__logo-enlace">
+                <img src="img/logo_platinium.png" alt="Logo Platinum Gym" class="cabecera__logo-img">
+            </a>
+            <nav class="cabecera__nav">
+                <a href="index.html" class="cabecera__enlace">Inicio</a>
+                <a href="maquinaria.html" class="cabecera__enlace">Maquinaria</a>
+                <a href="servicios.html" class="cabecera__enlace">Servicios</a>
+                <a href="tienda.html" class="cabecera__enlace">Tienda</a>
+                <a href="reglas.html" class="cabecera__enlace">Reglas</a>
+                <a href="apuntate.html" class="cabecera__enlace cabecera__enlace--destacado">¡APÚNTATE!</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="principal">
+
+        <section class="seccion">
+            <h2 class="seccion__titulo">Formulario de Registro</h2>
+
+            <form class="formulario" action="#" method="post">
+
+                <div class="formulario__grupo">
+                    <label class="formulario__etiqueta" for="nombre">Nombre</label>
+                    <input class="formulario__campo" type="text" id="nombre" name="nombre" placeholder="Tu nombre"
+                        required>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label class="formulario__etiqueta" for="apellidos">Apellidos</label>
+                    <input class="formulario__campo" type="text" id="apellidos" name="apellidos"
+                        placeholder="Tus apellidos" required>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label class="formulario__etiqueta" for="fecha-nacimiento">Fecha de nacimiento</label>
+                    <input class="formulario__campo" type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label class="formulario__etiqueta" for="direccion">Dirección</label>
+                    <input class="formulario__campo" type="text" id="direccion" name="direccion"
+                        placeholder="Tu dirección" required>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label class="formulario__etiqueta" for="telefono">Teléfono</label>
+                    <input class="formulario__campo" type="tel" id="telefono" name="telefono"
+                        placeholder="Ej: 612345678" required>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label class="formulario__etiqueta" for="correo">Correo electrónico</label>
+                    <input class="formulario__campo" type="email" id="correo" name="correo" placeholder="tu@correo.com"
+                        required>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label class="formulario__etiqueta" for="documento">DNI / NIE / Pasaporte</label>
+                    <input class="formulario__campo" type="text" id="documento" name="documento"
+                        placeholder="Ej: 12345678A" required>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label class="formulario__etiqueta">Método de pago</label>
+                    <div class="formulario__opciones">
+                        <label class="formulario__opcion">
+                            <input type="radio" name="metodo-pago" value="tarjeta" checked> Tarjeta de crédito
+                        </label>
+                        <label class="formulario__opcion">
+                            <input type="radio" name="metodo-pago" value="iban"> Cuenta bancaria (IBAN)
+                        </label>
+                    </div>
+                </div>
+
+                <div class="formulario__grupo">
+                    <label class="formulario__etiqueta" for="numero-pago">Número de tarjeta / IBAN</label>
+                    <input class="formulario__campo" type="text" id="numero-pago" name="numero-pago"
+                        placeholder="Introduce tu numero de tarjeta o IBAN" required>
+                </div>
+
+                <div class="formulario__grupo">
+                    <button class="formulario__boton" type="submit">Registrarse</button>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="pie">
+        <p class="pie__texto">&copy; 2026 Platinum Gym</p>
+    </footer>
+
+</body>
+
+</html>

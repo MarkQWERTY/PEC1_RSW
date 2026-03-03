@@ -1,0 +1,282 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f0f0f0;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+}
+
+.cabecera {
+    background-color: #121212;
+    padding: 0 20px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.cabecera__contenedor {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cabecera__logo-enlace {
+    display: block;
+}
+
+.cabecera__logo-img {
+    height: 70px;
+    width: auto;
+    background-color: #121212;
+}
+
+.cabecera__nav {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.cabecera__enlace {
+    color: #E5E4E2;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cabecera__enlace:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.cabecera__enlace--destacado {
+    background-color: #E5E4E2;
+    color: #121212;
+    padding: 10px 20px;
+    border: 2px solid #E5E4E2;
+}
+
+.cabecera__enlace--destacado:hover {
+    background-color: #121212;
+    color: #E5E4E2;
+    text-decoration: none;
+}
+
+.pie {
+    background-color: #121212;
+    color: #E5E4E2;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.pie__texto {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.hero {
+    width: 100%;
+    height: 70vh;
+    background-color: #121212;
+}
+
+.hero__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.seccion {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.seccion__titulo {
+    text-align: center;
+    color: #121212;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+
+.seccion__contenido {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.tarjeta {
+    background-color: #fff;
+    border: 2px solid #E5E4E2;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+.tarjeta__img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid #E5E4E2;
+    background-color: #e0e0e0;
+}
+
+.tarjeta__nombre {
+    color: #121212;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.formulario {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.formulario__grupo {
+    margin-bottom: 20px;
+}
+
+.formulario__etiqueta {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    color: #121212;
+}
+
+.formulario__campo {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #E5E4E2;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.formulario__opciones {
+    display: flex;
+    gap: 20px;
+}
+
+.formulario__opcion {
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.formulario__boton {
+    width: 100%;
+    padding: 15px;
+    background-color: #121212;
+    color: #E5E4E2;
+    border: 2px solid #E5E4E2;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.formulario__boton:hover {
+    background-color: #E5E4E2;
+    color: #121212;
+}
+
+.producto {
+    background-color: #fff;
+    border: 2px solid #E5E4E2;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+}
+
+.producto__img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid #E5E4E2;
+    background-color: #e0e0e0;
+}
+
+.producto__info {
+    padding: 20px;
+    text-align: center;
+}
+
+.producto__nombre {
+    margin: 0 0 10px 0;
+    color: #121212;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.producto__precio {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #121212;
+    margin: 0 0 15px 0;
+}
+
+.producto__boton {
+    padding: 10px 20px;
+    background-color: #121212;
+    color: #E5E4E2;
+    border: 2px solid #E5E4E2;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.producto__boton:hover {
+    background-color: #E5E4E2;
+    color: #121212;
+}
+
+.contenido-texto {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contenido-texto__subtitulo {
+    color: #121212;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.contenido-texto__parrafo {
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+}
