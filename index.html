@@ -21,10 +21,46 @@
                 <a href="servicios.html" class="cabecera__enlace">Servicios</a>
                 <a href="tienda.html" class="cabecera__enlace">Tienda</a>
                 <a href="reglas.html" class="cabecera__enlace">Reglas</a>
+                <a href="login.html" class="cabecera__enlace">Login</a>
                 <a href="apuntate.html" class="cabecera__enlace cabecera__enlace--destacado">¡APÚNTATE!</a>
             </nav>
         </div>
     </header>
+
+    <div class="barra-carrito">
+        <input type="checkbox" id="toggle-carrito" class="barra-carrito__checkbox">
+        <label for="toggle-carrito" class="barra-carrito__boton">🛒 Carrito (2)</label>
+        <div class="barra-carrito__contenido">
+            <table class="carrito__tabla">
+                <thead>
+                    <tr>
+                        <th class="carrito__cabecera">Producto</th>
+                        <th class="carrito__cabecera">Precio</th>
+                        <th class="carrito__cabecera">Cant.</th>
+                        <th class="carrito__cabecera">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="carrito__fila">
+                        <td class="carrito__celda">Straps en 8</td>
+                        <td class="carrito__celda">14,99 €</td>
+                        <td class="carrito__celda">1</td>
+                        <td class="carrito__celda">14,99 €</td>
+                    </tr>
+                    <tr class="carrito__fila">
+                        <td class="carrito__celda">Botella Shaker</td>
+                        <td class="carrito__celda">9,99 €</td>
+                        <td class="carrito__celda">2</td>
+                        <td class="carrito__celda">19,98 €</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="carrito__resumen">
+                <p class="carrito__total">Total: 34,97 €</p>
+                <a href="tienda.html" class="carrito__boton">Ver Tienda</a>
+            </div>
+        </div>
+    </div>
 
     <main class="principal">
 
@@ -36,24 +72,64 @@
             <h2 class="seccion__titulo">Nuestros Locales</h2>
             <div class="seccion__contenido">
                 <div class="tarjeta">
-                    <img src="img/meco.jpg" alt="Local Meco" class="tarjeta__img">
+                    <img src="img/ubicaciones/meco.png" alt="Local Meco" class="tarjeta__img">
                     <h3 class="tarjeta__nombre">Meco</h3>
+                    <details class="tarjeta__detalles">
+                        <summary class="tarjeta__ver-mas">Ver información</summary>
+                        <div class="tarjeta__descripcion">
+                            <p>Gimnasio completo con zona de peso libre, máquinas de cardio y sala de clases dirigidas.
+                                Abierto de 6:00 a 23:00.</p>
+                            <p><strong>Dirección:</strong> C/ Gran Vía 12, Meco, Madrid</p>
+                        </div>
+                    </details>
                 </div>
                 <div class="tarjeta">
-                    <img src="img/vallecas.jpg" alt="Local Vallecas" class="tarjeta__img">
+                    <img src="img/ubicaciones/vallecas.avif" alt="Local Vallecas" class="tarjeta__img">
                     <h3 class="tarjeta__nombre">Vallecas</h3>
+                    <details class="tarjeta__detalles">
+                        <summary class="tarjeta__ver-mas">Ver información</summary>
+                        <div class="tarjeta__descripcion">
+                            <p>Centro deportivo con piscina, sauna y zona de musculación. Más de 500m² de instalaciones.
+                            </p>
+                            <p><strong>Dirección:</strong> Av. de la Albufera 45, Vallecas, Madrid</p>
+                        </div>
+                    </details>
                 </div>
                 <div class="tarjeta">
-                    <img src="img/berlin.jpg" alt="Local Berlin" class="tarjeta__img">
+                    <img src="img/ubicaciones/berlin.jfif" alt="Local Berlin" class="tarjeta__img">
                     <h3 class="tarjeta__nombre">Berlín</h3>
+                    <details class="tarjeta__detalles">
+                        <summary class="tarjeta__ver-mas">Ver información</summary>
+                        <div class="tarjeta__descripcion">
+                            <p>Nuestro centro internacional más grande. Equipamiento de competición y entrenadores
+                                certificados NSCA.</p>
+                            <p><strong>Dirección:</strong> Alexanderplatz 7, Berlín, Alemania</p>
+                        </div>
+                    </details>
                 </div>
                 <div class="tarjeta">
-                    <img src="img/tokyo.jpg" alt="Local Tokyo" class="tarjeta__img">
+                    <img src="img/ubicaciones/images.jfif" alt="Local Tokyo" class="tarjeta__img">
                     <h3 class="tarjeta__nombre">Tokyo</h3>
+                    <details class="tarjeta__detalles">
+                        <summary class="tarjeta__ver-mas">Ver información</summary>
+                        <div class="tarjeta__descripcion">
+                            <p>Centro de alto rendimiento con tecnología de última generación y clases de artes
+                                marciales.</p>
+                            <p><strong>Dirección:</strong> Shibuya 3-21-5, Tokyo, Japón</p>
+                        </div>
+                    </details>
                 </div>
                 <div class="tarjeta">
-                    <img src="img/chicago.jpg" alt="Local Chicago" class="tarjeta__img">
+                    <img src="img/ubicaciones/Chicago.jpg" alt="Local Chicago" class="tarjeta__img">
                     <h3 class="tarjeta__nombre">Chicago</h3>
+                    <details class="tarjeta__detalles">
+                        <summary class="tarjeta__ver-mas">Ver información</summary>
+                        <div class="tarjeta__descripcion">
+                            <p>Gimnasio estilo warehouse con zona de CrossFit, strongman y powerlifting. Ambiente
+                                hardcore.</p>
+                            <p><strong>Dirección:</strong> 450 N Michigan Ave, Chicago, USA</p>
+                        </div>
+                    </details>
                 </div>
             </div>
         </section>
@@ -62,23 +138,19 @@
             <h2 class="seccion__titulo">Best Sellers</h2>
             <div class="seccion__contenido">
                 <div class="tarjeta">
-                    <img src="img/straps.jpg" alt="Straps" class="tarjeta__img">
+                    <img src="img/shop/straps.jpg" alt="Straps" class="tarjeta__img">
                     <h3 class="tarjeta__nombre">Straps en 8</h3>
                 </div>
                 <div class="tarjeta">
-                    <img src="img/pantalon.jpg" alt="Pantalon" class="tarjeta__img">
+                    <img src="img/shop/pantalones.jpg" alt="Pantalon" class="tarjeta__img">
                     <h3 class="tarjeta__nombre">Pantalón Top</h3>
                 </div>
                 <div class="tarjeta">
-                    <img src="img/chaqueta.jpg" alt="Chaqueta" class="tarjeta__img">
-                    <h3 class="tarjeta__nombre">Chaqueta</h3>
-                </div>
-                <div class="tarjeta">
-                    <img src="img/tanktop.jpg" alt="Tank Top" class="tarjeta__img">
+                    <img src="img/shop/tirantes.jpg" alt="Tank Top" class="tarjeta__img">
                     <h3 class="tarjeta__nombre">Tank Top Básica</h3>
                 </div>
                 <div class="tarjeta">
-                    <img src="img/botella.jpg" alt="Botella" class="tarjeta__img">
+                    <img src="img/shop/botella.jpg" alt="Botella" class="tarjeta__img">
                     <h3 class="tarjeta__nombre">Botella Shaker</h3>
                 </div>
             </div>
@@ -87,7 +159,21 @@
     </main>
 
     <footer class="pie">
-        <p class="pie__texto">&copy; 2026 Platinum Gym</p>
+        <div class="pie__contenedor">
+            <div class="pie__logo">
+                <img src="img/logo_platinium.png" alt="Logo Platinum Gym" class="pie__logo-img">
+            </div>
+            <nav class="pie__nav">
+                <a href="index.html" class="pie__enlace">Inicio</a>
+                <a href="maquinaria.html" class="pie__enlace">Maquinaria</a>
+                <a href="servicios.html" class="pie__enlace">Servicios</a>
+                <a href="tienda.html" class="pie__enlace">Tienda</a>
+                <a href="reglas.html" class="pie__enlace">Reglas</a>
+                <a href="apuntate.html" class="pie__enlace">¡Apúntate!</a>
+                <a href="login.html" class="pie__enlace">Login</a>
+            </nav>
+            <p class="pie__texto">&copy; 2026 Platinum Gym</p>
+        </div>
     </footer>
 
 </body>

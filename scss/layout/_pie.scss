@@ -2,11 +2,46 @@
     background-color: $color-negro;
     color: $color-gris;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
     margin-top: 40px;
+
+    &__contenedor {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__logo {
+        margin-bottom: 20px;
+    }
+
+    &__logo-img {
+        height: 50px;
+        margin: 0 auto;
+    }
+
+    &__nav {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    &__enlace {
+        color: $color-gris;
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &:hover {
+            color: $color-blanco;
+            text-decoration: underline;
+        }
+    }
 
     &__texto {
         margin: 0;
         font-size: 0.9rem;
+        opacity: 0.7;
     }
 }

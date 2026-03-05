@@ -21,10 +21,46 @@
                 <a href="servicios.html" class="cabecera__enlace">Servicios</a>
                 <a href="tienda.html" class="cabecera__enlace">Tienda</a>
                 <a href="reglas.html" class="cabecera__enlace">Reglas</a>
+                <a href="login.html" class="cabecera__enlace">Login</a>
                 <a href="apuntate.html" class="cabecera__enlace cabecera__enlace--destacado">¡APÚNTATE!</a>
             </nav>
         </div>
     </header>
+
+    <div class="barra-carrito">
+        <input type="checkbox" id="toggle-carrito" class="barra-carrito__checkbox">
+        <label for="toggle-carrito" class="barra-carrito__boton">🛒 Carrito (2)</label>
+        <div class="barra-carrito__contenido">
+            <table class="carrito__tabla">
+                <thead>
+                    <tr>
+                        <th class="carrito__cabecera">Producto</th>
+                        <th class="carrito__cabecera">Precio</th>
+                        <th class="carrito__cabecera">Cant.</th>
+                        <th class="carrito__cabecera">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="carrito__fila">
+                        <td class="carrito__celda">Straps en 8</td>
+                        <td class="carrito__celda">14,99 €</td>
+                        <td class="carrito__celda">1</td>
+                        <td class="carrito__celda">14,99 €</td>
+                    </tr>
+                    <tr class="carrito__fila">
+                        <td class="carrito__celda">Botella Shaker</td>
+                        <td class="carrito__celda">9,99 €</td>
+                        <td class="carrito__celda">2</td>
+                        <td class="carrito__celda">19,98 €</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="carrito__resumen">
+                <p class="carrito__total">Total: 34,97 €</p>
+                <a href="tienda.html" class="carrito__boton">Ver Tienda</a>
+            </div>
+        </div>
+    </div>
 
     <main class="principal">
 
@@ -102,7 +138,21 @@
     </main>
 
     <footer class="pie">
-        <p class="pie__texto">&copy; 2026 Platinum Gym</p>
+        <div class="pie__contenedor">
+            <div class="pie__logo">
+                <img src="img/logo_platinium.png" alt="Logo Platinum Gym" class="pie__logo-img">
+            </div>
+            <nav class="pie__nav">
+                <a href="index.html" class="pie__enlace">Inicio</a>
+                <a href="maquinaria.html" class="pie__enlace">Maquinaria</a>
+                <a href="servicios.html" class="pie__enlace">Servicios</a>
+                <a href="tienda.html" class="pie__enlace">Tienda</a>
+                <a href="reglas.html" class="pie__enlace">Reglas</a>
+                <a href="apuntate.html" class="pie__enlace">¡Apúntate!</a>
+                <a href="login.html" class="pie__enlace">Login</a>
+            </nav>
+            <p class="pie__texto">&copy; 2026 Platinum Gym</p>
+        </div>
     </footer>
 
 </body>

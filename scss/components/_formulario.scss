@@ -50,4 +50,19 @@
             color: $color-negro;
         }
     }
+
+    &__texto-extra {
+        text-align: center;
+        color: #555;
+    }
+
+    &__enlace {
+        color: $color-negro;
+        font-weight: 700;
+        text-decoration: underline;
+
+        &:hover {
+            color: #555;
+        }
+    }
 }

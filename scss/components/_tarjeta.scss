@@ -26,4 +26,39 @@
         text-transform: uppercase;
         letter-spacing: 1px;
     }
+
+    &__detalles {
+        padding: 0 15px 15px;
+    }
+
+    &__ver-mas {
+        cursor: pointer;
+        color: $color-negro;
+        font-weight: 700;
+        font-size: 0.9rem;
+        text-align: center;
+        padding: 8px;
+        background-color: $color-gris;
+        list-style: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &:hover {
+            background-color: $color-negro;
+            color: $color-gris;
+        }
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+    }
+
+    &__descripcion {
+        padding: 15px 0 0;
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #333;
+        border-top: 1px solid $color-gris;
+        margin-top: 10px;
+    }
 }
