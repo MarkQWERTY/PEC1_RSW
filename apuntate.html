@@ -5,156 +5,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platinum Gym - ¡Apúntate!</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-
-    <header class="cabecera">
-        <div class="cabecera__contenedor">
-            <a href="index.html" class="cabecera__logo-enlace">
-                <img src="img/logo_platinium.png" alt="Logo Platinum Gym" class="cabecera__logo-img">
-            </a>
-            <nav class="cabecera__nav">
-                <a href="index.html" class="cabecera__enlace">Inicio</a>
-                <a href="maquinaria.html" class="cabecera__enlace">Maquinaria</a>
-                <a href="servicios.html" class="cabecera__enlace">Servicios</a>
-                <a href="tienda.html" class="cabecera__enlace">Tienda</a>
-                <a href="reglas.html" class="cabecera__enlace">Reglas</a>
-
-                <a href="apuntate.html" class="cabecera__enlace cabecera__enlace--destacado">¡APÚNTATE!</a>
-            </nav>
-        </div>
-    </header>
-
-    <div class="barra-carrito">
-        <input type="checkbox" id="toggle-carrito" class="barra-carrito__checkbox">
-        <label for="toggle-carrito" class="barra-carrito__boton">🛒 Carrito (2)</label>
-        <div class="barra-carrito__contenido">
-            <table class="carrito__tabla">
-                <thead>
-                    <tr>
-                        <th class="carrito__cabecera">Producto</th>
-                        <th class="carrito__cabecera">Precio</th>
-                        <th class="carrito__cabecera">Cant.</th>
-                        <th class="carrito__cabecera">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="carrito__fila">
-                        <td class="carrito__celda">Straps en 8</td>
-                        <td class="carrito__celda">14,99 €</td>
-                        <td class="carrito__celda">1</td>
-                        <td class="carrito__celda">14,99 €</td>
-                    </tr>
-                    <tr class="carrito__fila">
-                        <td class="carrito__celda">Botella Shaker</td>
-                        <td class="carrito__celda">9,99 €</td>
-                        <td class="carrito__celda">2</td>
-                        <td class="carrito__celda">19,98 €</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="carrito__resumen">
-                <p class="carrito__total">Total: 34,97 €</p>
-                <a href="tienda.html" class="carrito__boton">Ver Tienda</a>
+    <div class="aplicacion">
+        <!-- MENÚ LATERAL -->
+        <nav class="menu-lateral">
+            <div class="cabecera-menu">
+                <div class="logo">
+                    <span class="texto-blanco">PLATINUM</span>
+                    <span class="texto-plata">GYM</span>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <main class="principal">
-
-        <section class="seccion">
-            <h2 class="seccion__titulo">Formulario de Registro</h2>
-
-            <form class="formulario" action="#" method="post">
-
-                <div class="formulario__grupo">
-                    <label class="formulario__etiqueta" for="nombre">Nombre</label>
-                    <input class="formulario__campo" type="text" id="nombre" name="nombre" placeholder="Tu nombre"
-                        required>
+            <div class="navegacion">
+                <ul class="lista-enlaces">
+                    <li class="elemento-lista"><a href="index.html" class="enlace"><i class="fas fa-home"></i>
+                            <span>Inicio</span></a></li>
+                    <li class="elemento-lista"><a href="maquinaria.html" class="enlace"><i class="fas fa-dumbbell"></i>
+                            <span>Maquinaria</span></a></li>
+                    <li class="elemento-lista"><a href="servicios.html" class="enlace"><i class="fas fa-crown"></i>
+                            <span>Servicios</span></a></li>
+                    <li class="elemento-lista"><a href="tienda.html" class="enlace"><i class="fas fa-shopping-bag"></i>
+                            <span>Tienda</span></a></li>
+                    <li class="elemento-lista"><a href="equipo.html" class="enlace"><i class="fas fa-users"></i>
+                            <span>Equipo</span></a></li>
+                    <li class="elemento-lista"><a href="reglas.html" class="enlace"><i class="fas fa-scroll"></i>
+                            <span>Reglas</span></a></li>
+                    <li class="elemento-lista"><a href="apuntate.html" class="enlace activo"><i
+                                class="fas fa-user-plus"></i> <span>¡Apúntate!</span></a></li>
+                </ul>
+            </div>
+            <div class="pie-menu">
+                <div class="estado-socio">
+                    <i class="fas fa-id-card"></i> <span>Portal del Socio</span>
                 </div>
+            </div>
+        </nav>
 
-                <div class="formulario__grupo">
-                    <label class="formulario__etiqueta" for="apellidos">Apellidos</label>
-                    <input class="formulario__campo" type="text" id="apellidos" name="apellidos"
-                        placeholder="Tus apellidos" required>
-                </div>
+        <main class="contenido-principal">
 
-                <div class="formulario__grupo">
-                    <label class="formulario__etiqueta" for="fecha-nacimiento">Fecha de nacimiento</label>
-                    <input class="formulario__campo" type="date" id="fecha-nacimiento" name="fecha-nacimiento" required>
-                </div>
+            <section class="seccion">
+                <h2 class="titulo-seccion">Formulario de Registro</h2>
 
-                <div class="formulario__grupo">
-                    <label class="formulario__etiqueta" for="direccion">Dirección</label>
-                    <input class="formulario__campo" type="text" id="direccion" name="direccion"
-                        placeholder="Tu dirección" required>
-                </div>
+                <form class="formulario" action="#" method="post">
 
-                <div class="formulario__grupo">
-                    <label class="formulario__etiqueta" for="telefono">Teléfono</label>
-                    <input class="formulario__campo" type="tel" id="telefono" name="telefono"
-                        placeholder="Ej: 612345678" required>
-                </div>
-
-                <div class="formulario__grupo">
-                    <label class="formulario__etiqueta" for="correo">Correo electrónico</label>
-                    <input class="formulario__campo" type="email" id="correo" name="correo" placeholder="tu@correo.com"
-                        required>
-                </div>
-
-                <div class="formulario__grupo">
-                    <label class="formulario__etiqueta" for="documento">DNI / NIE / Pasaporte</label>
-                    <input class="formulario__campo" type="text" id="documento" name="documento"
-                        placeholder="Ej: 12345678A" required>
-                </div>
-
-                <div class="formulario__grupo">
-                    <label class="formulario__etiqueta">Método de pago</label>
-                    <div class="formulario__opciones">
-                        <label class="formulario__opcion">
-                            <input type="radio" name="metodo-pago" value="tarjeta" checked> Tarjeta de crédito
-                        </label>
-                        <label class="formulario__opcion">
-                            <input type="radio" name="metodo-pago" value="iban"> Cuenta bancaria (IBAN)
-                        </label>
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="nombre">Nombre</label>
+                        <input class="campo-formulario" type="text" id="nombre" name="nombre" placeholder="Tu nombre"
+                            required>
                     </div>
-                </div>
 
-                <div class="formulario__grupo">
-                    <label class="formulario__etiqueta" for="numero-pago">Número de tarjeta / IBAN</label>
-                    <input class="formulario__campo" type="text" id="numero-pago" name="numero-pago"
-                        placeholder="Introduce tu numero de tarjeta o IBAN" required>
-                </div>
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="apellidos">Apellidos</label>
+                        <input class="campo-formulario" type="text" id="apellidos" name="apellidos"
+                            placeholder="Tus apellidos" required>
+                    </div>
 
-                <div class="formulario__grupo">
-                    <button class="formulario__boton" type="submit">Registrarse</button>
-                </div>
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="fecha-nacimiento">Fecha de nacimiento</label>
+                        <input class="campo-formulario" type="date" id="fecha-nacimiento" name="fecha-nacimiento"
+                            required>
+                    </div>
 
-            </form>
-        </section>
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="direccion">Dirección</label>
+                        <input class="campo-formulario" type="text" id="direccion" name="direccion"
+                            placeholder="Tu dirección" required>
+                    </div>
 
-    </main>
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="telefono">Teléfono</label>
+                        <input class="campo-formulario" type="tel" id="telefono" name="telefono"
+                            placeholder="Ej: 612345678" required>
+                    </div>
 
-    <footer class="pie">
-        <div class="pie__contenedor">
-            <div class="pie__logo">
-                <img src="img/logo_platinium.png" alt="Logo Platinum Gym" class="pie__logo-img">
-            </div>
-            <nav class="pie__nav">
-                <a href="index.html" class="pie__enlace">Inicio</a>
-                <a href="maquinaria.html" class="pie__enlace">Maquinaria</a>
-                <a href="servicios.html" class="pie__enlace">Servicios</a>
-                <a href="tienda.html" class="pie__enlace">Tienda</a>
-                <a href="reglas.html" class="pie__enlace">Reglas</a>
-                <a href="apuntate.html" class="pie__enlace">¡Apúntate!</a>
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="correo">Correo electrónico</label>
+                        <input class="campo-formulario" type="email" id="correo" name="correo"
+                            placeholder="tu@correo.com" required>
+                    </div>
 
-            </nav>
-            <p class="pie__texto">&copy; 2026 Platinum Gym</p>
-        </div>
-    </footer>
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="documento">DNI / NIE / Pasaporte</label>
+                        <input class="campo-formulario" type="text" id="documento" name="documento"
+                            placeholder="Ej: 12345678A" required>
+                    </div>
 
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario">Método de pago</label>
+                        <div class="opciones-formulario">
+                            <label class="opcion-formulario">
+                                <input type="radio" name="metodo-pago" value="tarjeta" checked> Tarjeta de crédito
+                            </label>
+                            <label class="opcion-formulario">
+                                <input type="radio" name="metodo-pago" value="iban"> Cuenta bancaria (IBAN)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="numero-pago">Número de tarjeta / IBAN</label>
+                        <input class="campo-formulario" type="text" id="numero-pago" name="numero-pago"
+                            placeholder="Introduce tu numero de tarjeta o IBAN" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <button class="boton-formulario" type="submit">Registrarse</button>
+                    </div>
+
+                </form>
+            </section>
+
+        </main>
+        </main>
+    </div>
 </body>
 
 </html>

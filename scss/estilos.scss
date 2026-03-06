@@ -1,0 +1,611 @@
+// Variables en Español (Simples)
+$color-fondo-oscuro: #0a0a0a;
+$color-fondo-caja: #121212;
+$color-fondo-tarjeta: #1a1a1c;
+$color-gris-oscuro: #2b2b2c;
+$color-plata: #E5E4E2;
+$color-plata-oscuro: #C0C0C0;
+$color-texto-blanco: #f5f5f5;
+$color-texto-gris: #a0a0a0;
+
+// Tipografía y Tamaños
+$fuente-principal: 'Montserrat', sans-serif;
+$ancho-menu: 280px;
+$ancho-menu-movil: 80px;
+$velocidad-animacion: 0.3s;
+
+// Degradados (Efectos bonitos)
+$degradado-plata: linear-gradient(135deg, #f5f5f5 0%, #E5E4E2 50%, #C0C0C0 100%);
+$degradado-carbono: repeating-linear-gradient(45deg, #111 0, #111 2px, #181818 2px, #181818 4px);
+
+// Reseteo básico (como de libro de texto)
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $fuente-principal;
+    background-color: $color-fondo-oscuro;
+    color: $color-texto-blanco;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- CLASES PRINCIPALES --- */
+
+.aplicacion {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Menú Lateral (Sidebar) */
+.menu-lateral {
+    width: $ancho-menu;
+    background-color: $color-fondo-caja;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid $color-gris-oscuro;
+    z-index: 100;
+
+    .cabecera-menu {
+        padding: 2.5rem 2rem;
+        border-bottom: 1px solid $color-gris-oscuro;
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+
+            .texto-blanco {
+                color: $color-texto-blanco;
+            }
+
+            .texto-plata {
+                background: $degradado-plata;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                font-style: italic;
+            }
+        }
+    }
+
+    .navegacion {
+        flex-grow: 1;
+        padding: 2rem 0;
+        overflow-y: auto;
+
+        .lista-enlaces {
+            list-style: none;
+
+            .elemento-lista {
+                margin-bottom: 0.5rem;
+
+                .enlace {
+                    display: flex;
+                    align-items: center;
+                    padding: 1.2rem 2rem;
+                    color: $color-texto-gris;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 1.05rem;
+                    transition: all $velocidad-animacion ease;
+                    border-left: 3px solid transparent;
+
+                    i {
+                        width: 30px;
+                        font-size: 1.2rem;
+                    }
+
+                    &:hover {
+                        color: $color-texto-blanco;
+                        background-color: rgba(229, 228, 226, 0.05);
+                    }
+
+                    &.activo {
+                        color: $color-texto-blanco;
+                        border-left-color: $color-plata;
+                        background: linear-gradient(90deg, rgba(229, 228, 226, 0.08) 0%, transparent 100%);
+                    }
+                }
+            }
+        }
+    }
+
+    .pie-menu {
+        padding: 2rem;
+        border-top: 1px solid $color-gris-oscuro;
+
+        .estado-socio {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: $color-plata-oscuro;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.3s;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+}
+
+/* Área de contenido a la derecha */
+.contenido-principal {
+    flex-grow: 1;
+    margin-left: $ancho-menu;
+    padding: 3rem;
+    min-height: 100vh;
+    background: $color-fondo-oscuro;
+    /* Animación simple al cargar la página */
+    animation: aparecer $velocidad-animacion ease forwards;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Utilidades de texto y títulos */
+.texto-destacado {
+    background: $degradado-plata;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cabecera-seccion,
+.titulo-seccion {
+    margin-bottom: 3.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid $color-gris-oscuro;
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+
+    h2 {
+        font-size: inherit;
+        font-weight: inherit;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        color: $color-texto-gris;
+        font-size: 1.2rem;
+        font-weight: 300;
+        text-transform: none;
+    }
+}
+
+/* --- FORMULARIOS --- */
+.formulario {
+    background-color: $color-fondo-caja;
+    padding: 3rem;
+    border-radius: 12px;
+    border: 1px solid $color-gris-oscuro;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .grupo-formulario {
+        margin-bottom: 2rem;
+
+        .etiqueta-formulario {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: $color-plata-oscuro;
+        }
+
+        .campo-formulario {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: $color-fondo-oscuro;
+            border: 1px solid $color-gris-oscuro;
+            border-radius: 6px;
+            color: $color-texto-blanco;
+            font-family: $fuente-principal;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+
+            &:focus {
+                outline: none;
+                border-color: $color-plata;
+            }
+        }
+
+        .opciones-formulario {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
+
+            .opcion-formulario {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .boton-formulario {
+        background: $degradado-plata;
+        color: $color-fondo-oscuro;
+        border: none;
+        padding: 16px 32px;
+        font-size: 1.1rem;
+        font-weight: 800;
+        border-radius: 6px;
+        cursor: pointer;
+        text-transform: uppercase;
+        width: 100%;
+        transition: transform 0.3s;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+}
+
+/* Botones */
+.boton-principal {
+    background: $degradado-plata;
+    color: $color-fondo-oscuro;
+    border: none;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 800;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform $velocidad-animacion, box-shadow $velocidad-animacion;
+    text-decoration: none;
+    display: inline-block;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(229, 228, 226, 0.25);
+    }
+}
+
+.boton-secundario {
+    background: transparent;
+    color: $color-plata;
+    border: 1px solid $color-gris-oscuro;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all $velocidad-animacion;
+    text-decoration: none;
+
+    &:hover {
+        border-color: $color-plata;
+        background-color: rgba(229, 228, 226, 0.05);
+    }
+}
+
+.boton-bloque {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* --- PORTADA (HERO) --- */
+.portada {
+    height: 500px;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/banner.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 2rem;
+    border: 1px solid $color-gris-oscuro;
+
+    .texto-portada {
+        max-width: 800px;
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 1.3rem;
+            color: $color-plata-oscuro;
+            margin-bottom: 2rem;
+        }
+    }
+}
+
+/* --- TARJETAS UNIFICADAS --- */
+.contenido-seccion {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+
+.tarjeta {
+    background-color: $color-fondo-caja;
+    border: 1px solid $color-gris-oscuro;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+        transform: translateY(-8px);
+        border-color: $color-plata-oscuro;
+    }
+
+    .imagen-tarjeta {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-bottom: 1px solid $color-gris-oscuro;
+    }
+
+    .cuerpo-tarjeta {
+        padding: 1.5rem;
+        flex-grow: 1;
+
+        .nombre-tarjeta {
+            font-size: 1.4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .detalles-tarjeta {
+            color: $color-texto-gris;
+            font-size: 1rem;
+
+            .ver-mas {
+                cursor: pointer;
+                color: $color-plata;
+                font-weight: 700;
+                margin-top: 1rem;
+                display: block;
+            }
+
+            .descripcion-tarjeta {
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid rgba(255, 255, 255, 0.05);
+            }
+        }
+
+        .precio {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: $color-plata;
+            margin-bottom: 1.5rem;
+        }
+
+        .icono-bonito {
+            font-size: 2.2rem;
+            background: $degradado-plata;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+/* --- REGLAMENTO --- */
+.caja-reglas {
+    background-color: $color-fondo-tarjeta;
+    border-radius: 12px;
+    border: 1px solid $color-gris-oscuro;
+    padding: 3rem;
+
+    .lista-reglas {
+        list-style: none;
+        counter-reset: contador-reglas;
+
+        .regla {
+            display: flex;
+            margin-bottom: 2.5rem;
+            padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+            &:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
+
+            .numero-icono {
+                flex-shrink: 0;
+                width: 60px;
+                height: 60px;
+                background: rgba(229, 228, 226, 0.05);
+                border: 1px solid $color-gris-oscuro;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                color: $color-plata;
+                margin-right: 2rem;
+                position: relative;
+
+                &::before {
+                    counter-increment: contador-reglas;
+                    content: "0" counter(contador-reglas);
+                    position: absolute;
+                    top: -10px;
+                    left: -10px;
+                    font-size: 0.8rem;
+                    font-weight: 800;
+                    color: $color-fondo-oscuro;
+                    background: $degradado-plata;
+                    width: 24px;
+                    height: 24px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                }
+            }
+
+            .texto-regla {
+                h3 {
+                    font-size: 1.3rem;
+                    font-weight: 700;
+                    margin-bottom: 0.8rem;
+                    color: $color-texto-blanco;
+                }
+
+                p {
+                    color: $color-texto-gris;
+                    line-height: 1.7;
+                }
+            }
+        }
+    }
+}
+
+/* --- COMPLEMENTOS --- */
+.efecto-gris {
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+}
+
+.tarjeta:hover .efecto-gris {
+    filter: grayscale(0%);
+}
+
+.caja-foto-atleta {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+    border-bottom: 1px solid $color-gris-oscuro;
+}
+
+.etiqueta {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: $degradado-plata;
+    color: $color-fondo-oscuro;
+    padding: 5px 12px;
+    font-size: 0.8rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    border-radius: 4px;
+    z-index: 2;
+}
+
+.caja-imagen {
+    position: relative;
+    height: 250px;
+    background-color: #f9f9f9;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .foto-producto {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+}
+
+/* Adaptación a móviles */
+@media (max-width: 1024px) {
+    .portada .texto-portada h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-lateral {
+        width: $ancho-menu-movil;
+
+        .texto-blanco,
+        .texto-plata,
+        .enlace span,
+        .estado-socio span {
+            display: none;
+        }
+
+        .cabecera-menu {
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .enlace {
+            justify-content: center;
+            padding: 1.5rem 0;
+
+            i {
+                margin: 0;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .contenido-principal {
+        margin-left: $ancho-menu-movil;
+        padding: 1.5rem;
+    }
+
+    .portada {
+        padding: 3rem 2rem;
+        height: 400px;
+
+        .texto-portada h1 {
+            font-size: 2.2rem;
+        }
+    }
+
+    .cabecera-seccion,
+    .titulo-seccion {
+        font-size: 2rem;
+    }
+
+    .regla {
+        flex-direction: column;
+
+        .numero-icono {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .caja-reglas {
+        padding: 2rem;
+    }
+}
