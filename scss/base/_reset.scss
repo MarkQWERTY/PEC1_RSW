@@ -1,18 +1,13 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: $fuente;
-    background-color: $color-fondo;
-}
-
-a {
-    text-decoration: none;
-}
-
-img {
-    display: block;
+    font-family: $fuente-principal;
+    background-color: $color-fondo-oscuro;
+    color: $color-texto-blanco;
+    overflow-x: hidden;
+    line-height: 1.6;
 }

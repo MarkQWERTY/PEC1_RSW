@@ -1,68 +1,67 @@
 .formulario {
-    max-width: 600px;
+    background-color: $color-fondo-caja;
+    padding: 3rem;
+    border-radius: 12px;
+    border: 1px solid $color-gris-oscuro;
+    max-width: 800px;
     margin: 0 auto;
 
-    &__grupo {
-        margin-bottom: 20px;
-    }
+    .grupo-formulario {
+        margin-bottom: 2rem;
 
-    &__etiqueta {
-        display: block;
-        margin-bottom: 5px;
-        font-weight: 700;
-        color: $color-negro;
-    }
+        .etiqueta-formulario {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: $color-plata-oscuro;
+        }
 
-    &__campo {
-        width: 100%;
-        padding: 10px;
-        border: 2px solid $color-gris;
-        border-radius: 4px;
-        font-size: 1rem;
-        font-family: $fuente;
-    }
+        .campo-formulario {
+            width: 100%;
+            padding: 12px 16px;
+            background-color: $color-fondo-oscuro;
+            border: 1px solid $color-gris-oscuro;
+            border-radius: 6px;
+            color: $color-texto-blanco;
+            font-family: $fuente-principal;
+            font-size: 1rem;
+            transition: border-color 0.3s;
 
-    &__opciones {
-        display: flex;
-        gap: 20px;
-    }
+            &:focus {
+                outline: none;
+                border-color: $color-plata;
+            }
+        }
 
-    &__opcion {
-        font-size: 0.95rem;
-        cursor: pointer;
-    }
+        .opciones-formulario {
+            display: flex;
+            gap: 2rem;
+            margin-top: 0.5rem;
 
-    &__boton {
-        width: 100%;
-        padding: 15px;
-        background-color: $color-negro;
-        color: $color-gris;
-        border: 2px solid $color-gris;
-        font-size: 1.1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        cursor: pointer;
-        font-family: $fuente;
-
-        &:hover {
-            background-color: $color-gris;
-            color: $color-negro;
+            .opcion-formulario {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                cursor: pointer;
+            }
         }
     }
 
-    &__texto-extra {
-        text-align: center;
-        color: #555;
-    }
-
-    &__enlace {
-        color: $color-negro;
-        font-weight: 700;
-        text-decoration: underline;
+    .boton-formulario {
+        background: $degradado-plata;
+        color: $color-fondo-oscuro;
+        border: none;
+        padding: 16px 32px;
+        font-size: 1.1rem;
+        font-weight: 800;
+        border-radius: 6px;
+        cursor: pointer;
+        text-transform: uppercase;
+        width: 100%;
+        transition: transform 0.3s;
 
         &:hover {
-            color: #555;
+            transform: translateY(-2px);
         }
     }
 }

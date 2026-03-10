@@ -5,21 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Platinum Gym | Servicios Elite</title>
-    <!-- CSS Compilado -->
     <link rel="stylesheet" href="css/estilos.css">
-    <!-- Fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,800;0,900;1,900&display=swap"
         rel="stylesheet">
-    <!-- Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
     <div class="aplicacion">
-        <!-- MENÚ LATERAL -->
         <nav class="menu-lateral">
             <div class="cabecera-menu">
                 <div class="logo">
@@ -71,8 +67,19 @@
             </div>
         </nav>
 
-        <!-- CONTENIDO PRINCIPAL -->
         <main class="contenido-principal">
+
+            <header class="barra-navegacion">
+                <div class="barra-navegacion__buscador">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar servicios...">
+                </div>
+                <div class="barra-navegacion__iconos">
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </header>
 
             <section id="servicios">
                 <div class="cabecera-seccion">
@@ -88,7 +95,8 @@
                             <h3 class="nombre-tarjeta">Sala de Máquinas</h3>
                             <p class="detalles-tarjeta">Bio-mechanics focus. Equipamiento seleccionado científicamente
                                 para aislar cada grupo muscular de forma estricta.</p>
-                            <button class="boton-secundario">Saber más</button>
+                            <a href="servicio-detalle.html" class="boton-secundario boton-bloque"
+                                style="margin-top: 1.5rem; text-align: center;">Saber más</a>
                         </div>
                     </div>
 
@@ -98,7 +106,8 @@
                             <h3 class="nombre-tarjeta">Fisioterapia Premium</h3>
                             <p class="detalles-tarjeta">Recuperación profunda, punción seca, liberación miofascial y
                                 osteopatía al servicio de tu rendimiento.</p>
-                            <button class="boton-secundario">Saber más</button>
+                            <a href="servicio-detalle.html" class="boton-secundario boton-bloque"
+                                style="margin-top: 1.5rem; text-align: center;">Saber más</a>
                         </div>
                     </div>
 
@@ -108,7 +117,8 @@
                             <h3 class="nombre-tarjeta">Nutricionista</h3>
                             <p class="detalles-tarjeta">Planes dietéticos personalizados, periodización nutricional y
                                 análisis corporal por pliegues y DEXA.</p>
-                            <button class="boton-secundario">Saber más</button>
+                            <a href="servicio-detalle.html" class="boton-secundario boton-bloque"
+                                style="margin-top: 1.5rem; text-align: center;">Saber más</a>
                         </div>
                     </div>
 
@@ -118,7 +128,8 @@
                             <h3 class="nombre-tarjeta">Sauna Finlandesa</h3>
                             <p class="detalles-tarjeta">Relajación térmica para eliminación de toxinas, mejora
                                 cardiovascular y recuperación del sistema nervioso.</p>
-                            <button class="boton-secundario">Saber más</button>
+                            <a href="servicio-detalle.html" class="boton-secundario boton-bloque"
+                                style="margin-top: 1.5rem; text-align: center;">Saber más</a>
                         </div>
                     </div>
 
@@ -128,7 +139,8 @@
                             <h3 class="nombre-tarjeta">Piscina Olímpica</h3>
                             <p class="detalles-tarjeta">50 metros de longitud, temperatura controlada y uso reservado
                                 por carriles para entreno de impacto cero.</p>
-                            <button class="boton-secundario">Saber más</button>
+                            <a href="servicio-detalle.html" class="boton-secundario boton-bloque"
+                                style="margin-top: 1.5rem; text-align: center;">Saber más</a>
                         </div>
                     </div>
 
@@ -138,12 +150,25 @@
                             <h3 class="nombre-tarjeta">Crioterapia</h3>
                             <p class="detalles-tarjeta">Terapias bajo cero (-110°C) para acelerar recuperación muscular
                                 y reducir niveles de inflamación.</p>
-                            <button class="boton-secundario">Saber más</button>
+                            <a href="servicio-detalle.html" class="boton-secundario boton-bloque"
+                                style="margin-top: 1.5rem; text-align: center;">Saber más</a>
                         </div>
                     </div>
 
                 </div>
             </section>
+
+            <footer class="pie-pagina">
+                <div class="pie-pagina__contenedor">
+                    <div class="pie-pagina__columna">
+                        <h4>Platinum Gym</h4>
+                        <p>Elevando los estándares del fitness desde 2010. Tu rendimiento es nuestra prioridad.</p>
+                    </div>
+                </div>
+                <div class="pie-pagina__copyright">
+                    &copy; 2026 Platinum Gym. Redes y Sistemas Web.
+                </div>
+            </footer>
 
         </main>
     </div>

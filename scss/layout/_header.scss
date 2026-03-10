@@ -1,67 +1,59 @@
-// Estilos del header (la barra de navegacion de arriba)
-// Uso BEM: el bloque es "header" y los elementos son "header__container", "header__link", etc.
-
-.header {
-    background-color: $color-negro;
-    border-bottom: 4px solid $color-gris;
-    padding: 0 20px;
-    height: 100px;
+.barra-navegacion {
+    background-color: rgba($color-fondo-caja, 0.9);
+    padding: 1rem 3rem;
+    margin-left: $ancho-menu;
+    border-bottom: 1px solid $color-gris-oscuro;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 50;
 
-    // Contenedor que centra todo
-    &__container {
-        width: 100%;
-        max-width: 1400px;
-        margin: 0 auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    @media (max-width: 768px) {
+        margin-left: $ancho-menu-movil;
+        padding: 1rem;
     }
 
-    // Logo
-    &__logo-link {
-        display: block;
-    }
+    &__buscador {
+        position: relative;
+        margin-right: 2rem;
 
-    &__logo-img {
-        height: 70px;
-        width: auto;
-        border: 2px solid $color-gris;
-        background-color: $color-negro;
-    }
+        input {
+            background-color: $color-fondo-oscuro;
+            border: 1px solid $color-gris-oscuro;
+            color: $color-texto-blanco;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            width: 250px;
 
-    // Navegacion
-    &__nav {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-    }
-
-    // Enlaces
-    &__link {
-        color: $color-gris;
-        font-weight: 700;
-        font-size: 1rem;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-
-        &:hover {
-            color: $color-blanco;
-            text-decoration: underline;
+            &:focus {
+                outline: none;
+                border-color: $color-plata;
+            }
         }
 
-        // Modificador para el boton destacado (apuntate)
-        &--cta {
-            background-color: $color-gris;
-            color: $color-negro;
-            padding: 10px 20px;
-            border: 2px solid $color-gris;
+        i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: $color-texto-gris;
+        }
+    }
+
+    &__iconos {
+        display: flex;
+        gap: 1.5rem;
+        color: $color-texto-gris;
+
+        i {
+            cursor: pointer;
+            transition: color 0.3s;
 
             &:hover {
-                background-color: $color-negro;
-                color: $color-gris;
-                text-decoration: none;
+                color: $color-texto-blanco;
             }
         }
     }

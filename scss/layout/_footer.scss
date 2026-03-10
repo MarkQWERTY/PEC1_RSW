@@ -1,14 +1,61 @@
-// Estilos del footer (pie de pagina)
+.pie-pagina {
+    background-color: $color-fondo-caja;
+    color: $color-texto-gris;
+    padding: 4rem 3rem;
+    margin-left: $ancho-menu;
+    border-top: 1px solid $color-gris-oscuro;
 
-.footer {
-    background-color: $color-negro;
-    color: $color-gris;
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
+    @media (max-width: 768px) {
+        margin-left: $ancho-menu-movil;
+        padding: 3rem 1.5rem;
+    }
 
-    &__texto {
-        margin: 0;
-        font-size: 0.9rem;
+    &__contenedor {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    &__columna {
+        h4 {
+            color: $color-texto-blanco;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+    }
+
+    &__lista {
+        list-style: none;
+
+        li {
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $color-plata;
+                }
+            }
+        }
+    }
+
+    &__copyright {
+        text-align: center;
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        font-size: 0.8rem;
     }
 }
