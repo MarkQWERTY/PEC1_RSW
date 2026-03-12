@@ -18,7 +18,11 @@ $velocidad-animacion: 0.3s;
 $degradado-plata: linear-gradient(135deg, #f5f5f5 0%, #E5E4E2 50%, #C0C0C0 100%);
 $degradado-carbono: repeating-linear-gradient(45deg, #111 0, #111 2px, #181818 2px, #181818 4px);
 
-// Mixins
+$color-negro: #000;
+$color-blanco: #fff;
+$color-gris: #ccc;
+$fuente: $fuente-principal;
+
 @mixin grid-responsive($min-width: 300px) {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax($min-width, 1fr));

@@ -1,4 +1,4 @@
-.contenido-seccion {
+.section-content {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
@@ -6,7 +6,7 @@
     margin-bottom: 4rem;
 }
 
-.tarjeta {
+.card {
     background-color: $color-fondo-caja;
     border: 1px solid $color-gris-oscuro;
     border-radius: 12px;
@@ -20,29 +20,29 @@
         border-color: $color-plata-oscuro;
     }
 
-    .imagen-tarjeta {
+    .card-image {
         width: 100%;
         height: 250px;
         object-fit: cover;
         border-bottom: 1px solid $color-gris-oscuro;
     }
 
-    .cuerpo-tarjeta {
+    .card-body {
         padding: 1.5rem;
         flex-grow: 1;
 
-        .nombre-tarjeta {
+        .card-name {
             font-size: 1.4rem;
             font-weight: 800;
             margin-bottom: 1rem;
             display: block;
         }
 
-        .detalles-tarjeta {
+        .card-details {
             color: $color-texto-gris;
             font-size: 1rem;
 
-            .ver-mas {
+            .see-more {
                 cursor: pointer;
                 color: $color-plata;
                 font-weight: 700;
@@ -50,21 +50,21 @@
                 display: block;
             }
 
-            .descripcion-tarjeta {
+            .card-description {
                 margin-top: 1rem;
                 padding-top: 1rem;
                 border-top: 1px solid rgba(255, 255, 255, 0.05);
             }
         }
 
-        .precio {
+        .price {
             font-size: 1.3rem;
             font-weight: 800;
             color: $color-plata;
             margin-bottom: 1.5rem;
         }
 
-        .icono-bonito {
+        .nice-icon {
             font-size: 2.2rem;
             background: $degradado-plata;
             -webkit-background-clip: text;

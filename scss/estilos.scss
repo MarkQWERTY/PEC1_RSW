@@ -15,12 +15,12 @@
 @import 'components/carrito';
 
 
-.aplicacion {
+.app {
     display: flex;
     min-height: 100vh;
 }
 
-.contenido-principal {
+.main-content {
     flex-grow: 1;
     margin-left: $ancho-menu;
     padding: 3rem;
@@ -46,15 +46,15 @@
     }
 }
 
-.texto-destacado {
+.text-highlight {
     background: $degradado-plata;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.cabecera-seccion,
-.titulo-seccion {
+.section-header,
+.section-title {
     margin-bottom: 3.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid $color-gris-oscuro;
@@ -81,7 +81,7 @@
     }
 }
 
-.caja-reglas {
+.rules-box {
     background-color: $color-fondo-tarjeta;
     border-radius: 12px;
     border: 1px solid $color-gris-oscuro;
@@ -91,11 +91,11 @@
         padding: 2rem;
     }
 
-    .lista-reglas {
+    .rules-list {
         list-style: none;
         counter-reset: contador-reglas;
 
-        .regla {
+        .rule {
             display: flex;
             margin-bottom: 2.5rem;
             padding-bottom: 2.5rem;
@@ -111,7 +111,7 @@
                 border-bottom: none;
             }
 
-            .numero-icono {
+            .icon-number {
                 flex-shrink: 0;
                 width: 60px;
                 height: 60px;
@@ -149,7 +149,7 @@
                 }
             }
 
-            .texto-regla {
+            .rule-text {
                 h3 {
                     font-size: 1.3rem;
                     font-weight: 700;
@@ -166,23 +166,23 @@
     }
 }
 
-.efecto-gris {
+.grayscale-effect {
     filter: grayscale(100%);
     transition: filter 0.5s ease;
 }
 
-.tarjeta:hover .efecto-gris {
+.card:hover .grayscale-effect {
     filter: grayscale(0%);
 }
 
-.caja-foto-atleta {
+.athlete-photo-box {
     position: relative;
     height: 400px;
     overflow: hidden;
     border-bottom: 1px solid $color-gris-oscuro;
 }
 
-.etiqueta {
+.label {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -196,7 +196,7 @@
     z-index: 2;
 }
 
-.caja-imagen {
+.image-box {
     position: relative;
     height: 250px;
     background-color: #f9f9f9;
@@ -213,11 +213,9 @@
     }
 }
 
-// ============================================
-// MEJORAS ADICIONALES CSS-ONLY
-// ============================================
 
-// 1. Skip to content (accesibilidad)
+
+
 .skip-to-content {
     position: absolute;
     top: -100%;
@@ -237,7 +235,6 @@
     }
 }
 
-// 2. Menú hamburguesa CSS-only
 .menu-toggle {
     display: none;
 }
@@ -267,25 +264,25 @@
         display: block;
     }
 
-    .menu-lateral {
+    .sidebar {
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         width: 280px !important;
 
-        .texto-blanco,
-        .texto-plata,
-        .enlace span,
-        .estado-socio span {
+        .text-white,
+        .text-silver,
+        .link span,
+        .member-status span {
             display: inline !important;
         }
 
-        .enlace {
+        .link {
             justify-content: flex-start !important;
             padding: 1.2rem 2rem !important;
         }
     }
 
-    .menu-toggle:checked ~ .menu-lateral {
+    .menu-toggle:checked ~ .sidebar {
         transform: translateX(0);
     }
 
@@ -293,18 +290,17 @@
         left: 300px;
     }
 
-    .contenido-principal {
+    .main-content {
         margin-left: 0 !important;
         transition: margin-left 0.3s;
     }
 
-    .menu-toggle:checked ~ .contenido-principal {
+    .menu-toggle:checked ~ .main-content {
         margin-left: 280px !important;
     }
 }
 
-// 3. Validación visual de formularios
-.campo-formulario {
+.form-field {
     &:valid {
         border-color: $color-exito !important;
     }
@@ -331,11 +327,10 @@
     80% { transform: translateX(3px); }
 }
 
-// Indicadores de validación
-.grupo-formulario {
+.form-group {
     position: relative;
 
-    &:has(.campo-formulario:valid)::after {
+    &:has(.form-field:valid)::after {
         content: '\f00c';
         font-family: 'Font Awesome 6 Free';
         font-weight: 900;
@@ -346,7 +341,7 @@
         pointer-events: none;
     }
 
-    &:has(.campo-formulario:invalid:not(:placeholder-shown))::after {
+    &:has(.form-field:invalid:not(:placeholder-shown))::after {
         content: '\f00d';
         font-family: 'Font Awesome 6 Free';
         font-weight: 900;
@@ -358,7 +353,6 @@
     }
 }
 
-// 4. Tabs CSS-only
 .tabs-container {
     .tab-input {
         display: none;
@@ -389,7 +383,6 @@
         animation: fadeInTab 0.3s ease;
     }
 
-    // Mostrar contenido según tab seleccionado
     @for $i from 1 through 5 {
         #tab-#{$i}:checked ~ .tab-labels label[for="tab-#{$i}"] {
             color: $color-texto-blanco;
@@ -413,7 +406,6 @@
     }
 }
 
-// 5. Tooltips CSS-only
 [data-tooltip] {
     position: relative;
     cursor: help;
@@ -460,7 +452,6 @@
     }
 }
 
-// 6. Scroll snap para galerías
 .scroll-snap-container {
     display: flex;
     gap: 1.5rem;
@@ -490,21 +481,19 @@
     }
 }
 
-// 7. Efecto Parallax para portada
-.portada {
+.hero {
     background-attachment: fixed !important;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 
     @supports not (-webkit-touch-callout: none) {
-        // Solo aplica en dispositivos no-iOS
+
         background-attachment: fixed;
     }
 }
 
-// 8. Glassmorphism para barra de navegación
-.barra-navegacion {
+.navbar {
     @include glassmorphism(0.05);
     position: sticky;
     top: 0;
@@ -517,7 +506,6 @@
     }
 }
 
-// 9. Focus visible para accesibilidad
 *:focus {
     outline: none;
 }
@@ -527,20 +515,18 @@
     outline-offset: 2px;
 }
 
-// Mejoras para enlaces activos (accesibilidad)
-.enlace[aria-current="page"] {
+.link[aria-current="page"] {
     color: $color-texto-blanco;
     border-left-color: $color-plata;
     background: linear-gradient(90deg, rgba(229, 228, 226, 0.08) 0%, transparent 100%);
 }
 
-// 10. Animaciones adicionales
 @keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
-.animacion-flotar {
+.float-animation {
     animation: float 3s ease-in-out infinite;
 }
 
@@ -557,12 +543,11 @@
     animation: pulse-glow 1.5s ease-in-out infinite;
 }
 
-// 11. Card flip effect para equipo
-.tarjeta-flip {
+.card-flip {
     perspective: 1000px;
     height: 400px;
 
-    .tarjeta-inner {
+    .card-inner {
         position: relative;
         width: 100%;
         height: 100%;
@@ -570,12 +555,12 @@
         transform-style: preserve-3d;
     }
 
-    &:hover .tarjeta-inner {
+    &:hover .card-inner {
         transform: rotateY(180deg);
     }
 
-    .tarjeta-front,
-    .tarjeta-back {
+    .card-front,
+    .card-back {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -584,7 +569,7 @@
         overflow: hidden;
     }
 
-    .tarjeta-back {
+    .card-back {
         transform: rotateY(180deg);
         background: $color-fondo-caja;
         display: flex;
@@ -597,7 +582,6 @@
     }
 }
 
-// 12. Progress bar animada
 .progress-bar {
     width: 100%;
     height: 8px;
@@ -618,8 +602,7 @@
     }
 }
 
-// 13. Texto revelado al pasar el ratón
-.texto-revelar {
+.text-reveal {
     position: relative;
     display: inline-block;
 
@@ -639,7 +622,6 @@
     }
 }
 
-// 14. Badge de notificación
 .badge {
     position: absolute;
     top: -8px;
@@ -654,7 +636,6 @@
     text-align: center;
 }
 
-// 15. Skeleton loading animation
 @keyframes shimmer {
     0% { background-position: -200% 0; }
     100% { background-position: 200% 0; }
@@ -671,19 +652,18 @@
     animation: shimmer 1.5s infinite;
 }
 
-// 16. Print styles
 @media print {
-    .menu-lateral,
-    .barra-navegacion,
-    .boton-principal,
-    .boton-secundario,
-    .pie-pagina,
+    .sidebar,
+    .navbar,
+    .btn-primary,
+    .btn-secondary,
+    .footer,
     .menu-icon,
     details summary {
         display: none !important;
     }
 
-    .contenido-principal {
+    .main-content {
         margin-left: 0 !important;
         padding: 0 !important;
         background: white !important;
@@ -695,21 +675,21 @@
         color: black !important;
     }
 
-    .tarjeta {
+    .card {
         break-inside: avoid;
         page-break-inside: avoid;
         border: 1px solid #ccc !important;
         box-shadow: none !important;
     }
 
-    .portada {
+    .hero {
         height: auto !important;
         background: none !important;
         color: black !important;
         page-break-after: avoid;
     }
 
-    .texto-destacado {
+    .text-highlight {
         color: black !important;
         -webkit-text-fill-color: black !important;
         background: none !important;
@@ -735,11 +715,11 @@
         page-break-after: avoid;
     }
 
-    .caja-reglas {
+    .rules-box {
         border: 1px solid #ccc !important;
     }
 
-    .regla {
+    .rule {
         break-inside: avoid;
     }
 }

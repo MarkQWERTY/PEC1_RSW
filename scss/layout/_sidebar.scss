@@ -1,4 +1,4 @@
-.menu-lateral {
+.sidebar {
     width: $ancho-menu;
     background-color: $color-fondo-caja;
     height: 100vh;
@@ -10,7 +10,7 @@
     border-right: 1px solid $color-gris-oscuro;
     z-index: 100;
 
-    .cabecera-menu {
+    .menu-header {
         padding: 2.5rem 2rem;
         border-bottom: 1px solid $color-gris-oscuro;
 
@@ -19,11 +19,11 @@
             font-weight: 900;
             letter-spacing: 2px;
 
-            .texto-blanco {
+            .text-white {
                 color: $color-texto-blanco;
             }
 
-            .texto-plata {
+            .text-silver {
                 background: $degradado-plata;
                 -webkit-background-clip: text;
                 background-clip: text;
@@ -33,18 +33,18 @@
         }
     }
 
-    .navegacion {
+    .navigation {
         flex-grow: 1;
         padding: 2rem 0;
         overflow-y: auto;
 
-        .lista-enlaces {
+        .links-list {
             list-style: none;
 
-            .elemento-lista {
+            .list-item {
                 margin-bottom: 0.5rem;
 
-                .enlace {
+                .link {
                     display: flex;
                     align-items: center;
                     padding: 1.2rem 2rem;
@@ -65,7 +65,7 @@
                         background-color: rgba(229, 228, 226, 0.05);
                     }
 
-                    &.activo {
+                    &.active {
                         color: $color-texto-blanco;
                         border-left-color: $color-plata;
                         background: linear-gradient(90deg, rgba(229, 228, 226, 0.08) 0%, transparent 100%);
@@ -75,11 +75,11 @@
         }
     }
 
-    .pie-menu {
+    .menu-footer {
         padding: 2rem;
         border-top: 1px solid $color-gris-oscuro;
 
-        .estado-socio {
+        .member-status {
             display: flex;
             align-items: center;
             gap: 12px;
@@ -96,22 +96,22 @@
 }
 
 @media (max-width: 768px) {
-    .menu-lateral {
+    .sidebar {
         width: $ancho-menu-movil;
 
-        .texto-blanco,
-        .texto-plata,
-        .enlace span,
-        .estado-socio span {
+        .text-white,
+        .text-silver,
+        .link span,
+        .member-status span {
             display: none;
         }
 
-        .cabecera-menu {
+        .menu-header {
             padding: 2rem 0;
             text-align: center;
         }
 
-        .enlace {
+        .link {
             justify-content: center;
             padding: 1.5rem 0;
 
