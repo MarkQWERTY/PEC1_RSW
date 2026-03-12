@@ -1,4 +1,4 @@
-.btn-primary {
+.boton-principal {
     background: $degradado-plata;
     color: $color-fondo-oscuro;
     border: none;
@@ -19,7 +19,7 @@
     }
 }
 
-.btn-secondary {
+.boton-secundario {
     background: transparent;
     color: $color-plata;
     border: 1px solid $color-gris-oscuro;
@@ -39,7 +39,7 @@
     }
 }
 
-.btn-block {
+.boton-bloque {
     display: block;
     width: 100%;
     text-align: center;

@@ -15,12 +15,12 @@
 @import 'components/carrito';
 
 
-.app {
+.aplicacion {
     display: flex;
     min-height: 100vh;
 }
 
-.main-content {
+.contenido-principal {
     flex-grow: 1;
     margin-left: $ancho-menu;
     padding: 3rem;
@@ -46,15 +46,15 @@
     }
 }
 
-.text-highlight {
+.texto-destacado {
     background: $degradado-plata;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.section-header,
-.section-title {
+.cabecera-seccion,
+.titulo-seccion {
     margin-bottom: 3.5rem;
     padding-bottom: 1.5rem;
     border-bottom: 1px solid $color-gris-oscuro;
@@ -81,7 +81,7 @@
     }
 }
 
-.rules-box {
+.caja-reglas {
     background-color: $color-fondo-tarjeta;
     border-radius: 12px;
     border: 1px solid $color-gris-oscuro;
@@ -91,11 +91,11 @@
         padding: 2rem;
     }
 
-    .rules-list {
+    .lista-reglas {
         list-style: none;
         counter-reset: contador-reglas;
 
-        .rule {
+        .regla {
             display: flex;
             margin-bottom: 2.5rem;
             padding-bottom: 2.5rem;
@@ -111,7 +111,7 @@
                 border-bottom: none;
             }
 
-            .icon-number {
+            .numero-icono {
                 flex-shrink: 0;
                 width: 60px;
                 height: 60px;
@@ -149,7 +149,7 @@
                 }
             }
 
-            .rule-text {
+            .texto-regla {
                 h3 {
                     font-size: 1.3rem;
                     font-weight: 700;
@@ -166,23 +166,23 @@
     }
 }
 
-.grayscale-effect {
+.efecto-gris {
     filter: grayscale(100%);
     transition: filter 0.5s ease;
 }
 
-.card:hover .grayscale-effect {
+.tarjeta:hover .efecto-gris {
     filter: grayscale(0%);
 }
 
-.athlete-photo-box {
+.caja-foto-atleta {
     position: relative;
     height: 400px;
     overflow: hidden;
     border-bottom: 1px solid $color-gris-oscuro;
 }
 
-.label {
+.etiqueta {
     position: absolute;
     top: 15px;
     right: 15px;
@@ -196,7 +196,7 @@
     z-index: 2;
 }
 
-.image-box {
+.caja-imagen {
     position: relative;
     height: 250px;
     background-color: #f9f9f9;
@@ -264,25 +264,25 @@
         display: block;
     }
 
-    .sidebar {
+    .menu-lateral {
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         width: 280px !important;
 
-        .text-white,
-        .text-silver,
-        .link span,
-        .member-status span {
+        .texto-blanco,
+        .texto-plata,
+        .enlace span,
+        .estado-socio span {
             display: inline !important;
         }
 
-        .link {
+        .enlace {
             justify-content: flex-start !important;
             padding: 1.2rem 2rem !important;
         }
     }
 
-    .menu-toggle:checked ~ .sidebar {
+    .menu-toggle:checked ~ .menu-lateral {
         transform: translateX(0);
     }
 
@@ -290,17 +290,17 @@
         left: 300px;
     }
 
-    .main-content {
+    .contenido-principal {
         margin-left: 0 !important;
         transition: margin-left 0.3s;
     }
 
-    .menu-toggle:checked ~ .main-content {
+    .menu-toggle:checked ~ .contenido-principal {
         margin-left: 280px !important;
     }
 }
 
-.form-field {
+.campo-formulario {
     &:valid {
         border-color: $color-exito !important;
     }
@@ -327,10 +327,10 @@
     80% { transform: translateX(3px); }
 }
 
-.form-group {
+.grupo-formulario {
     position: relative;
 
-    &:has(.form-field:valid)::after {
+    &:has(.campo-formulario:valid)::after {
         content: '\f00c';
         font-family: 'Font Awesome 6 Free';
         font-weight: 900;
@@ -341,7 +341,7 @@
         pointer-events: none;
     }
 
-    &:has(.form-field:invalid:not(:placeholder-shown))::after {
+    &:has(.campo-formulario:invalid:not(:placeholder-shown))::after {
         content: '\f00d';
         font-family: 'Font Awesome 6 Free';
         font-weight: 900;
@@ -481,7 +481,7 @@
     }
 }
 
-.hero {
+.portada {
     background-attachment: fixed !important;
     background-position: center;
     background-repeat: no-repeat;
@@ -493,7 +493,7 @@
     }
 }
 
-.navbar {
+.barra-navegacion {
     @include glassmorphism(0.05);
     position: sticky;
     top: 0;
@@ -515,7 +515,7 @@
     outline-offset: 2px;
 }
 
-.link[aria-current="page"] {
+.enlace[aria-current="page"] {
     color: $color-texto-blanco;
     border-left-color: $color-plata;
     background: linear-gradient(90deg, rgba(229, 228, 226, 0.08) 0%, transparent 100%);
@@ -526,7 +526,7 @@
     50% { transform: translateY(-10px); }
 }
 
-.float-animation {
+.animacion-flotar {
     animation: float 3s ease-in-out infinite;
 }
 
@@ -543,11 +543,11 @@
     animation: pulse-glow 1.5s ease-in-out infinite;
 }
 
-.card-flip {
+.tarjeta-flip {
     perspective: 1000px;
     height: 400px;
 
-    .card-inner {
+    .tarjeta-inner {
         position: relative;
         width: 100%;
         height: 100%;
@@ -555,12 +555,12 @@
         transform-style: preserve-3d;
     }
 
-    &:hover .card-inner {
+    &:hover .tarjeta-inner {
         transform: rotateY(180deg);
     }
 
-    .card-front,
-    .card-back {
+    .tarjeta-front,
+    .tarjeta-back {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -569,7 +569,7 @@
         overflow: hidden;
     }
 
-    .card-back {
+    .tarjeta-back {
         transform: rotateY(180deg);
         background: $color-fondo-caja;
         display: flex;
@@ -602,7 +602,7 @@
     }
 }
 
-.text-reveal {
+.texto-revelar {
     position: relative;
     display: inline-block;
 
@@ -653,17 +653,17 @@
 }
 
 @media print {
-    .sidebar,
-    .navbar,
-    .btn-primary,
-    .btn-secondary,
-    .footer,
+    .menu-lateral,
+    .barra-navegacion,
+    .boton-principal,
+    .boton-secundario,
+    .pie-pagina,
     .menu-icon,
     details summary {
         display: none !important;
     }
 
-    .main-content {
+    .contenido-principal {
         margin-left: 0 !important;
         padding: 0 !important;
         background: white !important;
@@ -675,21 +675,21 @@
         color: black !important;
     }
 
-    .card {
+    .tarjeta {
         break-inside: avoid;
         page-break-inside: avoid;
         border: 1px solid #ccc !important;
         box-shadow: none !important;
     }
 
-    .hero {
+    .portada {
         height: auto !important;
         background: none !important;
         color: black !important;
         page-break-after: avoid;
     }
 
-    .text-highlight {
+    .texto-destacado {
         color: black !important;
         -webkit-text-fill-color: black !important;
         background: none !important;
@@ -715,11 +715,46 @@
         page-break-after: avoid;
     }
 
-    .rules-box {
+    .caja-reglas {
         border: 1px solid #ccc !important;
     }
 
-    .rule {
+    .regla {
         break-inside: avoid;
     }
+}// Additional Aesthetic Enhancements
+body {
+    background: linear-gradient(135deg, $color-fondo-oscuro 0%, darken($color-fondo-caja, 5%) 100%);
+    background-attachment: fixed;
+}
+
+.tarjeta {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(229, 228, 226, 0.15);
+    }
+}
+
+.boton-principal {
+    box-shadow: 0 4px 15px rgba(229, 228, 226, 0.2);
+    transition: all 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 6px 25px rgba(229, 228, 226, 0.4);
+        transform: scale(1.02);
+    }
+}
+
+.texto-destacado {
+    text-shadow: 0 0 10px rgba(229, 228, 226, 0.3);
+}
+
+.icono-bonito {
+    background: $degradado-plata;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
 }
