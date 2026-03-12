@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Gym - ¡Apúntate!</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <a href="#contenido" class="skip-to-content">Saltar al contenido principal</a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+
+    <div class="aplicacion">
+                <nav class="menu-lateral">
+            <div class="cabecera-menu">
+                <div class="logo">
+                    <span class="texto-blanco">PLATINUM</span>
+                    <span class="texto-plata">GYM</span>
+                </div>
+            </div>
+
+            <div class="navegacion">
+                <ul class="lista-enlaces">
+                    <li class="elemento-lista"><a href="index.html" class="enlace"><i class="fas fa-home"></i>
+                            <span>Inicio</span></a></li>
+                    <li class="elemento-lista"><a href="maquinaria.html" class="enlace"><i class="fas fa-dumbbell"></i>
+                            <span>Maquinaria</span></a></li>
+                    <li class="elemento-lista"><a href="servicios.html" class="enlace"><i class="fas fa-crown"></i>
+                            <span>Servicios</span></a></li>
+                    <li class="elemento-lista"><a href="tienda.html" class="enlace"><i class="fas fa-shopping-bag"></i>
+                            <span>Tienda</span></a></li>
+                    <li class="elemento-lista"><a href="equipo.html" class="enlace"><i class="fas fa-users"></i>
+                            <span>Equipo</span></a></li>
+                    <li class="elemento-lista"><a href="reglas.html" class="enlace"><i class="fas fa-scroll"></i>
+                            <span>Reglas</span></a></li>
+                    <li class="elemento-lista"><a href="apuntate.html" class="enlace activo" aria-current="page"><i class="fas fa-user-plus"></i>
+                            <span>¡Apúntate!</span></a></li>
+                </ul>
+            </div>
+            <div class="pie-menu">
+                <div class="estado-socio">
+                    <i class="fas fa-id-card"></i> <span>Portal del Socio</span>
+                </div>
+            </div>
+        </nav>
+
+        <main class="contenido-principal" id="contenido">
+
+            <section class="seccion">
+                <h2 class="titulo-seccion">Formulario de Registro</h2>
+
+                <form class="formulario" action="#" method="post">
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="nombre">Nombre</label>
+                        <input class="campo-formulario" type="text" id="nombre" name="nombre" placeholder="Tu nombre"
+                            required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="apellidos">Apellidos</label>
+                        <input class="campo-formulario" type="text" id="apellidos" name="apellidos"
+                            placeholder="Tus apellidos" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="fecha-nacimiento">Fecha de nacimiento</label>
+                        <input class="campo-formulario" type="date" id="fecha-nacimiento" name="fecha-nacimiento"
+                            required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="direccion">Dirección</label>
+                        <input class="campo-formulario" type="text" id="direccion" name="direccion"
+                            placeholder="Tu dirección" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="telefono">Teléfono</label>
+                        <input class="campo-formulario" type="tel" id="telefono" name="telefono"
+                            placeholder="Ej: 612345678" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="correo">Correo electrónico</label>
+                        <input class="campo-formulario" type="email" id="correo" name="correo"
+                            placeholder="tu@correo.com" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="documento">DNI / NIE / Pasaporte</label>
+                        <input class="campo-formulario" type="text" id="documento" name="documento"
+                            placeholder="Ej: 12345678A" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario">Método de pago</label>
+                        <div class="opciones-formulario">
+                            <label class="opcion-formulario">
+                                <input type="radio" name="metodo-pago" value="tarjeta" checked> Tarjeta de crédito
+                            </label>
+                            <label class="opcion-formulario">
+                                <input type="radio" name="metodo-pago" value="iban"> Cuenta bancaria (IBAN)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="numero-pago">Número de tarjeta / IBAN</label>
+                        <input class="campo-formulario" type="text" id="numero-pago" name="numero-pago"
+                            placeholder="Introduce tu numero de tarjeta o IBAN" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <button class="boton-formulario" type="submit">Registrarse</button>
+                    </div>
+
+                </form>
+            </section>
+
+        </main>
+    </div>
+</body>
+
+</html>
