@@ -12,11 +12,18 @@
 
     &__logo {
         margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
     }
 
-    &__logo-img {
+    &__logo-brand {
+        width: 150px;
         height: 50px;
-        margin: 0 auto;
+        background-image: url('/img/logo_platinium.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: brightness(1.2) drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
     }
 
     &__nav {

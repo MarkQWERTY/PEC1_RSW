@@ -242,61 +242,56 @@
 .menu-icon {
     display: none;
     position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 101;
-    background: $color-fondo-caja;
-    border: 1px solid $color-gris-oscuro;
-    border-radius: 8px;
-    padding: 0.75rem 1rem;
-    color: $color-texto-blanco;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 3000; /* Siempre por encima */
+    background: $color-plata;
+    color: $color-fondo-oscuro;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
-    font-size: 1.2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     transition: all 0.3s;
 
     &:hover {
-        border-color: $color-plata;
+        transform: scale(1.1);
     }
 }
 
 @media (max-width: 768px) {
     .menu-icon {
-        display: block;
-    }
-
-    .menu-lateral {
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        width: 280px !important;
-
-        .texto-blanco,
-        .texto-plata,
-        .enlace span,
-        .estado-socio span {
-            display: inline !important;
-        }
-
-        .enlace {
-            justify-content: flex-start !important;
-            padding: 1.2rem 2rem !important;
-        }
-    }
-
-    .menu-toggle:checked ~ .menu-lateral {
-        transform: translateX(0);
+        display: flex; /* Mostrar en móvil */
     }
 
     .menu-toggle:checked ~ .menu-icon {
-        left: 300px;
+        background: transparent;
+        color: white;
+        box-shadow: none;
     }
 
     .contenido-principal {
         margin-left: 0 !important;
-        transition: margin-left 0.3s;
+        padding: 1rem !important;
     }
 
-    .menu-toggle:checked ~ .contenido-principal {
-        margin-left: 280px !important;
+    .seccion {
+        padding: 3rem 1.5rem;
+    }
+
+    .cabecera-seccion,
+    .titulo-seccion {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Grids responsivos */
+    .contenido-seccion {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
     }
 }
 
@@ -755,6 +750,7 @@ body {
 .icono-bonito {
     background: $degradado-plata;
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
 }

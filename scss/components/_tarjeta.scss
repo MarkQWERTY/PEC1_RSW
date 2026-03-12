@@ -23,7 +23,9 @@
     .imagen-tarjeta {
         width: 100%;
         height: 250px;
-        object-fit: cover;
+        object-fit: contain; /* Para que los productos no se corten */
+        background-color: rgba(0,0,0,0.2);
+        padding: 1rem;
         border-bottom: 1px solid $color-gris-oscuro;
     }
 

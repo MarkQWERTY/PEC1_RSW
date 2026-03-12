@@ -8,88 +8,116 @@
     display: flex;
     flex-direction: column;
     border-right: 1px solid $color-gris-oscuro;
-    z-index: 100;
+    z-index: 1000;
+    transition: transform 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    overflow: hidden;
+    /* Garantizar que nada del sidebar sobresalga */
+
+    /* Ocultar barra de desplazamiento */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 
     .cabecera-menu {
-        padding: 2.5rem 2rem;
+        padding: 2rem 1rem;
         border-bottom: 1px solid $color-gris-oscuro;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 110px;
+        width: 100%;
+        box-sizing: border-box;
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: 2px;
+        .boton-cerrar-movil {
+            display: none !important;
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 1.5rem;
+            color: $color-texto-blanco;
+            cursor: pointer;
+            z-index: 1010;
+            padding: 0.5rem;
+        }
 
-            .texto-blanco {
-                color: $color-texto-blanco;
-            }
+        .logo-contenedor {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
 
-            .texto-plata {
-                background: $degradado-plata;
-                -webkit-background-clip: text;
-                background-clip: text;
-                -webkit-text-fill-color: transparent;
-                font-style: italic;
+            .logo-enlace {
+                display: block;
+                width: 160px;
+                height: 60px;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+
+                .logo-brand {
+                    display: block;
+                    width: 160px;
+                    height: 60px;
+                    background-image: url('/img/logo_platinium.png');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+                }
             }
         }
     }
 
     .navegacion {
         flex-grow: 1;
-        padding: 2rem 0;
+        padding: 1rem 0;
         overflow-y: auto;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         .lista-enlaces {
             list-style: none;
 
             .elemento-lista {
-                margin-bottom: 0.5rem;
+                margin-bottom: 0.2rem;
 
                 .enlace {
                     display: flex;
                     align-items: center;
-                    padding: 1.2rem 2rem;
+                    padding: 1rem 2rem;
                     color: $color-texto-gris;
                     text-decoration: none;
                     font-weight: 600;
-                    font-size: 1.05rem;
-                    transition: all $velocidad-animacion ease;
-                    border-left: 3px solid transparent;
+                    font-size: 1.1rem;
+                    transition: all 0.3s;
+                    border-left: 4px solid transparent;
 
                     i {
-                        width: 30px;
+                        width: 35px;
                         font-size: 1.2rem;
                     }
 
                     &:hover {
-                        color: $color-texto-blanco;
-                        background-color: rgba(229, 228, 226, 0.05);
+                        color: #fff;
+                        background-color: rgba(255, 255, 255, 0.05);
                     }
 
                     &.activo {
-                        color: $color-texto-blanco;
+                        color: #fff;
                         border-left-color: $color-plata;
-                        background: linear-gradient(90deg, rgba(229, 228, 226, 0.08) 0%, transparent 100%);
+                        background: linear-gradient(90deg, rgba(229, 228, 226, 0.1) 0%, transparent 100%);
                     }
                 }
-            }
-        }
-    }
-
-    .pie-menu {
-        padding: 2rem;
-        border-top: 1px solid $color-gris-oscuro;
-
-        .estado-socio {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: $color-plata-oscuro;
-            font-weight: 600;
-            cursor: pointer;
-            transition: color 0.3s;
-
-            &:hover {
-                color: #fff;
             }
         }
     }
@@ -97,28 +125,30 @@
 
 @media (max-width: 768px) {
     .menu-lateral {
-        width: $ancho-menu-movil;
-
-        .texto-blanco,
-        .texto-plata,
-        .enlace span,
-        .estado-socio span {
-            display: none;
-        }
+        width: 100vw;
+        height: 100vh;
+        transform: translateX(-100%);
+        left: 0;
 
         .cabecera-menu {
-            padding: 2rem 0;
-            text-align: center;
-        }
+            padding-top: 5rem;
 
-        .enlace {
-            justify-content: center;
-            padding: 1.5rem 0;
-
-            i {
-                margin: 0;
-                font-size: 1.5rem;
+            .boton-cerrar-movil {
+                display: block !important;
             }
         }
+
+        .navegacion {
+            padding: 2rem 0;
+
+            .enlace {
+                padding: 1.5rem 3rem !important;
+                font-size: 1.5rem !important;
+            }
+        }
+    }
+
+    #menu-toggle:checked~.aplicacion .menu-lateral {
+        transform: translateX(0);
     }
 }

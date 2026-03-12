@@ -18,9 +18,11 @@
     <div class="aplicacion">
                 <nav class="menu-lateral">
             <div class="cabecera-menu">
-                <div class="logo">
-                    <span class="texto-blanco">PLATINUM</span>
-                    <span class="texto-plata">GYM</span>
+                <label for="menu-toggle" class="boton-cerrar-movil"><i class="fas fa-times"></i></label>
+                <div class="logo-contenedor">
+                    <a href="index.html" class="logo-enlace">
+                        <div class="logo-brand"></div>
+                    </a>
                 </div>
             </div>
 
@@ -42,11 +44,6 @@
                             <span>¡Apúntate!</span></a></li>
                 </ul>
             </div>
-            <div class="pie-menu">
-                <div class="estado-socio">
-                    <i class="fas fa-id-card"></i> <span>Portal del Socio</span>
-                </div>
-            </div>
         </nav>
 
         <main class="contenido-principal" id="contenido">
@@ -66,7 +63,6 @@
             <section class="portada">
                 <div class="texto-portada">
                     <h1>Bienvenido a <span class="texto-destacado">Platinum Gym</span></h1>
-                    <p>El estándar de oro en entrenamiento de fuerza y salud.</p>
                     <a href="apuntate.html" class="boton-principal">¡Hazte Socio Ahora!</a>
                 </div>
             </section>
@@ -86,8 +82,7 @@
                                     <p><strong>Dirección:</strong> C/ Gran Vía 12, Meco, Madrid</p>
                                 </div>
                             </details>
-                            <a href="maquinaria.html" class="boton-secundario boton-bloque"
-                                style="margin-top: 1.5rem;">Saber más</a>
+
                         </div>
                     </div>
                     <div class="tarjeta">
@@ -102,8 +97,7 @@
                                     <p><strong>Dirección:</strong> Av. de la Albufera 45, Vallecas, Madrid</p>
                                 </div>
                             </details>
-                            <a href="maquinaria.html" class="boton-secundario boton-bloque"
-                                style="margin-top: 1.5rem;">Saber más</a>
+
                         </div>
                     </div>
                     <div class="tarjeta">
@@ -118,8 +112,20 @@
                                     <p><strong>Dirección:</strong> Alexanderplatz 7, Berlín, Alemania</p>
                                 </div>
                             </details>
-                            <a href="maquinaria.html" class="boton-secundario boton-bloque"
-                                style="margin-top: 1.5rem;">Saber más</a>
+
+                        </div>
+                    </div>
+                    <div class="tarjeta">
+                        <img src="img/ubicaciones/Chicago.jpg" alt="Local Seattle" class="imagen-tarjeta">
+                        <div class="cuerpo-tarjeta">
+                            <h3 class="nombre-tarjeta">Seattle</h3>
+                            <details class="detalles-tarjeta">
+                                <summary class="ver-mas">Ver información</summary>
+                                <div class="descripcion-tarjeta">
+                                    <p>Centro de alto rendimiento con vistas al mar. Especialistas en biomecánica avanzada.</p>
+                                    <p><strong>Dirección:</strong> Waterfront Seattle, WA 98101, USA</p>
+                                </div>
+                            </details>
                         </div>
                     </div>
                 </div>
@@ -129,27 +135,48 @@
                 <h2 class="titulo-seccion">Best Sellers</h2>
                 <div class="contenido-seccion">
                     <div class="tarjeta">
-                        <img src="img/shop/straps.jpg" alt="Straps" class="imagen-tarjeta">
+                        <div class="caja-imagen">
+                            <span class="etiqueta">Esencial</span>
+                            <img src="img/shop/straps.jpg" alt="Straps" class="imagen-tarjeta">
+                        </div>
                         <div class="cuerpo-tarjeta">
                             <h3 class="nombre-tarjeta">Straps en 8</h3>
+                            <div class="precio">15.00€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
                         </div>
                     </div>
                     <div class="tarjeta">
-                        <img src="img/shop/pantalones.jpg" alt="Pantalon" class="imagen-tarjeta">
+                        <div class="caja-imagen">
+                            <img src="img/shop/pantalones.jpg" alt="Pantalon" class="imagen-tarjeta">
+                        </div>
                         <div class="cuerpo-tarjeta">
                             <h3 class="nombre-tarjeta">Pantalón Top</h3>
+                            <div class="precio">35.00€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
                         </div>
                     </div>
                     <div class="tarjeta">
-                        <img src="img/shop/tirantes.jpg" alt="Tank Top" class="imagen-tarjeta">
+                        <div class="caja-imagen">
+                            <img src="img/shop/tirantes.jpg" alt="Tank Top" class="imagen-tarjeta">
+                        </div>
                         <div class="cuerpo-tarjeta">
                             <h3 class="nombre-tarjeta">Tank Top Básica</h3>
+                            <div class="precio">22.00€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
                         </div>
                     </div>
                     <div class="tarjeta">
-                        <img src="img/shop/botella.jpg" alt="Botella" class="imagen-tarjeta">
+                        <div class="caja-imagen">
+                            <img src="img/shop/botella.jpg" alt="Botella" class="imagen-tarjeta">
+                        </div>
                         <div class="cuerpo-tarjeta">
                             <h3 class="nombre-tarjeta">Botella Shaker</h3>
+                            <div class="precio">12.00€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
                         </div>
                     </div>
                 </div>
@@ -158,8 +185,11 @@
             <footer class="pie-pagina">
                 <div class="pie-pagina__contenedor">
                     <div class="pie-pagina__columna">
+                        <div class="pie-pagina__logo">
+                            <div class="pie-pagina__logo-brand"></div>
+                        </div>
                         <h4>Platinum Gym</h4>
-                        <p>Elevando los estándares del fitness desde 2010. Tu rendimiento es nuestra prioridad.</p>
+                        <p>Expertos en ponerte mamadismo</p>
                     </div>
                     <div class="pie-pagina__columna">
                         <h4>Enlaces Rápidos</h4>
