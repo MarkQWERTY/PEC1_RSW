@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Gym - ¡Apúntate!</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <a href="#content" class="skip-to-content">Saltar al contenido principal</a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+
+    <div class="app">
+        <nav class="sidebar">
+            <div class="menu-header">
+                <div class="logo">
+                    <span class="text-white">PLATINUM</span>
+                    <span class="text-silver">GYM</span>
+                </div>
+            </div>
+
+            <div class="navigation">
+                <ul class="links-list">
+                    <li class="list-item"><a href="index.html" class="link"><i class="fas fa-home"></i>
+                            <span>Inicio</span></a></li>
+                    <li class="list-item"><a href="machinery.html" class="link"><i class="fas fa-dumbbell"></i>
+                            <span>Maquinaria</span></a></li>
+                    <li class="list-item"><a href="services.html" class="link"><i class="fas fa-crown"></i>
+                            <span>Servicios</span></a></li>
+                    <li class="list-item"><a href="store.html" class="link"><i class="fas fa-shopping-bag"></i>
+                            <span>Tienda</span></a></li>
+                    <li class="list-item"><a href="team.html" class="link"><i class="fas fa-users"></i>
+                            <span>Equipo</span></a></li>
+                    <li class="list-item"><a href="rules.html" class="link"><i class="fas fa-scroll"></i>
+                            <span>Reglas</span></a></li>
+                    <li class="list-item"><a href="register.html" class="link active" aria-current="page"><i
+                                class="fas fa-user-plus"></i> <span>¡Apúntate!</span></a></li>
+                </ul>
+            </div>
+            <div class="menu-footer">
+                <div class="member-status">
+                    <i class="fas fa-id-card"></i> <span>Portal del Socio</span>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content" id="content">
+
+            <section class="section">
+                <h2 class="section-title">Formulario de Registro</h2>
+
+                <form class="form" action="#" method="post">
+
+                    <div class="form-group">
+                        <label class="form-label" for="first-name">Nombre</label>
+                        <input class="form-field" type="text" id="first-name" name="nombre" placeholder="Tu nombre"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="last-names">Apellidos</label>
+                        <input class="form-field" type="text" id="last-names" name="apellidos"
+                            placeholder="Tus apellidos" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="birth-date">Fecha de nacimiento</label>
+                        <input class="form-field" type="date" id="birth-date" name="fecha-nacimiento"
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="address">Dirección</label>
+                        <input class="form-field" type="text" id="address" name="direccion"
+                            placeholder="Tu dirección" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Teléfono</label>
+                        <input class="form-field" type="tel" id="phone" name="telefono"
+                            placeholder="Ej: 612345678" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="email">Correo electrónico</label>
+                        <input class="form-field" type="email" id="email" name="correo"
+                            placeholder="tu@correo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="document">DNI / NIE / Pasaporte</label>
+                        <input class="form-field" type="text" id="document" name="documento"
+                            placeholder="Ej: 12345678A" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Método de pago</label>
+                        <div class="form-options">
+                            <label class="form-option">
+                                <input type="radio" name="metodo-pago" value="tarjeta" checked> Tarjeta de crédito
+                            </label>
+                            <label class="form-option">
+                                <input type="radio" name="metodo-pago" value="iban"> Cuenta bancaria (IBAN)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="payment-number">Número de tarjeta / IBAN</label>
+                        <input class="form-field" type="text" id="payment-number" name="numero-pago"
+                            placeholder="Introduce tu numero de tarjeta o IBAN" required>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn-form" type="submit">Registrarse</button>
+                    </div>
+
+                </form>
+            </section>
+
+        </main>
+    </div>
+</body>
+
+</html>
