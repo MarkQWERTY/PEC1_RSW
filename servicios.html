@@ -15,6 +15,11 @@
 </head>
 
 <body>
+    <a href="#contenido" class="skip-to-content">Saltar al contenido principal</a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+
     <div class="aplicacion">
         <nav class="menu-lateral">
             <div class="cabecera-menu">
@@ -37,8 +42,8 @@
                         </a>
                     </li>
                     <li class="elemento-lista">
-                        <a href="servicios.html" class="enlace activo">
-                            <i class="fas fa-crown"></i> <span>Servicios Elite</span>
+                        <a href="servicios.html" class="enlace activo" aria-current="page">
+                            <i class="fas fa-crown"></i> <span>Servicios</span>
                         </a>
                     </li>
                     <li class="elemento-lista">
@@ -48,12 +53,17 @@
                     </li>
                     <li class="elemento-lista">
                         <a href="equipo.html" class="enlace">
-                            <i class="fas fa-users"></i> <span>Team Platinum</span>
+                            <i class="fas fa-users"></i> <span>Equipo</span>
                         </a>
                     </li>
                     <li class="elemento-lista">
                         <a href="reglas.html" class="enlace">
                             <i class="fas fa-scroll"></i> <span>Reglas</span>
+                        </a>
+                    </li>
+                    <li class="elemento-lista">
+                        <a href="apuntate.html" class="enlace">
+                            <i class="fas fa-user-plus"></i> <span>¡Apúntate!</span>
                         </a>
                     </li>
                 </ul>
@@ -62,12 +72,12 @@
             <div class="pie-menu">
                 <div class="estado-socio">
                     <i class="fas fa-id-card"></i>
-                    <span>Socio VIP</span>
+                    <span>Portal del Socio</span>
                 </div>
             </div>
         </nav>
 
-        <main class="contenido-principal">
+        <main class="contenido-principal" id="contenido">
 
             <header class="barra-navegacion">
                 <div class="barra-navegacion__buscador">

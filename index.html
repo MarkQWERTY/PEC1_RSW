@@ -10,6 +10,11 @@
 </head>
 
 <body>
+    <a href="#contenido" class="skip-to-content">Saltar al contenido principal</a>
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+
     <div class="aplicacion">
         <nav class="menu-lateral">
             <div class="cabecera-menu">
@@ -21,7 +26,7 @@
 
             <div class="navegacion">
                 <ul class="lista-enlaces">
-                    <li class="elemento-lista"><a href="index.html" class="enlace activo"><i class="fas fa-home"></i>
+                    <li class="elemento-lista"><a href="index.html" class="enlace activo" aria-current="page"><i class="fas fa-home"></i>
                             <span>Inicio</span></a></li>
                     <li class="elemento-lista"><a href="maquinaria.html" class="enlace"><i class="fas fa-dumbbell"></i>
                             <span>Maquinaria</span></a></li>
@@ -44,7 +49,7 @@
             </div>
         </nav>
 
-        <main class="contenido-principal">
+        <main class="contenido-principal" id="contenido">
 
             <header class="barra-navegacion">
                 <div class="barra-navegacion__buscador">
@@ -178,7 +183,6 @@
                 </div>
             </footer>
 
-        </main>
         </main>
     </div>
 </body>
