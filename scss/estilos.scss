@@ -240,17 +240,16 @@
 }
 
 .menu-icon {
-    display: none;
+    display: none !important; /* Forzar ocultación en escritorio */
     position: fixed;
     top: 1.5rem;
     left: 1.5rem;
-    z-index: 3000; /* Siempre por encima */
+    z-index: 3000;
     background: $color-plata;
     color: $color-fondo-oscuro;
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
@@ -264,7 +263,7 @@
 
 @media (max-width: 768px) {
     .menu-icon {
-        display: flex; /* Mostrar en móvil */
+        display: flex !important; /* Solo mostrar en móvil */
     }
 
     .menu-toggle:checked ~ .menu-icon {
@@ -276,6 +275,8 @@
     .contenido-principal {
         margin-left: 0 !important;
         padding: 1rem !important;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .seccion {

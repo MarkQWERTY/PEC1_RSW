@@ -2,11 +2,9 @@
     background-color: $color-fondo-caja;
     color: $color-texto-gris;
     padding: 4rem 3rem;
-    margin-left: $ancho-menu;
     border-top: 1px solid $color-gris-oscuro;
 
     @media (max-width: 768px) {
-        margin-left: $ancho-menu-movil;
         padding: 3rem 1.5rem;
     }
 
@@ -29,6 +27,22 @@
             font-size: 0.9rem;
             line-height: 1.7;
         }
+    }
+
+    &__logo {
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    &__logo-brand {
+        width: 150px;
+        height: 50px;
+        background-image: url('../img/logo_platinium.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        filter: brightness(1.2) drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
     }
 
     &__lista {

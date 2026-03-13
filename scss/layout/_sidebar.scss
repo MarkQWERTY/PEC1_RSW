@@ -129,21 +129,55 @@
         height: 100vh;
         transform: translateX(-100%);
         left: 0;
+        z-index: 2000;
 
         .cabecera-menu {
             padding-top: 5rem;
+            min-height: 180px;
 
             .boton-cerrar-movil {
                 display: block !important;
+                position: absolute;
+                top: 2rem;
+                right: 2rem;
+                font-size: 2rem;
+            }
+            
+            .logo-contenedor {
+                .logo-enlace {
+                    width: 180px;
+                    height: 70px;
+                    
+                    .logo-brand {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
             }
         }
 
         .navegacion {
             padding: 2rem 0;
 
-            .enlace {
-                padding: 1.5rem 3rem !important;
-                font-size: 1.5rem !important;
+            .lista-enlaces {
+                .enlace {
+                    padding: 1.2rem 2rem !important;
+                    font-size: 1.3rem !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: flex-start !important;
+                    gap: 1.5rem;
+                    
+                    i {
+                        width: 40px;
+                        font-size: 1.5rem;
+                        text-align: center;
+                    }
+                    
+                    span {
+                        display: inline-block !important; /* Texto al lado del icono */
+                    }
+                }
             }
         }
     }
