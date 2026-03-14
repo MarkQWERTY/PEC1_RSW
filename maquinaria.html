@@ -24,47 +24,50 @@
     <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
 
     <div class="aplicacion">
-        <nav class="menu-lateral">
-            <div class="cabecera-menu">
-                <label for="menu-toggle" class="boton-cerrar-movil"><i class="fas fa-times"></i></label>
-                <div class="logo-contenedor">
-                    <a href="index.html" class="logo-enlace">
-                        <div class="logo-brand"></div>
-                    </a>
-                </div>
+        <header class="barra-navegacion unified-header">
+            <div class="header-logo">
+                <a href="index.html" class="logo-enlace">
+                    <div class="logo-brand"></div>
+                </a>
             </div>
-
-            <div class="navegacion">
+            
+            <nav class="header-nav">
                 <ul class="lista-enlaces">
-                    <li class="elemento-lista"><a href="index.html" class="enlace"><i class="fas fa-home"></i>
-                            <span>Inicio</span></a></li>
-                    <li class="elemento-lista"><a href="maquinaria.html" class="enlace activo" aria-current="page"><i
-                                class="fas fa-dumbbell"></i>
-                            <span>Maquinaria</span></a></li>
-                    <li class="elemento-lista"><a href="servicios.html" class="enlace"><i class="fas fa-crown"></i>
-                            <span>Servicios</span></a></li>
-                    <li class="elemento-lista"><a href="tienda.html" class="enlace"><i class="fas fa-shopping-bag"></i>
-                            <span>Tienda</span></a></li>
-                    <li class="elemento-lista"><a href="equipo.html" class="enlace"><i class="fas fa-users"></i>
-                            <span>Equipo</span></a></li>
-                    <li class="elemento-lista"><a href="reglas.html" class="enlace"><i class="fas fa-scroll"></i>
-                            <span>Reglas</span></a></li>
-                    <li class="elemento-lista"><a href="apuntate.html" class="enlace"><i class="fas fa-user-plus"></i>
-                            <span>¡Apúntate!</span></a></li>
+                    <li class="elemento-lista"><a href="index.html" class="enlace "><i class="fas fa-home"></i><span>Inicio</span></a></li>
+                    <li class="elemento-lista"><a href="maquinaria.html" class="enlace activo"><i class="fas fa-dumbbell"></i><span>Maquinaria</span></a></li>
+                    <li class="elemento-lista"><a href="servicios.html" class="enlace "><i class="fas fa-crown"></i><span>Servicios</span></a></li>
+                    <li class="elemento-lista"><a href="tienda.html" class="enlace "><i class="fas fa-shopping-bag"></i><span>Tienda</span></a></li>
+                    <li class="elemento-lista"><a href="equipo.html" class="enlace "><i class="fas fa-users"></i><span>Equipo</span></a></li>
+                    <li class="elemento-lista"><a href="reglas.html" class="enlace "><i class="fas fa-scroll"></i><span>Reglas</span></a></li>
+                    <li class="elemento-lista"><a href="apuntate.html" class="enlace "><i class="fas fa-user-plus"></i><span>¡Apúntate!</span></a></li>
                 </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="barra-navegacion__buscador">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar...">
+                </div>
+                <div class="barra-navegacion__iconos">
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <label for="menu-toggle" class="mobile-menu-btn"><i class="fas fa-bars"></i></label>
             </div>
-        </nav>
+        </header>
 
         <main class="contenido-principal" id="contenido">
+            <nav class="migas-pan" aria-label="Breadcrumb">
+                <a href="index.html">Inicio</a>
+                <span class="separador"><i class="fas fa-chevron-right"></i></span>
+                <span class="actual">Maquinaria</span>
+            </nav>
 
             <section id="maquinaria">
                 <div class="cabecera-seccion">
                     <h2>NUESTRO <span class="texto-destacado">ARSENAL</span></h2>
                     <p>Equipamiento biomecánico de primer nivel para resultados reales.</p>
                 </div>
-
-
-
 
                 <div class="contenido-seccion">
 
@@ -200,7 +203,6 @@
 
         </main>
     </div>
-
 
 </body>
 

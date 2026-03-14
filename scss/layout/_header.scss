@@ -1,80 +1,232 @@
-.barra-navegacion {
-    background-color: rgba($color-fondo-caja, 0.9);
-    padding: 1rem 3rem;
-    margin-left: $ancho-menu;
+.barra-navegacion.unified-header {
+    background-color: rgba($color-fondo-caja, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid $color-gris-oscuro;
     display: flex;
-    justify-content: center; /* Centrar buscador */
+    justify-content: space-between;
     align-items: center;
+    padding: 0 2rem;
+    height: 80px;
     position: sticky;
     top: 0;
-    z-index: 50;
-    position: relative; /* Para posicionar los iconos después */
+    z-index: 2000;
+    width: 100%;
+    box-sizing: border-box;
 
-    @media (max-width: 768px) {
-        margin-left: $ancho-menu-movil;
-        padding: 1rem;
+    @media (max-width: 1024px) {
+        padding: 0 1rem;
     }
 
-    &__buscador {
-        position: relative;
+    .header-logo {
+        display: flex;
+        align-items: center;
+
+        .logo-enlace {
+            display: block;
+            width: 140px;
+            height: 50px;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            .logo-brand {
+                width: 100%;
+                height: 100%;
+                background-image: url('/img/logo_platinium.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: left center;
+                filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+            }
+        }
+    }
+
+    .header-nav {
         flex-grow: 1;
-        max-width: 600px;
         display: flex;
         justify-content: center;
 
-        input {
-            background-color: $color-fondo-oscuro;
-            border: 1px solid $color-gris-oscuro;
-            color: $color-texto-blanco;
-            padding: 0.8rem 1rem 0.8rem 3.5rem;
-            border-radius: 50px; /* Más moderno */
-            font-size: 1rem;
-            width: 100%;
-            text-align: center; /* Centralizar texto */
-            transition: all 0.3s ease;
-
-            &::placeholder {
-                text-align: center; /* Centralizar placeholder */
-                color: rgba($color-texto-gris, 0.5);
-            }
-
-            &:focus {
-                outline: none;
-                border-color: $color-plata;
-                box-shadow: 0 0 15px rgba($color-plata, 0.1);
-            }
+        @media (max-width: 1024px) {
+            position: fixed;
+            top: 0;
+            left: -100vw;
+            width: 80%;
+            max-width: 350px;
+            height: 100vh;
+            background-color: $color-fondo-caja;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-top: 100px;
+            transition: left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            z-index: 1000;
+            border-right: 1px solid $color-gris-oscuro;
+            box-shadow: 10px 0 30px rgba(0,0,0,0.5);
         }
 
-        i {
-            position: absolute;
-            left: 1.5rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: $color-texto-gris;
-            font-size: 1.1rem;
-            pointer-events: none;
+        .lista-enlaces {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+
+            @media (max-width: 1024px) {
+                flex-direction: column;
+                gap: 0;
+                width: 100%;
+            }
+
+            .elemento-lista {
+                .enlace {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    padding: 0.5rem 1rem;
+                    color: $color-texto-gris;
+                    text-decoration: none;
+                    font-weight: 600;
+                    font-size: 0.95rem;
+                    transition: all 0.3s;
+                    border-radius: 8px;
+
+                    @media (max-width: 1024px) {
+                        padding: 1.5rem 2rem;
+                        font-size: 1.2rem;
+                        border-radius: 0;
+                        border-bottom: 1px solid rgba(255,255,255,0.05);
+                        gap: 1.5rem;
+
+                        i {
+                            font-size: 1.4rem;
+                            width: 30px;
+                            text-align: center;
+                        }
+                    }
+
+                    &:hover {
+                        color: #fff;
+                        background-color: rgba(255, 255, 255, 0.05);
+                    }
+
+                    &.activo {
+                        color: #fff;
+                        background: linear-gradient(90deg, rgba(229, 228, 226, 0.1) 0%, transparent 100%);
+                        border-bottom: 2px solid $color-plata;
+                        border-radius: 8px 8px 0 0;
+
+                        @media (max-width: 1024px) {
+                            border-bottom: 1px solid rgba(255,255,255,0.05);
+                            border-left: 4px solid $color-plata;
+                            border-radius: 0;
+                        }
+                    }
+                }
+            }
         }
     }
 
-    &__iconos {
+    .header-actions {
         display: flex;
+        align-items: center;
         gap: 1.5rem;
-        color: $color-texto-gris;
-        position: absolute;
-        right: 3rem;
 
-        @media (max-width: 768px) {
-            right: 1rem;
-        }
+        .barra-navegacion__buscador {
+            position: relative;
+            display: flex;
+            align-items: center;
 
-        i {
-            cursor: pointer;
-            transition: color 0.3s;
+            @media (max-width: 768px) {
+                display: none; /* Ocultar buscador en móvil para ahorrar espacio por ahora */
+            }
 
-            &:hover {
+            input {
+                background-color: $color-fondo-oscuro;
+                border: 1px solid $color-gris-oscuro;
                 color: $color-texto-blanco;
+                padding: 0.6rem 1rem 0.6rem 2.5rem;
+                border-radius: 50px;
+                font-size: 0.9rem;
+                width: 200px;
+                transition: all 0.3s ease;
+
+                &:focus {
+                    outline: none;
+                    border-color: $color-plata;
+                    width: 250px;
+                }
+            }
+
+            i {
+                position: absolute;
+                left: 1rem;
+                color: $color-texto-gris;
+                font-size: 1rem;
+                pointer-events: none;
             }
         }
+
+        .barra-navegacion__iconos {
+            display: flex;
+            gap: 1rem;
+            color: $color-texto-gris;
+            font-size: 1.2rem;
+
+            i {
+                cursor: pointer;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $color-texto-blanco;
+                }
+            }
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            color: $color-texto-blanco;
+            font-size: 1.5rem;
+            cursor: pointer;
+
+            @media (max-width: 1024px) {
+                display: block;
+            }
+        }
+    }
+}
+
+.migas-pan {
+    padding: 1rem 3rem;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: $color-texto-gris;
+
+    @media (max-width: 768px) {
+        padding: 1rem 1.5rem;
+    }
+
+    a {
+        color: $color-texto-gris;
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover {
+            color: $color-texto-blanco;
+        }
+    }
+
+    .separador {
+        font-size: 0.8rem;
+        color: rgba($color-texto-gris, 0.5);
+    }
+    
+    .actual {
+        color: $color-plata;
+        font-weight: 600;
     }
 }

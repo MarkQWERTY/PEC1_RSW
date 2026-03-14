@@ -1,7 +1,6 @@
 @import 'base/variables';
 @import 'base/reset';
 
-@import 'layout/sidebar';
 @import 'layout/header';
 @import 'layout/footer';
 
@@ -17,19 +16,18 @@
 
 .aplicacion {
     display: flex;
+    flex-direction: column;
     min-height: 100vh;
 }
 
 .contenido-principal {
     flex-grow: 1;
-    margin-left: $ancho-menu;
     padding: 3rem;
     min-height: 100vh;
     background: $color-fondo-oscuro;
     animation: aparecer $velocidad-animacion ease forwards;
 
     @media (max-width: 768px) {
-        margin-left: $ancho-menu-movil;
         padding: 1.5rem;
     }
 }
@@ -239,38 +237,17 @@
     display: none;
 }
 
-.menu-icon {
-    display: none !important; /* Forzar ocultación en escritorio */
-    position: fixed;
-    top: 1.5rem;
-    left: 1.5rem;
-    z-index: 3000;
-    background: $color-plata;
-    color: $color-fondo-oscuro;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s;
+/* Logic for new mobile drawer menu toggle */
+#menu-toggle:checked ~ .aplicacion .unified-header .header-nav {
+    left: 0 !important;
+}
 
-    &:hover {
-        transform: scale(1.1);
-    }
+/* Hide legacy floating menu-icon completely */
+.menu-icon {
+    display: none !important;
 }
 
 @media (max-width: 768px) {
-    .menu-icon {
-        display: flex !important; /* Solo mostrar en móvil */
-    }
-
-    .menu-toggle:checked ~ .menu-icon {
-        background: transparent;
-        color: white;
-        box-shadow: none;
-    }
 
     .contenido-principal {
         margin-left: 0 !important;
