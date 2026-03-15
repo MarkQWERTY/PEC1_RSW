@@ -922,10 +922,21 @@ body {
     font-size: 2rem;
     margin-bottom: 2rem;
   }
-  /* Grids responsivos */
+  /* Grids responsivos a 1 columna en móvil */
   .contenido-seccion {
     grid-template-columns: 1fr !important;
     gap: 1.5rem;
+  }
+}
+/* Enforce 3 columns strictly on desktop for .contenido-seccion instead of auto-wrap */
+@media (min-width: 769px) {
+  .contenido-seccion {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 4rem;
+  }
+  .contenido-seccion.grid-4-cols {
+    grid-template-columns: repeat(4, 1fr) !important;
   }
 }
 .campo-formulario:valid {
