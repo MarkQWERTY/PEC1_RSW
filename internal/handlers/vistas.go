@@ -4,7 +4,9 @@ import (
 	"html/template"
 	"net/http"
 	"path/filepath"
+	"strconv"
 	"strings"
+	"pec2/internal/db"
 )
 
 func PageHandler(w http.ResponseWriter, r *http.Request) {
@@ -29,5 +31,34 @@ func PageHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	tmpl.Execute(w, nil)
+	var data interface{}
+
+	switch page {
+	case "index":
+		data = db.ObtenerResenas()
+	case "maquinaria":
+		data = db.Maquinas
+	case "maquinaria-detalle":
+		idStr := r.URL.Query().Get("id")
+		id, _ := strconv.Atoi(idStr)
+		for _, m := range db.Maquinas {
+			if m.ID == id {
+				data = m
+				break
+			}
+		}
+	case "servicios":
+		data = db.Servicios
+	case "servicio-detalle":
+		idStr := r.URL.Query().Get("id")
+		id, _ := strconv.Atoi(idStr)
+		for _, s := range db.Servicios {
+			if s.ID == id {
+				data = s
+				break
+			}
+		}
+	}
+
+	tmpl.Execute(w, data)
 }

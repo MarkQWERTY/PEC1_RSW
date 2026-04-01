@@ -68,43 +68,29 @@
                 </div>
 
                 <div class="tarjeta" style="max-width: 900px; margin: 0 auto;">
-                    <img src="img/maquinaria/CableCrossover.png" alt="Cable Crossover" class="imagen-tarjeta"
-                        style="height: 400px;">
+                    <img src="{{.Imagen}}" alt="{{.Nombre}}" class="imagen-tarjeta"
+                        style="height: 400px; object-fit: contain;">
                     <div class="cuerpo-tarjeta">
-                        <h3 class="nombre-tarjeta">Uso Correcto y Biomecánica</h3>
+                        <h3 class="nombre-tarjeta">{{.Nombre}} ({{.Marca}})</h3>
                         <div class="detalles-tarjeta">
                             <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
-                                El entrenamiento con poleas permite una tensión constante durante todo el rango de
-                                movimiento.
-                                Para una ejecución perfecta, mantén el core estable y evita el uso de inercia.
-                                Nuestras máquinas Panatta Sport están diseñadas para seguir el arco natural de
-                                movimiento de tus articulaciones.
+                                {{.Descripcion}}
                             </p>
 
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
                                 <div>
-                                    <h4 style="color: white; margin-bottom: 1rem;">Consejos Técnicos:</h4>
+                                    <h4 style="color: white; margin-bottom: 1rem;">Ubicación / Zona:</h4>
                                     <ul style="list-style: none; padding-left: 0;">
                                         <li style="margin-bottom: 0.5rem;"><i
-                                                class="fas fa-info-circle texto-destacado"></i>
-                                            Ajusta la altura de la polea a tu fisonomía</li>
-                                        <li style="margin-bottom: 0.5rem;"><i
-                                                class="fas fa-info-circle texto-destacado"></i>
-                                            Controla la fase excéntrica (bajada)</li>
-                                        <li style="margin-bottom: 0.5rem;"><i
-                                                class="fas fa-info-circle texto-destacado"></i>
-                                            Rango de movimiento completo sin bloqueo</li>
+                                                class="fas fa-map-marker-alt texto-destacado"></i>
+                                            {{.Zona}}</li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4 style="color: white; margin-bottom: 1rem;">Músculos Implicados:</h4>
+                                    <h4 style="color: white; margin-bottom: 1rem;">Beneficios:</h4>
                                     <ul style="list-style: none; padding-left: 0;">
                                         <li style="margin-bottom: 0.5rem;"><i class="fas fa-bolt texto-destacado"></i>
-                                            Pectoral Mayor / Dorsal Ancho</li>
-                                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-bolt texto-destacado"></i>
-                                            Deltoides Anterior</li>
-                                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-bolt texto-destacado"></i>
-                                            Tríceps / Bíceps (Sinergistas)</li>
+                                            {{.Beneficios}}</li>
                                     </ul>
                                 </div>
                             </div>

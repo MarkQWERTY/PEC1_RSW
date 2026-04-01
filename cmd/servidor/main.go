@@ -14,6 +14,13 @@ func main() {
 	http.Handle("/scss/", fs)
 
 	http.HandleFunc("/registro", handlers.RegistroHandler)
+	http.HandleFunc("/resenas", handlers.GuardarResenaHandler)
+	http.HandleFunc("/buscar", handlers.BuscadorHandler)
+	http.HandleFunc("/calculadora", handlers.CalculadoraHandler)
+	http.HandleFunc("/login", handlers.LoginHandler)
+	http.HandleFunc("/logout", handlers.LogoutHandler)
+	http.HandleFunc("/reservas", handlers.ReservasHandler)
+	http.HandleFunc("/reservas/reservar", handlers.ProcesarReservaHandler)
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		if strings.HasPrefix(r.URL.Path, "/css/") || strings.HasPrefix(r.URL.Path, "/img/") || strings.HasPrefix(r.URL.Path, "/scss/") {
 			fs.ServeHTTP(w, r)

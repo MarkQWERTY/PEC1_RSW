@@ -52,8 +52,10 @@
 
             <div class="header-actions">
                 <div class="barra-navegacion__buscador">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Buscar...">
+                    <form action="/buscar" method="GET" style="display:flex; align-items:center;">
+                        <button type="submit" style="background:none; border:none; color:inherit; cursor:pointer;"><i class="fas fa-search"></i></button>
+                        <input type="text" name="q" placeholder="Buscar..." required>
+                    </form>
                 </div>
                 <div class="barra-navegacion__iconos">
                     <i class="fas fa-bell"></i>
@@ -78,102 +80,19 @@
 
                 <div class="contenido-seccion grid-4-cols">
 
+                    {{range .}}
                     <div class="tarjeta">
-                        <img src="/img/maquinaria/ChestPress.webp" alt="Chest Press Biomecánico" class="imagen-tarjeta"
+                        <img src="{{.Imagen}}" alt="{{.Nombre}}" class="imagen-tarjeta"
                             loading="lazy">
                         <div class="cuerpo-tarjeta">
-                            <span class="detalles-tarjeta">Panatta Sport</span>
-                            <h3 class="nombre-tarjeta">Chest Press Biomecánico</h3>
-                            <span class="detalles-tarjeta">Tren Superior</span>
-                            <a href="maquinaria-detalle.html" class="boton-secundario boton-bloque"
+                            <span class="detalles-tarjeta">{{.Marca}}</span>
+                            <h3 class="nombre-tarjeta">{{.Nombre}}</h3>
+                            <span class="detalles-tarjeta">{{.Zona}}</span>
+                            <a href="maquinaria-detalle.html?id={{.ID}}" class="boton-secundario boton-bloque"
                                 style="margin-top: 1rem;">Saber más</a>
                         </div>
                     </div>
-
-                    <div class="tarjeta">
-                        <img src="/img/maquinaria/IsoLateralRow.webp" alt="Iso-Lateral Row" class="imagen-tarjeta"
-                            loading="lazy">
-                        <div class="cuerpo-tarjeta">
-                            <span class="detalles-tarjeta">Hammer Strength</span>
-                            <h3 class="nombre-tarjeta">Iso-Lateral Row</h3>
-                            <span class="detalles-tarjeta">Tren Superior</span>
-                            <a href="servicio-detalle.html" class="boton-secundario boton-bloque"
-                                style="margin-top: 1rem;">Saber más</a>
-                        </div>
-                    </div>
-
-                    <div class="tarjeta">
-                        <img src="/img/maquinaria/LegPress.webp" alt="Leg Press 45°" class="imagen-tarjeta"
-                            loading="lazy">
-                        <div class="cuerpo-tarjeta">
-                            <span class="detalles-tarjeta">Cybex</span>
-                            <h3 class="nombre-tarjeta">Leg Press 45°</h3>
-                            <span class="detalles-tarjeta">Tren Inferior</span>
-                            <a href="maquinaria-detalle.html" class="boton-secundario boton-bloque"
-                                style="margin-top: 1rem;">Saber más</a>
-                        </div>
-                    </div>
-
-                    <div class="tarjeta">
-                        <img src="/img/maquinaria/HackSquat.jpg" alt="Hack Squat Lineal" class="imagen-tarjeta"
-                            loading="lazy">
-                        <div class="cuerpo-tarjeta">
-                            <span class="detalles-tarjeta">Nautilus</span>
-                            <h3 class="nombre-tarjeta">Hack Squat Lineal</h3>
-                            <span class="detalles-tarjeta">Tren Inferior</span>
-                            <a href="maquinaria-detalle.html" class="boton-secundario boton-bloque"
-                                style="margin-top: 1rem;">Saber más</a>
-                        </div>
-                    </div>
-
-                    <div class="tarjeta">
-                        <img src="/img/maquinaria/AbdominalCrunch.jpg" alt="Abdominal Crunch" class="imagen-tarjeta"
-                            loading="lazy">
-                        <div class="cuerpo-tarjeta">
-                            <span class="detalles-tarjeta">Technogym</span>
-                            <h3 class="nombre-tarjeta">Abdominal Crunch</h3>
-                            <span class="detalles-tarjeta">Core (Abdomen)</span>
-                            <a href="maquinaria-detalle.html" class="boton-secundario boton-bloque"
-                                style="margin-top: 1rem;">Saber más</a>
-                        </div>
-                    </div>
-
-                    <div class="tarjeta">
-                        <img src="/img/maquinaria/CableCrossover.png" alt="Cable Crossover" class="imagen-tarjeta"
-                            loading="lazy">
-                        <div class="cuerpo-tarjeta">
-                            <span class="detalles-tarjeta">Panatta Sport</span>
-                            <h3 class="nombre-tarjeta">Cable Crossover</h3>
-                            <span class="detalles-tarjeta">Tren Superior</span>
-                            <a href="maquinaria-detalle.html" class="boton-secundario boton-bloque"
-                                style="margin-top: 1rem;">Saber más</a>
-                        </div>
-                    </div>
-
-
-                    <div class="tarjeta">
-                        <img src="/img/maquinaria/LatPulldown.avif" alt="Lat Pulldown Convergente"
-                            class="imagen-tarjeta" loading="lazy">
-                        <div class="cuerpo-tarjeta">
-                            <span class="detalles-tarjeta">Hammer Strength</span>
-                            <h3 class="nombre-tarjeta">Lat Pulldown Convergente</h3>
-                            <span class="detalles-tarjeta">Tren Superior</span>
-                            <a href="maquinaria-detalle.html" class="boton-secundario boton-bloque"
-                                style="margin-top: 1rem;">Saber más</a>
-                        </div>
-                    </div>
-
-                    <div class="tarjeta">
-                        <img src="/img/maquinaria/GluteDrive.webp" alt="Glute Drive" class="imagen-tarjeta"
-                            loading="lazy">
-                        <div class="cuerpo-tarjeta">
-                            <span class="detalles-tarjeta">Nautilus</span>
-                            <h3 class="nombre-tarjeta">Glute Drive</h3>
-                            <span class="detalles-tarjeta">Tren Inferior</span>
-                            <a href="maquinaria-detalle.html" class="boton-secundario boton-bloque"
-                                style="margin-top: 1rem;">Saber más</a>
-                        </div>
-                    </div>
+                    {{end}}
 
                 </div>
             </section>

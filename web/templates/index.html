@@ -37,6 +37,10 @@
                                 class="fas fa-users"></i><span>Equipo</span></a></li>
                     <li class="elemento-lista"><a href="reglas.html" class="enlace "><i
                                 class="fas fa-scroll"></i><span>Reglas</span></a></li>
+                    <li class="elemento-lista"><a href="calculadora" class="enlace "><i 
+                                class="fas fa-calculator"></i><span>FFMI</span></a></li>
+                    <li class="elemento-lista"><a href="reservas" class="enlace "><i
+                                class="fas fa-calendar-check"></i><span>Área Socios</span></a></li>
                     <li class="elemento-lista"><a href="apuntate.html" class="enlace "><i
                                 class="fas fa-user-plus"></i><span>¡Apúntate!</span></a></li>
                 </ul>
@@ -44,8 +48,10 @@
 
             <div class="header-actions">
                 <div class="barra-navegacion__buscador">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Buscar...">
+                    <form action="/buscar" method="GET" style="display:flex; align-items:center;">
+                        <button type="submit" style="background:none; border:none; color:inherit; cursor:pointer;"><i class="fas fa-search"></i></button>
+                        <input type="text" name="q" placeholder="Buscar..." required>
+                    </form>
                 </div>
                 <div class="barra-navegacion__iconos">
                     <i class="fas fa-bell"></i>
@@ -79,7 +85,7 @@
                                 <div class="descripcion-tarjeta">
                                     <p>Gimnasio completo con zona de peso libre, máquinas de cardio y sala de clases
                                         dirigidas. Abierto de 6:00 a 23:00.</p>
-                                    <p><strong>Dirección:</strong> C/ Gran Vía 12, Meco, Madrid</p>
+                                    <p><strong>Dirección:</strong> C/ Calle Mayor 12, Meco, Madrid</p>
                                 </div>
                             </details>
 
@@ -229,6 +235,43 @@
                             <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
                                 Añadir</button>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seccion" style="background-color: var(--color-secundario); margin-top: 2rem;">
+                <div class="cabecera-seccion">
+                    <h2>Nuestras <span class="texto-destacado">Reseñas</span></h2>
+                    <p>Lo que dicen nuestros socios</p>
+                </div>
+                <div class="contenido-seccion" style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto;">
+                    {{range .}}
+                    <div class="tarjeta" style="background-color: var(--color-terciario); padding: 1.5rem; text-align: left;">
+                        <h3 class="nombre-tarjeta" style="margin-bottom: 0.5rem;">{{.Autor}}</h3>
+                        <div style="color: var(--color-primario); margin-bottom: 1rem; font-weight: bold;">
+                            Puntuación: {{.Puntuacion}}/5 ★
+                        </div>
+                        <p style="font-style: italic; color: #ddd;">"{{.Texto}}"</p>
+                    </div>
+                    {{end}}
+
+                    <div class="tarjeta" style="background-color: var(--color-terciario); padding: 2rem; margin-top: 2rem; text-align: left;">
+                        <h3 class="nombre-tarjeta" style="margin-bottom: 1rem; text-align: left;">Deja tu reseña</h3>
+                        <form action="/resenas" method="POST" class="formulario" style="max-width: 100%;">
+                            <div class="grupo-formulario" style="margin-bottom: 1rem;">
+                                <label for="autor" class="etiqueta-formulario">Tu Nombre:</label>
+                                <input type="text" id="autor" name="autor" class="entrada-formulario" required>
+                            </div>
+                            <div class="grupo-formulario" style="margin-bottom: 1rem;">
+                                <label for="puntuacion" class="etiqueta-formulario">Puntuación (1-5):</label>
+                                <input type="number" id="puntuacion" name="puntuacion" min="1" max="5" class="entrada-formulario" required>
+                            </div>
+                            <div class="grupo-formulario" style="margin-bottom: 1.5rem;">
+                                <label for="texto" class="etiqueta-formulario">Tu opinión:</label>
+                                <textarea id="texto" name="texto" rows="4" class="entrada-formulario" required></textarea>
+                            </div>
+                            <button type="submit" class="boton-principal">Enviar Reseña</button>
+                        </form>
                     </div>
                 </div>
             </section>
