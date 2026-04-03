@@ -239,7 +239,7 @@
 
 /* Logic for new mobile drawer menu toggle */
 #menu-toggle:checked ~ .aplicacion .unified-header .header-nav {
-    left: 0 !important;
+    top: 80px !important;
 }
 
 /* Hide legacy floating menu-icon completely */

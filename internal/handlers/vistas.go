@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"html/template"
+	"log"
 	"net/http"
 	"path/filepath"
 	"strconv"
@@ -24,12 +25,15 @@ func PageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	tmplFile := filepath.Join("web", "templates", page+".html")
+	navbarFile := filepath.Join("web", "templates", "navbar.html")
 	
-	tmpl, err := template.ParseFiles(tmplFile)
+	tmpl, err := template.ParseFiles(tmplFile, navbarFile)
 	if err != nil {
 		http.NotFound(w, r)
 		return
 	}
+	
+	log.Printf("Usuario accedió a la página: %s", page)
 
 	var data interface{}
 

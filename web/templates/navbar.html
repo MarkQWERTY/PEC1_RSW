@@ -1,0 +1,67 @@
+{{define "navbar"}}
+<style>
+/* Estilos globales rápidos de Navbar para el menú de usuario */
+.user-dropdown-container { position: relative; display: inline-block; cursor: pointer; }
+.user-dropdown-menu { display: none; position: absolute; right: 0; top: 100%; background: #222; min-width: 180px; box-shadow: 0 8px 16px rgba(0,0,0,0.5); border-radius: 8px; overflow: hidden; z-index: 3000; flex-direction: column; }
+.user-dropdown-container:hover .user-dropdown-menu { display: flex; }
+.user-dropdown-menu a { color: #ccc; padding: 12px 16px; text-decoration: none; display: block; transition: 0.3s; font-size: 0.9rem; border-bottom: 1px solid #333; }
+.user-dropdown-menu a:hover { background-color: #444; color: #fff; }
+</style>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
+
+    <div class="aplicacion">
+        <header class="barra-navegacion unified-header">
+            <div class="header-logo">
+                <a href="/" class="logo-enlace">
+                    <div class="logo-brand"></div>
+                </a>
+            </div>
+
+            <nav class="header-nav">
+                <ul class="lista-enlaces">
+                    <li class="elemento-lista"><a href="/" class="enlace"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+                    <li class="elemento-lista"><a href="/maquinaria" class="enlace"><i class="fas fa-dumbbell"></i><span>Maquinaria</span></a></li>
+                    <li class="elemento-lista"><a href="/servicios" class="enlace"><i class="fas fa-crown"></i><span>Servicios</span></a></li>
+                    <li class="elemento-lista"><a href="/tienda" class="enlace"><i class="fas fa-shopping-bag"></i><span>Tienda</span></a></li>
+                    <li class="elemento-lista"><a href="/equipo" class="enlace"><i class="fas fa-users"></i><span>Equipo</span></a></li>
+                    <li class="elemento-lista"><a href="/reglas" class="enlace"><i class="fas fa-scroll"></i><span>Reglas</span></a></li>
+                    <li class="elemento-lista"><a href="/calculadora" class="enlace"><i class="fas fa-calculator"></i><span>FFMI</span></a></li>
+                    <li class="elemento-lista"><a href="/reservas" class="enlace"><i class="fas fa-calendar-check"></i><span>Área Socios</span></a></li>
+                    <li class="elemento-lista"><a href="/apuntate" class="enlace"><i class="fas fa-user-plus"></i><span>¡Apúntate!</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="barra-navegacion__buscador">
+                    <form action="/buscar" method="GET" style="display:flex; align-items:center;">
+                        <button type="submit" style="background:none; border:none; color:inherit; cursor:pointer;" class="search-icon-btn"><i class="fas fa-search"></i></button>
+                        <input type="text" name="q" class="search-input-with-icon" placeholder="¿Qué buscas?" required>
+                    </form>
+                </div>
+                <div class="barra-navegacion__iconos">
+                    <div class="user-dropdown-container">
+                        <span style="display:flex; align-items:center; gap:0.5rem; font-weight:bold;">
+                            <span id="user-icon-btn">Sesión</span> 
+                            <i class="fas fa-user-circle"></i>
+                        </span>
+                        <div class="user-dropdown-menu">
+                            <a href="/apuntate"><i class="fas fa-user-plus"></i> Registrarse</a>
+                            <a href="/reservas"><i class="fas fa-id-card"></i> Área de Usuarios</a>
+                        </div>
+                    </div>
+                </div>
+                
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var userCookie = document.cookie.split('; ').find(row => row.startsWith('session_user='));
+        if (userCookie) {
+            var val = userCookie.split('=')[1];
+            if (val) document.getElementById('user-icon-btn').innerText = decodeURIComponent(val);
+        }
+    });
+</script>
+                <label for="menu-toggle" class="mobile-menu-btn"><i class="fas fa-bars"></i></label>
+            </div>
+        </header>
+{{end}}

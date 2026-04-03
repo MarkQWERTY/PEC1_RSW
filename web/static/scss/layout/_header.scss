@@ -50,20 +50,19 @@
         justify-content: center;
 
         @media (max-width: 1024px) {
-            position: fixed;
-            top: 0;
-            left: -100vw;
-            width: 80%;
-            max-width: 350px;
-            height: 100vh;
-            background-color: $color-fondo-caja;
+            position: absolute;
+            top: -100vh;
+            left: 0;
+            width: 100%;
+            max-width: none;
+            height: calc(100vh - 80px);
+            background-color: rgba(30,30,30,0.95);
             flex-direction: column;
             justify-content: flex-start;
-            padding-top: 100px;
-            transition: left 0.4s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+            padding-top: 2rem;
+            transition: top 0.4s ease;
             z-index: 1000;
-            border-right: 1px solid $color-gris-oscuro;
-            box-shadow: 10px 0 30px rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .lista-enlaces {

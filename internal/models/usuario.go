@@ -10,4 +10,5 @@ type Usuario struct {
 	Documento       string `json:"documento"`
 	MetodoPago      string `json:"metodo_pago"`
 	NumeroPago      string `json:"numero_pago"`
+	Password        string `json:"password"`
 }

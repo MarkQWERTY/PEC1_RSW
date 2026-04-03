@@ -10,6 +10,13 @@ import (
 var dbFile = filepath.Join("internal", "db", "datos_registro.json")
 var resenasFile = filepath.Join("internal", "db", "datos_resenas.json")
 
+func InitDB() {
+	// JSON no requiere inicialización estricta por adelantado a menos que queramos crear los ficheros
+	// pero os.WriteFile lo creará si no existe en GuardarUsuario.
+	// Solo creamos la carpeta base por seguridad.
+	os.MkdirAll(filepath.Join("internal", "db"), 0755)
+}
+
 func GuardarUsuario(u models.Usuario) error {
 	var usuarios []models.Usuario
 

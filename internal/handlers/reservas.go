@@ -27,7 +27,8 @@ func ReservasHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	tmplFile := filepath.Join("web", "templates", "reservas.html")
-	tmpl, err := template.ParseFiles(tmplFile)
+	navbarFile := filepath.Join("web", "templates", "navbar.html")
+	tmpl, err := template.ParseFiles(tmplFile, navbarFile)
 	if err != nil {
 		http.Error(w, "Error cargando vista de reservas", http.StatusInternalServerError)
 		return

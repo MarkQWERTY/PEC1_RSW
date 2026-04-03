@@ -12,54 +12,7 @@
 <body>
     <a href="#contenido" class="skip-to-content">Saltar al contenido principal</a>
 
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
-
-    <div class="aplicacion">
-        <header class="barra-navegacion unified-header">
-            <div class="header-logo">
-                <a href="index.html" class="logo-enlace">
-                    <div class="logo-brand"></div>
-                </a>
-            </div>
-
-            <nav class="header-nav">
-                <ul class="lista-enlaces">
-                    <li class="elemento-lista"><a href="index.html" class="enlace activo"><i
-                                class="fas fa-home"></i><span>Inicio</span></a></li>
-                    <li class="elemento-lista"><a href="maquinaria.html" class="enlace "><i
-                                class="fas fa-dumbbell"></i><span>Maquinaria</span></a></li>
-                    <li class="elemento-lista"><a href="servicios.html" class="enlace "><i
-                                class="fas fa-crown"></i><span>Servicios</span></a></li>
-                    <li class="elemento-lista"><a href="tienda.html" class="enlace "><i
-                                class="fas fa-shopping-bag"></i><span>Tienda</span></a></li>
-                    <li class="elemento-lista"><a href="equipo.html" class="enlace "><i
-                                class="fas fa-users"></i><span>Equipo</span></a></li>
-                    <li class="elemento-lista"><a href="reglas.html" class="enlace "><i
-                                class="fas fa-scroll"></i><span>Reglas</span></a></li>
-                    <li class="elemento-lista"><a href="calculadora" class="enlace "><i 
-                                class="fas fa-calculator"></i><span>FFMI</span></a></li>
-                    <li class="elemento-lista"><a href="reservas" class="enlace "><i
-                                class="fas fa-calendar-check"></i><span>Área Socios</span></a></li>
-                    <li class="elemento-lista"><a href="apuntate.html" class="enlace "><i
-                                class="fas fa-user-plus"></i><span>¡Apúntate!</span></a></li>
-                </ul>
-            </nav>
-
-            <div class="header-actions">
-                <div class="barra-navegacion__buscador">
-                    <form action="/buscar" method="GET" style="display:flex; align-items:center;">
-                        <button type="submit" style="background:none; border:none; color:inherit; cursor:pointer;"><i class="fas fa-search"></i></button>
-                        <input type="text" name="q" placeholder="Buscar..." required>
-                    </form>
-                </div>
-                <div class="barra-navegacion__iconos">
-                    <i class="fas fa-bell"></i>
-                    <i class="fas fa-user-circle"></i>
-                </div>
-                <label for="menu-toggle" class="mobile-menu-btn"><i class="fas fa-bars"></i></label>
-            </div>
-        </header>
+    {{ template "navbar" . }}
 
         <main class="contenido-principal" id="contenido">
             <nav class="migas-pan" aria-label="Breadcrumb">
@@ -69,7 +22,7 @@
             <section class="portada">
                 <div class="texto-portada">
                     <h1>Bienvenido a <span class="texto-destacado">Platinum Gym</span></h1>
-                    <a href="apuntate.html" class="boton-principal">¡Hazte Socio Ahora!</a>
+                    <a href="/apuntate" class="boton-principal">¡Hazte Socio Ahora!</a>
                 </div>
             </section>
 
@@ -244,34 +197,48 @@
                     <h2>Nuestras <span class="texto-destacado">Reseñas</span></h2>
                     <p>Lo que dicen nuestros socios</p>
                 </div>
-                <div class="contenido-seccion" style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 800px; margin: 0 auto;">
-                    {{range .}}
-                    <div class="tarjeta" style="background-color: var(--color-terciario); padding: 1.5rem; text-align: left;">
-                        <h3 class="nombre-tarjeta" style="margin-bottom: 0.5rem;">{{.Autor}}</h3>
-                        <div style="color: var(--color-primario); margin-bottom: 1rem; font-weight: bold;">
-                            Puntuación: {{.Puntuacion}}/5 ★
-                        </div>
-                        <p style="font-style: italic; color: #ddd;">"{{.Texto}}"</p>
-                    </div>
-                    {{end}}
-
-                    <div class="tarjeta" style="background-color: var(--color-terciario); padding: 2rem; margin-top: 2rem; text-align: left;">
+                <div class="contenido-seccion" style="display: flex; flex-direction: row; gap: 2rem; max-width: 1200px; margin: 0 auto; flex-wrap: wrap;">
+                    
+                    <!-- LEFT COLUMN: FORM -->
+                    <div class="tarjeta" style="background-color: var(--color-terciario); padding: 2rem; flex: 1; min-width: 300px; height: fit-content;">
                         <h3 class="nombre-tarjeta" style="margin-bottom: 1rem; text-align: left;">Deja tu reseña</h3>
                         <form action="/resenas" method="POST" class="formulario" style="max-width: 100%;">
-                            <div class="grupo-formulario" style="margin-bottom: 1rem;">
+                            <div class="grupo-formulario" style="margin-bottom: 1.5rem;">
                                 <label for="autor" class="etiqueta-formulario">Tu Nombre:</label>
-                                <input type="text" id="autor" name="autor" class="entrada-formulario" required>
-                            </div>
-                            <div class="grupo-formulario" style="margin-bottom: 1rem;">
-                                <label for="puntuacion" class="etiqueta-formulario">Puntuación (1-5):</label>
-                                <input type="number" id="puntuacion" name="puntuacion" min="1" max="5" class="entrada-formulario" required>
+                                <input type="text" id="autor" name="autor" class="campo-formulario" placeholder="Ej: Arnold S." required>
                             </div>
                             <div class="grupo-formulario" style="margin-bottom: 1.5rem;">
-                                <label for="texto" class="etiqueta-formulario">Tu opinión:</label>
-                                <textarea id="texto" name="texto" rows="4" class="entrada-formulario" required></textarea>
+                                <label for="puntuacion" class="etiqueta-formulario">Puntuación (1-5):</label>
+                                <input type="number" id="puntuacion" name="puntuacion" min="1" max="5" class="campo-formulario" placeholder="Ej: 5" required>
                             </div>
-                            <button type="submit" class="boton-principal">Enviar Reseña</button>
+                            <div class="grupo-formulario" style="margin-bottom: 2rem;">
+                                <label for="texto" class="etiqueta-formulario">Tu opinión:</label>
+                                <textarea id="texto" name="texto" rows="4" class="campo-formulario" placeholder="Escribe tu experiencia aquí..." style="resize: vertical; font-family: inherit;" required></textarea>
+                            </div>
+                            <button type="submit" class="boton-formulario boton-bloque">Publicar Reseña <i class="fas fa-paper-plane" style="margin-left: 5px;"></i></button>
                         </form>
+                    </div>
+
+                    <!-- RIGHT COLUMN: REVIEWS -->
+                    <div style="flex: 2; min-width: 300px;">
+                        <style>
+                        .reseñas-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+                        .resena-card { background: linear-gradient(145deg, #1f1f1f, #242424); border-radius: 12px; padding: 1.5rem; box-shadow: 0 8px 15px rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.05); transition: transform 0.3s; }
+                        .resena-card:hover { transform: translateY(-3px); border-color: silver; }
+                        .resena-stars { color: gold; font-size: 1.2rem; margin-bottom: 0.5rem; }
+                        .resena-text { font-style: italic; color: #bbb; line-height: 1.5; font-size: 0.95rem; }
+                        </style>
+                        <div class="reseñas-grid">
+                            {{range .}}
+                            <div class="resena-card">
+                                <h3 class="nombre-tarjeta" style="margin-bottom: 0.5rem; text-transform: uppercase;">{{.Autor}}</h3>
+                                <div class="resena-stars" aria-label="Puntuación: {{.Puntuacion}}">
+                                    {{if eq .Puntuacion 5}}★★★★★{{else if eq .Puntuacion 4}}★★★★☆{{else if eq .Puntuacion 3}}★★★☆☆{{else if eq .Puntuacion 2}}★★☆☆☆{{else}}★☆☆☆☆{{end}}
+                                </div>
+                                <p class="resena-text">"{{.Texto}}"</p>
+                            </div>
+                            {{end}}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -288,10 +255,10 @@
                     <div class="pie-pagina__columna">
                         <h4>Enlaces Rápidos</h4>
                         <ul class="pie-pagina__lista">
-                            <li><a href="maquinaria.html">Maquinaria</a></li>
-                            <li><a href="servicios.html">Servicios</a></li>
-                            <li><a href="tienda.html">Tienda</a></li>
-                            <li><a href="reglas.html">Reglas</a></li>
+                            <li><a href="/maquinaria">Maquinaria</a></li>
+                            <li><a href="/servicios">Servicios</a></li>
+                            <li><a href="/tienda">Tienda</a></li>
+                            <li><a href="/reglas">Reglas</a></li>
                         </ul>
                     </div>
                     <div class="pie-pagina__columna">

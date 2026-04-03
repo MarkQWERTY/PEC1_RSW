@@ -29,6 +29,7 @@ func RegistroHandler(w http.ResponseWriter, r *http.Request) {
 		Documento:       r.FormValue("documento"),
 		MetodoPago:      r.FormValue("metodo-pago"),
 		NumeroPago:      r.FormValue("numero-pago"),
+		Password:        r.FormValue("password"),
 	}
 
 	err = services.RegistrarUsuario(usuario)
@@ -38,5 +39,6 @@ func RegistroHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Printf("Nuevo usuario registrado: %s %s", usuario.Nombre, usuario.Apellidos)
 	http.Redirect(w, r, "/?registro=exito", http.StatusSeeOther)
 }

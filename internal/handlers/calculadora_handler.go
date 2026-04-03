@@ -21,7 +21,8 @@ func CalculadoraHandler(w http.ResponseWriter, r *http.Request) {
 
 func MostrarFormulario(w http.ResponseWriter, r *http.Request) {
 	tmplFile := filepath.Join("web", "templates", "calculadora.html")
-	tmpl, err := template.ParseFiles(tmplFile)
+	navbarFile := filepath.Join("web", "templates", "navbar.html")
+	tmpl, err := template.ParseFiles(tmplFile, navbarFile)
 	if err != nil {
 		http.Error(w, "Error cargando vista de calculadora", http.StatusInternalServerError)
 		return
@@ -57,7 +58,8 @@ func ProcesarCalculadora(w http.ResponseWriter, r *http.Request) {
 	}
 
 	tmplFile := filepath.Join("web", "templates", "calculadora.html")
-	tmpl, err := template.ParseFiles(tmplFile)
+	navbarFile := filepath.Join("web", "templates", "navbar.html")
+	tmpl, err := template.ParseFiles(tmplFile, navbarFile)
 	if err != nil {
 		http.Error(w, "Error cargando vista de calculadora", http.StatusInternalServerError)
 		return

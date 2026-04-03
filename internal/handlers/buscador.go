@@ -40,8 +40,9 @@ func BuscadorHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	tmplFile := filepath.Join("web", "templates", "resultados.html")
-	tmpl, err := template.ParseFiles(tmplFile)
+	tmplFile := filepath.Join("web", "templates", "buscar.html")
+	navbarFile := filepath.Join("web", "templates", "navbar.html")
+	tmpl, err := template.ParseFiles(tmplFile, navbarFile)
 	if err != nil {
 		http.Error(w, "Error cargando página de resultados", http.StatusInternalServerError)
 		return

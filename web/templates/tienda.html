@@ -18,52 +18,11 @@
 <body>
     <a href="#contenido" class="skip-to-content">Saltar al contenido principal</a>
 
-    <input type="checkbox" id="menu-toggle" class="menu-toggle">
-    <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
-
-    <div class="aplicacion">
-        <header class="barra-navegacion unified-header">
-            <div class="header-logo">
-                <a href="index.html" class="logo-enlace">
-                    <div class="logo-brand"></div>
-                </a>
-            </div>
-
-            <nav class="header-nav">
-                <ul class="lista-enlaces">
-                    <li class="elemento-lista"><a href="index.html" class="enlace "><i
-                                class="fas fa-home"></i><span>Inicio</span></a></li>
-                    <li class="elemento-lista"><a href="maquinaria.html" class="enlace "><i
-                                class="fas fa-dumbbell"></i><span>Maquinaria</span></a></li>
-                    <li class="elemento-lista"><a href="servicios.html" class="enlace "><i
-                                class="fas fa-crown"></i><span>Servicios</span></a></li>
-                    <li class="elemento-lista"><a href="tienda.html" class="enlace activo"><i
-                                class="fas fa-shopping-bag"></i><span>Tienda</span></a></li>
-                    <li class="elemento-lista"><a href="equipo.html" class="enlace "><i
-                                class="fas fa-users"></i><span>Equipo</span></a></li>
-                    <li class="elemento-lista"><a href="reglas.html" class="enlace "><i
-                                class="fas fa-scroll"></i><span>Reglas</span></a></li>
-                    <li class="elemento-lista"><a href="apuntate.html" class="enlace "><i
-                                class="fas fa-user-plus"></i><span>¡Apúntate!</span></a></li>
-                </ul>
-            </nav>
-
-            <div class="header-actions">
-                <div class="barra-navegacion__buscador">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Buscar...">
-                </div>
-                <div class="barra-navegacion__iconos">
-                    <i class="fas fa-bell"></i>
-                    <i class="fas fa-user-circle"></i>
-                </div>
-                <label for="menu-toggle" class="mobile-menu-btn"><i class="fas fa-bars"></i></label>
-            </div>
-        </header>
+    {{ template "navbar" . }}
 
         <main class="contenido-principal" id="contenido">
             <nav class="migas-pan" aria-label="Breadcrumb">
-                <a href="index.html">Inicio</a>
+                <a href="/">Inicio</a>
                 <span class="separador"><i class="fas fa-chevron-right"></i></span>
                 <span class="actual">Tienda</span>
             </nav>
@@ -74,9 +33,46 @@
                     <p>Nutrición de grado farmacéutico, ropa técnica y accesorios profesionales.</p>
                 </div>
 
-                <div class="contenido-seccion">
+                
+<style>
+.store-filters { text-align: center; margin-bottom: 2rem; }
+.store-filters input { display: none; }
+.f-label { display: inline-block; padding: 10px 20px; font-weight: bold; cursor: pointer; color: #fff; background: #333; margin: 0 5px; border-radius: 4px; transition: background 0.3s; }
+.store-filters input:checked + .f-label { background: silver; color: #000; }
+#f-sups:checked ~ .contenido-seccion .rop { display: none; }
+#f-ropa:checked ~ .contenido-seccion .sup { display: none; }
 
-                    <div class="tarjeta">
+/* Estilos adicionales para dropdown de usuario y carrito */
+.user-dropdown-container { position: relative; display: inline-block; cursor: pointer; }
+.user-dropdown-menu { display: none; position: absolute; right: 0; top: 100%; background: #222; min-width: 180px; box-shadow: 0 8px 16px rgba(0,0,0,0.5); border-radius: 8px; overflow: hidden; z-index: 3000; flex-direction: column; }
+.user-dropdown-container:hover .user-dropdown-menu { display: flex; }
+.user-dropdown-menu a { color: #ccc; padding: 12px 16px; text-decoration: none; display: block; transition: 0.3s; font-size: 0.9rem; border-bottom: 1px solid #333; }
+.user-dropdown-menu a:hover { background-color: #444; color: #fff; }
+
+.shopping-cart-sidebar { position: fixed; top: 0; right: -350px; width: 300px; height: 100vh; background-color: var(--color-terciario, #1a1a1a); box-shadow: -5px 0 15px rgba(0,0,0,0.5); transition: right 0.3s ease; z-index: 4000; display: flex; flex-direction: column; padding: 1.5rem; }
+.shopping-cart-sidebar.open { right: 0; }
+.cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 1rem; margin-bottom: 1rem; }
+.cart-header h3 { margin: 0; color: var(--color-plata, #e5e4e2); }
+.cart-header button { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+.cart-items { flex-grow: 1; overflow-y: auto; color: #ccc; font-size: 1rem; }
+.cart-footer { padding-top: 1rem; border-top: 1px solid #333; font-size: 1.2rem; font-weight: bold; text-align: right; }
+.floating-cart-btn { position: fixed; bottom: 30px; right: 30px; background-color: var(--color-primario, #8a0303); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 3500; transition: transform 0.3s; border: none;}
+.floating-cart-btn:hover { transform: scale(1.1); }
+</style>
+<div class="store-filters">
+    <input type="radio" id="f-all" name="f-tienda" checked>
+    <label for="f-all" class="f-label">Todos</label>
+
+    <input type="radio" id="f-sups" name="f-tienda">
+    <label for="f-sups" class="f-label">Suplementos</label>
+
+    <input type="radio" id="f-ropa" name="f-tienda">
+    <label for="f-ropa" class="f-label">Ropa y Accesorios</label>
+</div>
+<div class="contenido-seccion">
+
+
+                    <div class="tarjeta sup">
                         <div class="caja-imagen">
                             <span class="etiqueta">Top Ventas</span>
                             <img src="/img/shop/protein.jpg" alt="100% Platinum Whey Isolate" class="imagen-tarjeta">
@@ -89,7 +85,7 @@
                         </div>
                     </div>
 
-                    <div class="tarjeta">
+                    <div class="tarjeta sup">
                         <div class="caja-imagen">
                             <span class="etiqueta">Nuevo</span>
                             <img src="img/shop/prenetreno.avif" alt="Pre-Entreno Extremo C4" class="imagen-tarjeta">
@@ -102,7 +98,7 @@
                         </div>
                     </div>
 
-                    <div class="tarjeta">
+                    <div class="tarjeta sup">
                         <div class="caja-imagen">
                             <img src="/img/shop/creatina.avif" alt="Creatina Monohidrato Creapure"
                                 class="imagen-tarjeta">
@@ -115,7 +111,7 @@
                         </div>
                     </div>
 
-                    <div class="tarjeta">
+                    <div class="tarjeta rop">
                         <div class="caja-imagen">
                             <span class="etiqueta">Atleta</span>
                             <img src="/img/shop/tirantes.jpg" alt="Camiseta de Tirantes Stringer"
@@ -129,7 +125,7 @@
                         </div>
                     </div>
 
-                    <div class="tarjeta">
+                    <div class="tarjeta rop">
                         <div class="caja-imagen">
                             <span class="etiqueta">Nuevo</span>
                             <img src="/img/shop/chaqueta.webp" alt="Chaqueta Cortavientos Platinum"
@@ -143,7 +139,7 @@
                         </div>
                     </div>
 
-                    <div class="tarjeta">
+                    <div class="tarjeta rop">
                         <div class="caja-imagen">
                             <span class="etiqueta">Básico</span>
                             <img src="/img/shop/botella.jpg" alt="Shaker Platinum" class="imagen-tarjeta">
@@ -156,7 +152,7 @@
                         </div>
                     </div>
 
-                    <div class="tarjeta">
+                    <div class="tarjeta rop">
                         <div class="caja-imagen">
                             <span class="etiqueta">Pro</span>
                             <img src="/img/shop/cinturon.jfif" alt="Cinturón de Levantamiento" class="imagen-tarjeta">
@@ -169,7 +165,7 @@
                         </div>
                     </div>
 
-                    <div class="tarjeta">
+                    <div class="tarjeta rop">
                         <div class="caja-imagen">
                             <span class="etiqueta">Esencial</span>
                             <img src="/img/shop/straps.jpg" alt="Straps de Elevación Premium" class="imagen-tarjeta">
@@ -182,7 +178,7 @@
                         </div>
                     </div>
 
-                    <div class="tarjeta">
+                    <div class="tarjeta rop">
                         <div class="caja-imagen">
                             <img src="/img/shop/fuckidols.jfif" alt="Cinturón de Powerlifting Cuero"
                                 class="imagen-tarjeta">
@@ -210,12 +206,12 @@
                     <div class="pie-pagina__columna">
                         <h4>Enlaces Rápidos</h4>
                         <ul class="pie-pagina__lista">
-                            <li><a href="maquinaria.html">Maquinaria</a></li>
-                            <li><a href="servicios.html">Servicios</a></li>
-                            <li><a href="tienda.html">Tienda</a></li>
-                            <li><a href="reglas.html">Reglas</a></li>
-                            <li><a href="equipo.html">Equipo</a></li>
-                            <li><a href="apuntate.html">¡Apúntate!</a></li>
+                            <li><a href="/maquinaria">Maquinaria</a></li>
+                            <li><a href="/servicios">Servicios</a></li>
+                            <li><a href="/tienda">Tienda</a></li>
+                            <li><a href="/reglas">Reglas</a></li>
+                            <li><a href="/equipo">Equipo</a></li>
+                            <li><a href="/apuntate">¡Apúntate!</a></li>
                         </ul>
                     </div>
                     <div class="pie-pagina__columna">
@@ -243,6 +239,48 @@
             </footer>
         </main>
     </div>
+    
+    <!-- Carrito Flotante -->
+    <button id="open-cart" class="floating-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+
+    <div id="shopping-cart-sidebar" class="shopping-cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <p>Aún no has añadido nada a tu carrito.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total" style="margin-bottom: 15px;">Total: <span style="color:var(--color-primario, #8a0303);">0.00€</span></div>
+            <button class="boton-principal boton-bloque">Tramitar Pedido <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <script>
+        // Logica simple para abrir y cerrar carrito visual
+        document.getElementById('open-cart').addEventListener('click', function() {
+            document.getElementById('shopping-cart-sidebar').classList.add('open');
+        });
+        document.getElementById('close-cart').addEventListener('click', function() {
+            document.getElementById('shopping-cart-sidebar').classList.remove('open');
+        });
+
+        // Simulador visual de añadir producto
+        document.querySelectorAll('.tarjeta .boton-principal').forEach(btn => {
+            btn.addEventListener('click', function() {
+                var name = this.parentElement.querySelector('.nombre-tarjeta').innerText;
+                var price = this.parentElement.querySelector('.precio').innerText;
+                var cartItems = document.querySelector('.cart-items');
+                if(cartItems.innerHTML.includes("Aún no has añadido")) cartItems.innerHTML = "";
+                
+                cartItems.innerHTML += "<div style='display:flex; justify-content:space-between; margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid #333;'><span>" + name + "</span><span style='font-weight:bold;'>" + price + "</span></div>";
+
+                // Animation
+                document.getElementById('shopping-cart-sidebar').classList.add('open');
+            });
+        });
+    </script>
 </body>
 
 </html>

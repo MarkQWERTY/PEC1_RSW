@@ -10,20 +10,7 @@
 </head>
 <body>
     <div class="aplicacion">
-        <header class="barra-navegacion unified-header">
-            <div class="header-logo">
-                <a href="index.html" class="logo-enlace">
-                    <div class="logo-brand"></div>
-                </a>
-            </div>
-
-            <nav class="header-nav">
-                <ul class="lista-enlaces">
-                    <li class="elemento-lista"><a href="index.html" class="enlace"><i class="fas fa-home"></i><span>Inicio</span></a></li>
-                    <li class="elemento-lista"><a href="reservas" class="enlace"><i class="fas fa-calendar-check"></i><span>Reservas</span></a></li>
-                </ul>
-            </nav>
-        </header>
+        {{ template "navbar" . }}
 
         <main class="contenido-principal">
             <section class="seccion">
