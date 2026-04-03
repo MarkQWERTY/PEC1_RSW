@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Gym | Reservas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="aplicacion">
+        <header class="barra-navegacion unified-header">
+            <div class="header-logo">
+                <a href="/" class="logo-enlace">
+                    <div class="logo-brand"></div>
+                </a>
+            </div>
+
+            <nav class="header-nav">
+                <ul class="lista-enlaces">
+                    <li class="elemento-lista"><a href="/" class="enlace"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+                    <li class="elemento-lista"><a href="reservas" class="enlace activo"><i class="fas fa-calendar-check"></i><span>Reservas</span></a></li>
+                    <li class="elemento-lista"><a href="/logout" class="enlace"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="contenido-principal" style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2>Bienvenido, <span class="texto-destacado">{{.Socio.Nombre}}</span></h2>
+            </div>
+
+            <section class="seccion" style="margin-bottom: 3rem;">
+                <h3 style="margin-bottom: 1rem;">Tus Reservas Activas</h3>
+                {{if .MisReservas}}
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem;">
+                    {{range .MisReservas}}
+                    <div class="tarjeta" style="padding: 1.5rem; background-color: var(--color-secundario); border-left: 4px solid var(--color-primario);">
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1.2rem;">{{.NombreClase}}</h4>
+                        <p style="color: #bbb;"><i class="far fa-calendar-alt"></i> Asistencia programada para mañana</p>
+                    </div>
+                    {{end}}
+                </div>
+                {{else}}
+                <p style="color: #888;">No tienes ninguna reserva actualmente.</p>
+                {{end}}
+            </section>
+
+            <section class="seccion">
+                <h3 style="margin-bottom: 1rem;">Clases Disponibles</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem;">
+                    {{range .Clases}}
+                    <div class="tarjeta" style="padding: 1.5rem; background-color: var(--color-terciario);">
+                        <h4 style="margin-bottom: 0.5rem; font-size: 1.2rem;">{{.NombreClase}}</h4>
+                        <ul style="list-style: none; padding-left: 0; color: #ccc; margin-bottom: 1rem; line-height: 1.6;">
+                            <li><i class="fas fa-user-tie"></i> Entrenador: {{.Entrenador}}</li>
+                            <li><i class="far fa-clock"></i> Horario: {{.Horario}}</li>
+                            <li><i class="fas fa-users"></i> Aforo max: {{.Aforo}}</li>
+                        </ul>
+                        <form action="/reservas/reservar" method="POST">
+                            <input type="hidden" name="clase_id" value="{{.ID}}">
+                            <button type="submit" class="boton-secundario boton-bloque">Reservar Plaza</button>
+                        </form>
+                    </div>
+                    {{end}}
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

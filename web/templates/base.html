@@ -1,0 +1,66 @@
+﻿{{define "base"}}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Gym</title>
+    <!-- CSS y Fuentes -->
+    <link rel="stylesheet" href="/css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <a href="#contenido" class="skip-to-content">Saltar al contenido principal</a>
+
+    <!-- Checkbox oculto para menú móvil -->
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+
+    <div class="aplicacion">
+        <header class="barra-navegacion unified-header">
+            <div class="header-logo">
+                <a href="/" class="logo-enlace">
+                    <div class="logo-brand"></div>
+                </a>
+            </div>
+
+            <nav class="header-nav">
+                <ul class="lista-enlaces">
+                    <li class="elemento-lista"><a href="/" class="enlace"><i class="fas fa-home"></i><span>Inicio</span></a></li>
+                    <li class="elemento-lista"><a href="/maquinaria" class="enlace"><i class="fas fa-dumbbell"></i><span>Maquinaria</span></a></li>
+                    <li class="elemento-lista"><a href="/servicios" class="enlace"><i class="fas fa-crown"></i><span>Servicios</span></a></li>
+                    <li class="elemento-lista"><a href="/tienda" class="enlace"><i class="fas fa-shopping-bag"></i><span>Tienda</span></a></li>
+                    <li class="elemento-lista"><a href="/equipo" class="enlace"><i class="fas fa-users"></i><span>Equipo</span></a></li>
+                    <li class="elemento-lista"><a href="/reglas" class="enlace"><i class="fas fa-scroll"></i><span>Reglas</span></a></li>
+                    <li class="elemento-lista"><a href="/calculadora" class="enlace"><i class="fas fa-calculator"></i><span>FFMI</span></a></li>
+                    <li class="elemento-lista"><a href="/reservas" class="enlace"><i class="fas fa-calendar-check"></i><span>Área Socios</span></a></li>
+                    <li class="elemento-lista"><a href="/apuntate" class="enlace"><i class="fas fa-user-plus"></i><span>¡Apúntate!</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="barra-navegacion__buscador">
+                    <form action="/buscar" method="GET" style="display:flex; align-items:center;">
+                        <button type="submit" style="background:none; border:none; color:inherit; cursor:pointer;"><i class="fas fa-search"></i></button>
+                        <input type="text" name="q" placeholder="Buscar..." required>
+                    </form>
+                </div>
+                <div class="barra-navegacion__iconos">
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <!-- Label modificado: Ahora usamos este label para abrir el menú en modo móvil. En index no hacía toggle si estaba oculto mal. -->
+                <label for="menu-toggle" class="mobile-menu-btn"><i class="fas fa-bars"></i></label>
+            </div>
+        </header>
+
+        <main class="contenido-principal" id="contenido">
+            {{template "content" .}}
+        </main>
+
+        <!-- Footer removed -->
+    </div>
+</body>
+</html>
+{{end}}

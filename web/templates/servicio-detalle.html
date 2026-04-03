@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Gym | Detalle del Servicio</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="aplicacion">
+        <header class="barra-navegacion unified-header">
+            <div class="header-logo">
+                <a href="/" class="logo-enlace">
+                    <div class="logo-brand"></div>
+                </a>
+            </div>
+
+            <nav class="header-nav">
+                <ul class="lista-enlaces">
+                    <li class="elemento-lista"><a href="/" class="enlace "><i
+                                class="fas fa-home"></i><span>Inicio</span></a></li>
+                    <li class="elemento-lista"><a href="/maquinaria" class="enlace "><i
+                                class="fas fa-dumbbell"></i><span>Maquinaria</span></a></li>
+                    <li class="elemento-lista"><a href="/servicios" class="enlace activo"><i
+                                class="fas fa-crown"></i><span>Servicios</span></a></li>
+                    <li class="elemento-lista"><a href="/tienda" class="enlace "><i
+                                class="fas fa-shopping-bag"></i><span>Tienda</span></a></li>
+                    <li class="elemento-lista"><a href="/equipo" class="enlace "><i
+                                class="fas fa-users"></i><span>Equipo</span></a></li>
+                    <li class="elemento-lista"><a href="/reglas" class="enlace "><i
+                                class="fas fa-scroll"></i><span>Reglas</span></a></li>
+                    <li class="elemento-lista"><a href="/apuntate" class="enlace "><i
+                                class="fas fa-user-plus"></i><span>¡Apúntate!</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="barra-navegacion__buscador">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar...">
+                </div>
+                <div class="barra-navegacion__iconos">
+                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <label for="menu-toggle" class="mobile-menu-btn"><i class="fas fa-bars"></i></label>
+            </div>
+        </header>
+
+        <main class="contenido-principal">
+            <nav class="migas-pan" aria-label="Breadcrumb">
+                <a href="/">Inicio</a>
+                <span class="separador"><i class="fas fa-chevron-right"></i></span>
+                <a href="/servicios">Servicios</a>
+                <span class="separador"><i class="fas fa-chevron-right"></i></span>
+                <span class="actual">Saber más</span>
+            </nav>
+
+            <section class="seccion">
+                <div class="cabecera-seccion">
+                    <h2>Detalle del <span class="texto-destacado">Servicio</span></h2>
+                    <p>Información detallada sobre nuestras instalaciones y servicios premium.</p>
+                </div>
+
+                <div class="tarjeta" style="max-width: 900px; margin: 0 auto;">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1200"
+                        alt="{{.Nombre}}" class="imagen-tarjeta" style="height: 400px; object-fit: cover;">
+                    <div class="cuerpo-tarjeta">
+                        <h3 class="nombre-tarjeta"><i class="{{.Icono}}"></i> {{.Nombre}}</h3>
+                        <div class="detalles-tarjeta">
+                            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+                                {{.DescripcionLarga}}
+                            </p>
+
+                            <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; margin-bottom: 2rem;">
+                                <div>
+                                    <h4 style="color: white; margin-bottom: 1rem;">Beneficios Clave:</h4>
+                                    <ul style="list-style: none; padding-left: 0;">
+                                        <li style="margin-bottom: 0.5rem;"><i class="fas fa-check texto-destacado"></i>
+                                            {{.Beneficios}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <a href="/servicios" class="boton-principal">Volver a Servicios</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer removed -->
+        </main>
+    </div>
+</body>
+
+</html>

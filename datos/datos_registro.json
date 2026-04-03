@@ -1,0 +1,13 @@
+[
+  {
+    "nombre": "Juan Carlos",
+    "apellidos": "Reyes",
+    "fecha_nacimiento": "2000-07-07",
+    "direccion": "Valle de los caidos",
+    "telefono": "606 606 606",
+    "correo": "mail@gmail.com",
+    "documento": "00000000A",
+    "metodo_pago": "tarjeta",
+    "numero_pago": "5000 0000 0000 0000"
+  }
+]

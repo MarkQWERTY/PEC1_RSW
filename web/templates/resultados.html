@@ -1,0 +1,64 @@
+{{define "content"}}
+            <section class="seccion">
+                <style>
+                    /* Filtro CSS Puro */
+                    #filtro-todos:checked ~ .contenido-seccion .tarjeta { display: flex; }
+                    #filtro-maquinaria:checked ~ .contenido-seccion .tarjeta { display: none; }
+                    #filtro-maquinaria:checked ~ .contenido-seccion .tarjeta[data-tipo="Maquinaria"] { display: flex; }
+                    #filtro-servicio:checked ~ .contenido-seccion .tarjeta { display: none; }
+                    #filtro-servicio:checked ~ .contenido-seccion .tarjeta[data-tipo="Servicio"] { display: flex; }
+
+                    .filtros-busqueda { margin-bottom: 2rem; display: flex; gap: 1rem; justify-content: center; }
+                    .filtros-busqueda label {
+                        padding: 0.5rem 1.5rem;
+                        background-color: #2b2b2c;
+                        border-radius: 20px;
+                        cursor: pointer;
+                        transition: all 0.3s;
+                    }
+                    #filtro-todos:checked ~ .filtros-busqueda label[for="filtro-todos"],
+                    #filtro-maquinaria:checked ~ .filtros-busqueda label[for="filtro-maquinaria"],
+                    #filtro-servicio:checked ~ .filtros-busqueda label[for="filtro-servicio"] {
+                        background-color: #E5E4E2; color: #0a0a0a; font-weight: bold;
+                    }
+                </style>
+
+                <div class="cabecera-seccion">
+                    <h2>Resultados para: <span class="texto-destacado">"{{.Query}}"</span></h2>
+                    <p>Encuentra tu maquinaria o servicio ideal.</p>
+                </div>
+
+                <input type="radio" name="filtro" id="filtro-todos" style="display:none;" checked>
+                <input type="radio" name="filtro" id="filtro-maquinaria" style="display:none;">
+                <input type="radio" name="filtro" id="filtro-servicio" style="display:none;">
+
+                <div class="filtros-busqueda">
+                    <label for="filtro-todos">Todos</label>
+                    <label for="filtro-maquinaria">Maquinaria</label>
+                    <label for="filtro-servicio">Servicios</label>
+                </div>
+
+                <div class="contenido-seccion" style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin: 0 auto; min-height: 40vh;">
+                    {{if .Resultados}}
+                        {{range .Resultados}}
+                        <div class="tarjeta" data-tipo="{{.Tipo}}" style="background-color: var(--color-terciario); padding: 1.5rem; text-align: left; display: flex; justify-content: space-between; align-items: center; gap: 1rem;">
+                            {{if .Imagen}}
+                            <img src="{{.Imagen}}" alt="{{.Titulo}}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
+                            {{else}}
+                            <div style="width: 80px; height: 80px; background: #333; border-radius: 8px; display: flex; align-items: center; justify-content: center;"><i class="fas fa-image" style="color: #666; font-size: 2rem;"></i></div>
+                            {{end}}
+                            <div style="flex-grow: 1;">
+                                <span class="detalles-tarjeta" style="margin-bottom:0.5rem; display:block;">{{.Tipo}}</span>
+                                <h3 class="nombre-tarjeta" style="margin-bottom: 0;">{{.Titulo}}</h3>
+                            </div>
+                            <a href="{{.URL}}" class="boton-secundario">Ver Detalles</a>
+                        </div>
+                        {{end}}
+                    {{else}}
+                        <div style="text-align:center; padding: 2rem;">
+                            <h3>No se han encontrado resultados.</h3>
+                        </div>
+                    {{end}}
+                </div>
+            </section>
+        {{end}}

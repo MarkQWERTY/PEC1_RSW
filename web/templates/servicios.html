@@ -1,0 +1,33 @@
+﻿{{define "content"}}
+            <nav class="migas-pan" aria-label="Breadcrumb">
+                <a href="/">Inicio</a>
+                <span class="separador"><i class="fas fa-chevron-right"></i></span>
+                <span class="actual">Servicios</span>
+            </nav>
+
+            <section id="servicios">
+                <div class="cabecera-seccion">
+                    <h2>SERVICIOS <span class="texto-destacado">ELITE</span></h2>
+                    <p>Amenidades diseñadas para maximizar tus resultados y recuperación en un entorno lujoso.</p>
+                </div>
+
+                <div class="contenido-seccion">
+
+                    {{range .}}
+                    <div class="tarjeta">
+                        <div class="cuerpo-tarjeta">
+                            <div class="icono-bonito"><i class="{{.Icono}}"></i></div>
+                            <h3 class="nombre-tarjeta">{{.Nombre}}</h3>
+                            <p class="detalles-tarjeta">{{.DescripcionBreve}}</p>
+                            <a href="servicio-detalle.html?id={{.ID}}" class="boton-secundario boton-bloque"
+                                style="margin-top: 1.5rem; text-align: center;">Saber más</a>
+                        </div>
+                    </div>
+                    {{end}}
+
+                </div>
+            </section>
+
+            <!-- Footer removed -->
+
+        {{end}}

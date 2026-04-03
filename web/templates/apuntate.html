@@ -1,0 +1,82 @@
+{{define "content"}}
+            <nav class="migas-pan" aria-label="Breadcrumb">
+                <a href="/">Inicio</a>
+                <span class="separador"><i class="fas fa-chevron-right"></i></span>
+                <span class="actual">Apuntate</span>
+            </nav>
+
+
+            <section class="seccion">
+                <h2 class="titulo-seccion">Formulario de Registro</h2>
+
+                <form class="formulario" action="/registro" method="post">
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="nombre">Nombre</label>
+                        <input class="campo-formulario" type="text" id="nombre" name="nombre" placeholder="Tu nombre"
+                            required minlength="2" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="apellidos">Apellidos</label>
+                        <input class="campo-formulario" type="text" id="apellidos" name="apellidos"
+                            placeholder="Tus apellidos" required minlength="2" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="fecha-nacimiento">Fecha de nacimiento</label>
+                        <input class="campo-formulario" type="date" id="fecha-nacimiento" name="fecha-nacimiento"
+                            required min="1900-01-01" max="2010-01-01">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="direccion">Dirección</label>
+                        <input class="campo-formulario" type="text" id="direccion" name="direccion"
+                            placeholder="Tu dirección" required minlength="5">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="telefono">Teléfono</label>
+                        <input class="campo-formulario" type="tel" id="telefono" name="telefono"
+                            placeholder="Ej: 612345678" required pattern="[0-9]{9}">
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="correo">Correo electrónico</label>
+                        <input class="campo-formulario" type="email" id="correo" name="correo"
+                            placeholder="tu@correo.com" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="documento">DNI / NIE / Pasaporte</label>
+                        <input class="campo-formulario" type="text" id="documento" name="documento"
+                            placeholder="Ej: 12345678A" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario">Método de pago</label>
+                        <div class="opciones-formulario">
+                            <label class="opcion-formulario">
+                                <input type="radio" name="metodo-pago" value="tarjeta" checked> Tarjeta de crédito
+                            </label>
+                            <label class="opcion-formulario">
+                                <input type="radio" name="metodo-pago" value="iban"> Cuenta bancaria (IBAN)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <label class="etiqueta-formulario" for="numero-pago">Número de tarjeta / IBAN</label>
+                        <input class="campo-formulario" type="text" id="numero-pago" name="numero-pago"
+                            placeholder="Introduce tu número de tarjeta o IBAN" required>
+                    </div>
+
+                    <div class="grupo-formulario">
+                        <button class="boton-formulario" type="submit">¡QUIERO SER SOCIO!</button>
+                    </div>
+
+                </form>
+            </section>
+
+        <!-- Footer Removed since it is in base template -->
+        {{end}}
