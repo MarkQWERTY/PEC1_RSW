@@ -14,7 +14,11 @@ func (s *CalculadoraService) CalcularFFMI(datos *models.DatosFFMI) float64 {
 
 	// FFMI normalizado
 	ffmiNormalizado := ffmi + 6.1*(1.8-datos.Altura)
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 	datos.Resultado = ffmiNormalizado
 	return ffmiNormalizado
 }

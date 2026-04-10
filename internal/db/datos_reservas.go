@@ -2,6 +2,7 @@ package db
 
 import "pec2/internal/models"
 
+<<<<<<< HEAD
 var ClasesLista = []models.Clases{
 	{ID: 1, NombreClase: "Ciclo Indoor (Spinning)", Entrenador: "Carlos Méndez", Aforo: 20, Horario: "Lunes, 13 de abril de 2026 a las 18:00h", Descripcion: "Entrenamiento cardiovascular de alta intensidad en bicicleta estática, donde se simulan rutas con diferentes resistencias al ritmo de la música.", Lugar: "Sala de Spinning (Planta Baja)"},
 	{ID: 2, NombreClase: "Yoga Vinyasa", Entrenador: "Elena Rostova", Aforo: 15, Horario: "Martes, 14 de abril de 2026 a las 09:00h", Descripcion: "Práctica fluida y dinámica que sincroniza la respiración con el movimiento continuo, enfocada en mejorar la flexibilidad, el equilibrio y reducir el estrés.", Lugar: "Sala Zen (Planta Alta)"},
@@ -11,10 +12,27 @@ var ClasesLista = []models.Clases{
 	{ID: 6, NombreClase: "Pilates Mat", Entrenador: "Javier Ruiz", Aforo: 15, Horario: "Sábado, 18 de abril de 2026 a las 10:00h", Descripcion: "Secuencia de ejercicios en colchoneta diseñados para fortalecer la musculatura profunda (core), mejorar la postura, la flexibilidad y la alineación corporal.", Lugar: "Sala Zen (Planta Alta)"},
 	{ID: 7, NombreClase: "Fitboxing", Entrenador: "David Castro", Aforo: 12, Horario: "Domingo, 19 de abril de 2026 a las 11:00h", Descripcion: "Entrenamiento de alta intensidad sin contacto que mezcla movimientos y técnicas de boxeo o kickboxing contra un saco, sincronizados con música y ejercicios funcionales.", Lugar: "Zona de Combate"},
 	{ID: 8, NombreClase: "AquaGym", Entrenador: "Ana Morales", Aforo: 20, Horario: "Lunes, 20 de abril de 2026 a las 08:30h", Descripcion: "Gimnasia de bajo impacto realizada en el agua. Aprovecha la resistencia del agua para tonificar los músculos y mejorar la capacidad aeróbica protegiendo las articulaciones.", Lugar: "Piscina Climatizada"},
+=======
+var Socios = []models.Socio{
+	{
+		ID:                1,
+		Nombre:            "testuser",
+		Contrasena:        "1234",
+		SuscripcionActiva: true,
+	},
+}
+
+var ClasesLista = []models.Clases{
+	{ID: 1, NombreClase: "Body Pump", Entrenador: "Carlos", Aforo: 20, Horario: "18:00 - 19:00"},
+	{ID: 2, NombreClase: "Spinning", Entrenador: "María", Aforo: 15, Horario: "19:00 - 20:00"},
+	{ID: 3, NombreClase: "Yoga Integral", Entrenador: "Ana", Aforo: 12, Horario: "09:00 - 10:00"},
+	{ID: 4, NombreClase: "CrossFit WOD", Entrenador: "Jorge", Aforo: 10, Horario: "20:00 - 21:00"},
+>>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 }
 
 var ReservasActuales = []models.Reserva{}
 
+<<<<<<< HEAD
 func ObtenerSocioPorCorreo(correo string) *models.Socio {
 	var s models.Socio
 	err := DB.QueryRow("SELECT id, nombre, password, suscripcion_activa FROM usuarios WHERE correo = ?", correo).Scan(&s.ID, &s.Nombre, &s.Contrasena, &s.SuscripcionActiva)
@@ -22,6 +40,15 @@ func ObtenerSocioPorCorreo(correo string) *models.Socio {
 		return nil
 	}
 	return &s
+=======
+func ObtenerSocioPorNombre(nombre string) *models.Socio {
+	for _, s := range Socios {
+		if s.Nombre == nombre {
+			return &s
+		}
+	}
+	return nil
+>>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 }
 
 func CrearReserva(socioID int, actividadID int, fecha string) bool {
@@ -32,7 +59,11 @@ func CrearReserva(socioID int, actividadID int, fecha string) bool {
 			count++
 		}
 	}
+<<<<<<< HEAD
 
+=======
+	
+>>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 	for _, c := range ClasesLista {
 		if c.ID == actividadID {
 			if count >= c.Aforo {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{define "content"}}
     <section class="seccion">
         <div class="cabecera-seccion">
@@ -24,3 +25,53 @@
         </ul>
     </section>
 {{end}}
+=======
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Gym | Resultados de Búsqueda</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,800;0,900;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="aplicacion">
+        {{ template "navbar" . }}
+
+        <main class="contenido-principal" id="contenido">
+            <section class="seccion">
+                <div class="cabecera-seccion">
+                    <h2>Resultados para: <span class="texto-destacado">"{{.Query}}"</span></h2>
+                    <p>Encuentra tu maquinaria o servicio ideal.</p>
+                </div>
+
+                <div class="contenido-seccion" style="display: flex; flex-direction: column; gap: 1rem; max-width: 800px; margin: 0 auto; min-height: 40vh;">
+                    {{if .Resultados}}
+                        {{range .Resultados}}
+                        <div class="tarjeta" style="background-color: var(--color-terciario); padding: 1.5rem; text-align: left; display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <span class="detalles-tarjeta" style="margin-bottom:0.5rem; display:block;">{{.Tipo}}</span>
+                                <h3 class="nombre-tarjeta" style="margin-bottom: 0;">{{.Titulo}}</h3>
+                            </div>
+                            <a href="{{.URL}}" class="boton-secundario">Ver Detalles</a>
+                        </div>
+                        {{end}}
+                    {{else}}
+                        <div style="text-align:center; padding: 2rem;">
+                            <h3>No se han encontrado resultados.</h3>
+                        </div>
+                    {{end}}
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
+>>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {{define "content"}}
         <nav class="migas-pan" aria-label="Breadcrumb">
             <a href="/">Inicio</a>
@@ -195,6 +196,269 @@
             updateCartUI();
         }
 
+=======
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platinum Gym | Tienda</title>
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,800;0,900;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <a href="#contenido" class="skip-to-content">Saltar al contenido principal</a>
+
+    {{ template "navbar" . }}
+
+        <main class="contenido-principal" id="contenido">
+            <nav class="migas-pan" aria-label="Breadcrumb">
+                <a href="/">Inicio</a>
+                <span class="separador"><i class="fas fa-chevron-right"></i></span>
+                <span class="actual">Tienda</span>
+            </nav>
+
+            <section id="tienda">
+                <div class="cabecera-seccion">
+                    <h2>TIENDA <span class="texto-destacado">OFICIAL</span></h2>
+                    <p>Nutrición de grado farmacéutico, ropa técnica y accesorios profesionales.</p>
+                </div>
+
+                
+<style>
+.store-filters { text-align: center; margin-bottom: 2rem; }
+.store-filters input { display: none; }
+.f-label { display: inline-block; padding: 10px 20px; font-weight: bold; cursor: pointer; color: #fff; background: #333; margin: 0 5px; border-radius: 4px; transition: background 0.3s; }
+.store-filters input:checked + .f-label { background: silver; color: #000; }
+#f-sups:checked ~ .contenido-seccion .rop { display: none; }
+#f-ropa:checked ~ .contenido-seccion .sup { display: none; }
+
+/* Estilos adicionales para dropdown de usuario y carrito */
+.user-dropdown-container { position: relative; display: inline-block; cursor: pointer; }
+.user-dropdown-menu { display: none; position: absolute; right: 0; top: 100%; background: #222; min-width: 180px; box-shadow: 0 8px 16px rgba(0,0,0,0.5); border-radius: 8px; overflow: hidden; z-index: 3000; flex-direction: column; }
+.user-dropdown-container:hover .user-dropdown-menu { display: flex; }
+.user-dropdown-menu a { color: #ccc; padding: 12px 16px; text-decoration: none; display: block; transition: 0.3s; font-size: 0.9rem; border-bottom: 1px solid #333; }
+.user-dropdown-menu a:hover { background-color: #444; color: #fff; }
+
+.shopping-cart-sidebar { position: fixed; top: 0; right: -350px; width: 300px; height: 100vh; background-color: var(--color-terciario, #1a1a1a); box-shadow: -5px 0 15px rgba(0,0,0,0.5); transition: right 0.3s ease; z-index: 4000; display: flex; flex-direction: column; padding: 1.5rem; }
+.shopping-cart-sidebar.open { right: 0; }
+.cart-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding-bottom: 1rem; margin-bottom: 1rem; }
+.cart-header h3 { margin: 0; color: var(--color-plata, #e5e4e2); }
+.cart-header button { background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer; }
+.cart-items { flex-grow: 1; overflow-y: auto; color: #ccc; font-size: 1rem; }
+.cart-footer { padding-top: 1rem; border-top: 1px solid #333; font-size: 1.2rem; font-weight: bold; text-align: right; }
+.floating-cart-btn { position: fixed; bottom: 30px; right: 30px; background-color: var(--color-primario, #8a0303); color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; cursor: pointer; box-shadow: 0 5px 15px rgba(0,0,0,0.4); z-index: 3500; transition: transform 0.3s; border: none;}
+.floating-cart-btn:hover { transform: scale(1.1); }
+</style>
+<div class="store-filters">
+    <input type="radio" id="f-all" name="f-tienda" checked>
+    <label for="f-all" class="f-label">Todos</label>
+
+    <input type="radio" id="f-sups" name="f-tienda">
+    <label for="f-sups" class="f-label">Suplementos</label>
+
+    <input type="radio" id="f-ropa" name="f-tienda">
+    <label for="f-ropa" class="f-label">Ropa y Accesorios</label>
+</div>
+<div class="contenido-seccion">
+
+
+                    <div class="tarjeta sup">
+                        <div class="caja-imagen">
+                            <span class="etiqueta">Top Ventas</span>
+                            <img src="/img/shop/protein.jpg" alt="100% Platinum Whey Isolate" class="imagen-tarjeta">
+                        </div>
+                        <div class="cuerpo-tarjeta">
+                            <h3 class="nombre-tarjeta">100% Platinum Whey Isolate</h3>
+                            <div class="precio">59.99€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta sup">
+                        <div class="caja-imagen">
+                            <span class="etiqueta">Nuevo</span>
+                            <img src="img/shop/prenetreno.avif" alt="Pre-Entreno Extremo C4" class="imagen-tarjeta">
+                        </div>
+                        <div class="cuerpo-tarjeta">
+                            <h3 class="nombre-tarjeta">Pre-Entreno Extremo</h3>
+                            <div class="precio">34.99€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta sup">
+                        <div class="caja-imagen">
+                            <img src="/img/shop/creatina.avif" alt="Creatina Monohidrato Creapure"
+                                class="imagen-tarjeta">
+                        </div>
+                        <div class="cuerpo-tarjeta">
+                            <h3 class="nombre-tarjeta">Creatina Monohidrato Creapure</h3>
+                            <div class="precio">24.99€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta rop">
+                        <div class="caja-imagen">
+                            <span class="etiqueta">Atleta</span>
+                            <img src="/img/shop/tirantes.jpg" alt="Camiseta de Tirantes Stringer"
+                                class="imagen-tarjeta">
+                        </div>
+                        <div class="cuerpo-tarjeta">
+                            <h3 class="nombre-tarjeta">Camiseta Stringer Platinum</h3>
+                            <div class="precio">22.00€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta rop">
+                        <div class="caja-imagen">
+                            <span class="etiqueta">Nuevo</span>
+                            <img src="/img/shop/chaqueta.webp" alt="Chaqueta Cortavientos Platinum"
+                                class="imagen-tarjeta">
+                        </div>
+                        <div class="cuerpo-tarjeta">
+                            <h3 class="nombre-tarjeta">Chaqueta Cortavientos</h3>
+                            <div class="precio">45.00€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta rop">
+                        <div class="caja-imagen">
+                            <span class="etiqueta">Básico</span>
+                            <img src="/img/shop/botella.jpg" alt="Shaker Platinum" class="imagen-tarjeta">
+                        </div>
+                        <div class="cuerpo-tarjeta">
+                            <h3 class="nombre-tarjeta">Shaker Mezclador 700ml</h3>
+                            <div class="precio">12.00€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta rop">
+                        <div class="caja-imagen">
+                            <span class="etiqueta">Pro</span>
+                            <img src="/img/shop/cinturon.jfif" alt="Cinturón de Levantamiento" class="imagen-tarjeta">
+                        </div>
+                        <div class="cuerpo-tarjeta">
+                            <h3 class="nombre-tarjeta">Cinturón Levantamiento</h3>
+                            <div class="precio">45.00€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta rop">
+                        <div class="caja-imagen">
+                            <span class="etiqueta">Esencial</span>
+                            <img src="/img/shop/straps.jpg" alt="Straps de Elevación Premium" class="imagen-tarjeta">
+                        </div>
+                        <div class="cuerpo-tarjeta">
+                            <h3 class="nombre-tarjeta">Straps de Elevación Premium</h3>
+                            <div class="precio">15.00€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta rop">
+                        <div class="caja-imagen">
+                            <img src="/img/shop/fuckidols.jfif" alt="Cinturón de Powerlifting Cuero"
+                                class="imagen-tarjeta">
+                        </div>
+                        <div class="cuerpo-tarjeta">
+                            <h3 class="nombre-tarjeta">Camiseta F*ck Your Idols</h3>
+                            <div class="precio">65.00€</div>
+                            <button class="boton-principal boton-bloque"><i class="fas fa-cart-plus"></i>
+                                Añadir</button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <footer class="pie-pagina">
+                <div class="pie-pagina__contenedor">
+                    <div class="pie-pagina__columna">
+                        <div class="pie-pagina__logo">
+                            <div class="pie-pagina__logo-brand"></div>
+                        </div>
+                        <h4>Platinum Gym</h4>
+                        <p>Expertos en ponerte mamadismo</p>
+                    </div>
+                    <div class="pie-pagina__columna">
+                        <h4>Enlaces Rápidos</h4>
+                        <ul class="pie-pagina__lista">
+                            <li><a href="/maquinaria">Maquinaria</a></li>
+                            <li><a href="/servicios">Servicios</a></li>
+                            <li><a href="/tienda">Tienda</a></li>
+                            <li><a href="/reglas">Reglas</a></li>
+                            <li><a href="/equipo">Equipo</a></li>
+                            <li><a href="/apuntate">¡Apúntate!</a></li>
+                        </ul>
+                    </div>
+                    <div class="pie-pagina__columna">
+                        <h4>Contacto</h4>
+                        <ul class="pie-pagina__lista">
+                            <li><i class="fas fa-phone"></i> +34 912 345 678</li>
+                            <li><i class="fas fa-envelope"></i> info@platinumgym.com</li>
+                        </ul>
+                    </div>
+                    <div class="pie-pagina__columna">
+                        <h4>Gimnasios</h4>
+                        <ul class="pie-pagina__lista">
+                            <li><i class="fas fa-map-marker-alt"></i> Seattle</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Tel-Aviv</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Isla de Epstein</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Vallecas</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Meco</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Berlín</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="pie-pagina__copyright">
+                    &copy; 2026 Platinum Gym. Todos los derechos reservados.
+                </div>
+            </footer>
+        </main>
+    </div>
+    
+    <!-- Carrito Flotante -->
+    <button id="open-cart" class="floating-cart-btn"><i class="fas fa-shopping-cart"></i></button>
+
+    <div id="shopping-cart-sidebar" class="shopping-cart-sidebar">
+        <div class="cart-header">
+            <h3>Tu Carrito</h3>
+            <button id="close-cart"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items">
+            <p>Aún no has añadido nada a tu carrito.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total" style="margin-bottom: 15px;">Total: <span style="color:var(--color-primario, #8a0303);">0.00€</span></div>
+            <button class="boton-principal boton-bloque">Tramitar Pedido <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <script>
+        // Logica simple para abrir y cerrar carrito visual
+>>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
         document.getElementById('open-cart').addEventListener('click', function() {
             document.getElementById('shopping-cart-sidebar').classList.add('open');
         });
@@ -202,6 +466,7 @@
             document.getElementById('shopping-cart-sidebar').classList.remove('open');
         });
 
+<<<<<<< HEAD
         document.querySelectorAll('.btn-add-cart').forEach(btn => {
             btn.addEventListener('click', function() {
                 const name = this.getAttribute('data-name');
@@ -230,3 +495,23 @@
         }
     </script>
 {{end}}
+=======
+        // Simulador visual de añadir producto
+        document.querySelectorAll('.tarjeta .boton-principal').forEach(btn => {
+            btn.addEventListener('click', function() {
+                var name = this.parentElement.querySelector('.nombre-tarjeta').innerText;
+                var price = this.parentElement.querySelector('.precio').innerText;
+                var cartItems = document.querySelector('.cart-items');
+                if(cartItems.innerHTML.includes("Aún no has añadido")) cartItems.innerHTML = "";
+                
+                cartItems.innerHTML += "<div style='display:flex; justify-content:space-between; margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid #333;'><span>" + name + "</span><span style='font-weight:bold;'>" + price + "</span></div>";
+
+                // Animation
+                document.getElementById('shopping-cart-sidebar').classList.add('open');
+            });
+        });
+    </script>
+</body>
+
+</html>
+>>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153

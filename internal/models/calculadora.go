@@ -1,10 +1,17 @@
 package models
 
 type DatosFFMI struct {
+<<<<<<< HEAD
 	Altura              float64
 	Peso                float64
 	IndiceGrasaCorporal float64
 	Resultado           float64
+=======
+	Altura             float64
+	Peso               float64
+	IndiceGrasaCorporal float64
+	Resultado          float64
+>>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 }
 
 func (d *DatosFFMI) ValidarDatos() bool {

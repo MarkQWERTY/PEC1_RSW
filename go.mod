@@ -1,5 +1,6 @@
 module pec2
 
+<<<<<<< HEAD
 go 1.25.0
 
 require modernc.org/sqlite v1.48.2
@@ -15,3 +16,6 @@ require (
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
 )
+=======
+go 1.22
+>>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153

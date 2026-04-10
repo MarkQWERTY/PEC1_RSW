@@ -1,0 +1,14 @@
+[
+  {
+    "nombre": "aaa",
+    "apellidos": "a",
+    "fecha_nacimiento": "3323-02-03",
+    "direccion": "Calle Mayor, 3",
+    "telefono": "612345634",
+    "correo": "ru@a.com",
+    "documento": "12345678D",
+    "metodo_pago": "tarjeta",
+    "numero_pago": "sdsadsadasdasd",
+    "password": "1234"
+  }
+]
