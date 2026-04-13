@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {{define "content"}}
     <section class="seccion auth-flex-container">
         <div class="auth-card">
@@ -31,51 +30,3 @@
         </div>
     </section>
 {{end}}
-=======
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Platinum Gym | Iniciar Sesión</title>
-    <link rel="stylesheet" href="css/estilos.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class="aplicacion">
-        {{ template "navbar" . }}
-
-        <main class="contenido-principal">
-            <section class="seccion">
-                <div class="cabecera-seccion">
-                    <h2>Área de <span class="texto-destacado">Socios</span></h2>
-                    <p>Inicia sesión para reservar salas y clases.</p>
-                </div>
-
-                <div class="tarjeta" style="max-width: 500px; margin: 0 auto; padding: 2rem;">
-                    {{if .ErrorMsg}}
-                    <div style="background-color: #ffcccc; color: #cc0000; padding: 1rem; border-radius: 4px; margin-bottom: 1rem; text-align: center;">
-                        {{.ErrorMsg}}
-                    </div>
-                    {{end}}
-
-                    <form action="/login" method="POST" class="formulario">
-                        <div class="grupo-formulario">
-                            <label for="usuario" class="etiqueta-formulario">Usuario:</label>
-                            <input type="text" id="usuario" name="usuario" class="entrada-formulario" placeholder="Tu nombre de usuario" required>
-                        </div>
-                        <div class="grupo-formulario">
-                            <label for="contrasena" class="etiqueta-formulario">Contraseña:</label>
-                            <input type="password" id="contrasena" name="contrasena" class="entrada-formulario" placeholder="Tu contraseña" required>
-                        </div>
-                        <button type="submit" class="boton-principal" style="width: 100%; margin-top: 1rem;">Entrar</button>
-                    </form>
-                    <p style="text-align: center; margin-top: 1rem; color: #888;">Para pruebas, usa: usuario: testuser, contraseña: 1234</p>
-                </div>
-            </section>
-        </main>
-    </div>
-</body>
-</html>
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153

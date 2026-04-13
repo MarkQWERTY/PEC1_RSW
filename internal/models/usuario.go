@@ -1,10 +1,8 @@
 package models
 
 type Usuario struct {
-<<<<<<< HEAD
 	ID              int    `json:"id"`
-=======
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
+
 	Nombre          string `json:"nombre"`
 	Apellidos       string `json:"apellidos"`
 	FechaNacimiento string `json:"fecha_nacimiento"`

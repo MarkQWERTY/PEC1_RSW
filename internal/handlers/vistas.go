@@ -1,7 +1,6 @@
 package handlers
 
 import (
-<<<<<<< HEAD
 	"log"
 	"net/http"
 	"path/filepath"
@@ -20,17 +19,6 @@ func GetWebPath(relative ...string) string {
 	return filepath.Join(parts...)
 }
 
-=======
-	"html/template"
-	"log"
-	"net/http"
-	"path/filepath"
-	"strconv"
-	"strings"
-	"pec2/internal/db"
-)
-
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 func PageHandler(w http.ResponseWriter, r *http.Request) {
 	page := r.URL.Path[1:]
 	if page == "" || page == "index.html" {
@@ -45,18 +33,6 @@ func PageHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-<<<<<<< HEAD
-=======
-	tmplFile := filepath.Join("web", "templates", page+".html")
-	navbarFile := filepath.Join("web", "templates", "navbar.html")
-	
-	tmpl, err := template.ParseFiles(tmplFile, navbarFile)
-	if err != nil {
-		http.NotFound(w, r)
-		return
-	}
-	
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 	log.Printf("Usuario accedió a la página: %s", page)
 
 	var data interface{}
@@ -77,11 +53,8 @@ func PageHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	case "servicios":
 		data = db.Servicios
-<<<<<<< HEAD
 	case "equipo":
 		data = db.EquipoCompleto
-=======
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 	case "servicio-detalle":
 		idStr := r.URL.Query().Get("id")
 		id, _ := strconv.Atoi(idStr)
@@ -91,12 +64,10 @@ func PageHandler(w http.ResponseWriter, r *http.Request) {
 				break
 			}
 		}
-<<<<<<< HEAD
 	case "tienda/tramitar":
-		// Si cae aquí es que no se ha registrado el handler específico o falta reiniciar
 		cookie, err := r.Cookie("session_user")
 		if err == nil {
-			usuario := db.ObtenerUsuarioPorCorreo(cookie.Value)
+			usuario := db.ObtenerSocioPorCorreo(cookie.Value)
 			if usuario != nil {
 				data = map[string]interface{}{"Usuario": usuario}
 				page = "tramitar-pedido"
@@ -111,9 +82,5 @@ func PageHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	RenderTemplate(w, page, data)
-=======
-	}
-
-	tmpl.Execute(w, data)
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 }
+

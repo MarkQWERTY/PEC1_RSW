@@ -13,11 +13,8 @@ type Clases struct {
 	Entrenador  string `json:"entrenador"`
 	Aforo       int    `json:"aforo"`
 	Horario     string `json:"horario"`
-<<<<<<< HEAD
 	Descripcion string `json:"descripcion"`
 	Lugar       string `json:"lugar"`
-=======
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 }
 
 type Reserva struct {
@@ -26,7 +23,6 @@ type Reserva struct {
 	ActividadID int    `json:"actividad_id"`
 	FechaAsist  string `json:"fecha_asist"`
 }
-<<<<<<< HEAD
 
 type MiembroEquipo struct {
 	ID          int    `json:"id"`
@@ -35,5 +31,4 @@ type MiembroEquipo struct {
 	Descripcion string `json:"descripcion"`
 	Imagen      string `json:"imagen"`
 }
-=======
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
+

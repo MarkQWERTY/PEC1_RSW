@@ -1,7 +1,6 @@
 package db
 
 import (
-<<<<<<< HEAD
 	"database/sql"
 	"log"
 	"os"
@@ -34,7 +33,7 @@ func createTables() {
 		fecha_nacimiento TEXT,
 		direccion TEXT,
 		telefono TEXT,
-		correo TEXT,
+		correo TEXT UNIQUE,
 		documento TEXT,
 		metodo_pago TEXT,
 		numero_pago TEXT,
@@ -60,9 +59,7 @@ func createTables() {
 		log.Fatal("Error creando tabla resenas: ", err)
 	}
 
-	// No insertamos usuarios de prueba por defecto, el usuario se registrará.
 	var count int
-
 	DB.QueryRow("SELECT COUNT(*) FROM resenas").Scan(&count)
 	if count == 0 {
 		_, _ = DB.Exec(`INSERT INTO resenas (autor, puntuacion, texto) VALUES 
@@ -73,13 +70,6 @@ func createTables() {
 }
 
 func GuardarUsuario(u models.Usuario) error {
-	var count int
-	DB.QueryRow("SELECT COUNT(*) FROM usuarios WHERE nombre = ?", u.Nombre).Scan(&count)
-	if count > 0 {
-		// Update if exists or handle otherwise, for simplicity insert a new one if it has unique name? 
-		// Actually let's just insert
-	}
-
 	stmt, err := DB.Prepare(`INSERT INTO usuarios (nombre, apellidos, fecha_nacimiento, direccion, telefono, correo, documento, metodo_pago, numero_pago, password) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
 	if err != nil {
 		return err
@@ -88,45 +78,10 @@ func GuardarUsuario(u models.Usuario) error {
 
 	_, err = stmt.Exec(u.Nombre, u.Apellidos, u.FechaNacimiento, u.Direccion, u.Telefono, u.Correo, u.Documento, u.MetodoPago, u.NumeroPago, u.Password)
 	return err
-=======
-	"encoding/json"
-	"os"
-	"path/filepath"
-	"pec2/internal/models"
-)
-
-var dbFile = filepath.Join("internal", "db", "datos_registro.json")
-var resenasFile = filepath.Join("internal", "db", "datos_resenas.json")
-
-func InitDB() {
-	// JSON no requiere inicialización estricta por adelantado a menos que queramos crear los ficheros
-	// pero os.WriteFile lo creará si no existe en GuardarUsuario.
-	// Solo creamos la carpeta base por seguridad.
-	os.MkdirAll(filepath.Join("internal", "db"), 0755)
-}
-
-func GuardarUsuario(u models.Usuario) error {
-	var usuarios []models.Usuario
-
-	file, err := os.ReadFile(dbFile)
-	if err == nil {
-		json.Unmarshal(file, &usuarios)
-	}
-
-	usuarios = append(usuarios, u)
-
-	data, err := json.MarshalIndent(usuarios, "", "  ")
-	if err != nil {
-		return err
-	}
-
-	return os.WriteFile(dbFile, data, 0644)
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 }
 
 func ObtenerResenas() []models.Resena {
 	var resenas []models.Resena
-<<<<<<< HEAD
 	rows, err := DB.Query("SELECT autor, puntuacion, texto FROM resenas ORDER BY id DESC")
 	if err != nil {
 		log.Println("Error obteniendo reseñas:", err)
@@ -138,24 +93,12 @@ func ObtenerResenas() []models.Resena {
 		var r models.Resena
 		if err := rows.Scan(&r.Autor, &r.Puntuacion, &r.Texto); err == nil {
 			resenas = append(resenas, r)
-=======
-	file, err := os.ReadFile(resenasFile)
-	if err == nil {
-		json.Unmarshal(file, &resenas)
-	} else {
-		// Mock data if file doesn't exist
-		resenas = []models.Resena{
-			{Autor: "Carlos G.", Puntuacion: 5, Texto: "El mejor gimnasio de la ciudad. Las máquinas son increíbles."},
-			{Autor: "María P.", Puntuacion: 4, Texto: "Muy buen ambiente, aunque a veces hay mucha gente en hora punta."},
-			{Autor: "Luis R.", Puntuacion: 5, Texto: "Los fisioterapeutas me curaron una lesión de hombro que llevaba meses arrastrando."},
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 		}
 	}
 	return resenas
 }
 
 func GuardarResena(r models.Resena) error {
-<<<<<<< HEAD
 	stmt, err := DB.Prepare("INSERT INTO resenas (autor, puntuacion, texto) VALUES (?, ?, ?)")
 	if err != nil {
 		return err
@@ -166,6 +109,26 @@ func GuardarResena(r models.Resena) error {
 	return err
 }
 
+func ObtenerSocioPorCorreo(correo string) *models.Socio {
+	var s models.Socio
+	err := DB.QueryRow("SELECT id, nombre, password, suscripcion_activa FROM usuarios WHERE correo = ?", correo).
+		Scan(&s.ID, &s.Nombre, &s.Contrasena, &s.SuscripcionActiva)
+	if err != nil {
+		return nil
+	}
+	return &s
+}
+
+func ObtenerSocioPorNombre(nombre string) *models.Socio {
+	var s models.Socio
+	err := DB.QueryRow("SELECT id, nombre, password, suscripcion_activa FROM usuarios WHERE nombre = ?", nombre).
+		Scan(&s.ID, &s.Nombre, &s.Contrasena, &s.SuscripcionActiva)
+	if err != nil {
+		return nil
+	}
+	return &s
+}
+
 func ObtenerUsuarioPorCorreo(correo string) *models.Usuario {
 	var u models.Usuario
 	err := DB.QueryRow("SELECT id, nombre, apellidos, correo, direccion, telefono, metodo_pago FROM usuarios WHERE correo = ?", correo).
@@ -174,14 +137,4 @@ func ObtenerUsuarioPorCorreo(correo string) *models.Usuario {
 		return nil
 	}
 	return &u
-=======
-	resenas := ObtenerResenas()
-	resenas = append(resenas, r)
-
-	data, err := json.MarshalIndent(resenas, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(resenasFile, data, 0644)
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 }

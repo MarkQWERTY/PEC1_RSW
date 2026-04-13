@@ -1,13 +1,7 @@
 package handlers
 
 import (
-<<<<<<< HEAD
 	"net/http"
-=======
-	"html/template"
-	"net/http"
-	"path/filepath"
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 	"pec2/internal/db"
 	"strconv"
 	"strings"
@@ -44,20 +38,9 @@ func BuscadorHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-<<<<<<< HEAD
 	RenderTemplate(w, "buscar", map[string]interface{}{
-=======
-	tmplFile := filepath.Join("web", "templates", "buscar.html")
-	navbarFile := filepath.Join("web", "templates", "navbar.html")
-	tmpl, err := template.ParseFiles(tmplFile, navbarFile)
-	if err != nil {
-		http.Error(w, "Error cargando página de resultados", http.StatusInternalServerError)
-		return
-	}
-
-	tmpl.Execute(w, map[string]interface{}{
->>>>>>> d48f6ffdbdb90e0d503e476e6ffbce582ca54153
 		"Query":      r.URL.Query().Get("q"),
 		"Resultados": resultados,
 	})
 }
+
