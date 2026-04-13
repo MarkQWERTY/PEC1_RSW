@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"path/filepath"
 	"pec2/internal/db"
+	"pec2/internal/models"
 	"strconv"
 	"strings"
 )
@@ -39,7 +40,16 @@ func PageHandler(w http.ResponseWriter, r *http.Request) {
 
 	switch page {
 	case "index":
-		data = db.ObtenerResenas()
+		resenas := db.ObtenerResenas()
+		var usuario *models.Socio
+		cookie, err := r.Cookie("session_user")
+		if err == nil {
+			usuario = db.ObtenerSocioPorCorreo(cookie.Value)
+		}
+		data = map[string]interface{}{
+			"Resenas": resenas,
+			"Usuario": usuario,
+		}
 	case "maquinaria":
 		data = db.Maquinas
 	case "maquinaria-detalle":

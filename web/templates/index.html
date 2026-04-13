@@ -104,12 +104,8 @@
     <div class="resenas-container">
         <!-- Columna Formulario -->
         <div class="resenas-form-wrapper">
+            {{if .Data.Usuario}}
             <form action="/resenas" method="POST" class="formulario resena-form-card">
-                <div class="grupo-formulario">
-                    <label for="autor" class="etiqueta-formulario">Tu Nombre:</label>
-                    <input type="text" id="autor" name="autor" class="campo-formulario" placeholder="Ej: John Doe"
-                        required>
-                </div>
                 <div class="grupo-formulario">
                     <label for="puntuacion" class="etiqueta-formulario">Puntuación (1-5):</label>
                     <input type="number" id="puntuacion" name="puntuacion" min="1" max="5" class="campo-formulario"
@@ -120,15 +116,23 @@
                     <textarea id="texto" name="texto" rows="4" class="campo-formulario campo-formulario--textarea"
                         placeholder="Escribe tu experiencia aquí..." required></textarea>
                 </div>
-                <button type="submit" class="boton-formulario boton-bloque">Publicar Reseña <i
+                <button type="submit" class="boton-resena">Publicar Reseña <i
                         class="fas fa-paper-plane" aria-hidden="true"></i></button>
             </form>
+            {{else}}
+            <div class="resena-form-card" style="text-align: center; padding: 2rem;">
+                <i class="fas fa-lock" style="font-size: 3rem; color: var(--color-texto-secundario); margin-bottom: 1rem;"></i>
+                <h3>¿Quieres dejar una reseña?</h3>
+                <p>Debes estar iniciado sesión para compartir tu experiencia con nosotros.</p>
+                <a href="/login?return=/index" class="boton-formulario" style="display: inline-block; margin-top: 1rem; text-decoration: none;">Iniciar Sesión</a>
+            </div>
+            {{end}}
         </div>
 
         <!-- Columna Listado -->
         <div class="resenas-list-wrapper">
             <ul class="resenas-grid">
-                {{range .Data}}
+                {{range .Data.Resenas}}
                 <li class="resena-card">
                     <h3 class="resena-autor">{{.Autor}}</h3>
                     <div class="resena-stars" aria-label="Puntuación: {{.Puntuacion}}">

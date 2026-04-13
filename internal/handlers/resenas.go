@@ -13,18 +13,31 @@ func GuardarResenaHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err := r.ParseForm()
+	// Verificar sesión
+	cookie, err := r.Cookie("session_user")
+	if err != nil {
+		http.Redirect(w, r, "/login?return=/index", http.StatusSeeOther)
+		return
+	}
+
+	usuario := db.ObtenerSocioPorCorreo(cookie.Value)
+	if usuario == nil {
+		http.Redirect(w, r, "/login?return=/index", http.StatusSeeOther)
+		return
+	}
+
+	err = r.ParseForm()
 	if err != nil {
 		http.Error(w, "Error al procesar el formulario", http.StatusBadRequest)
 		return
 	}
 
-	autor := r.FormValue("autor")
+	autor := usuario.Nombre
 	puntuacionStr := r.FormValue("puntuacion")
 	puntuacion, _ := strconv.Atoi(puntuacionStr)
 	texto := r.FormValue("texto")
 
-	if autor != "" && texto != "" && puntuacion >= 1 && puntuacion <= 5 {
+	if texto != "" && puntuacion >= 1 && puntuacion <= 5 {
 		resena := models.Resena{
 			Autor:      autor,
 			Puntuacion: puntuacion,
