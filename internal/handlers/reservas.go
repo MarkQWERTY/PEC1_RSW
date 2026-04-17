@@ -20,7 +20,7 @@ func obtenerSocioLogueado(r *http.Request) *models.Socio {
 func ReservasHandler(w http.ResponseWriter, r *http.Request) {
 	socio := obtenerSocioLogueado(r)
 	if socio == nil {
-		http.Redirect(w, r, "/login", http.StatusSeeOther)
+		http.Redirect(w, r, "/login?return="+r.URL.Path, http.StatusSeeOther)
 		return
 	}
 
@@ -61,7 +61,7 @@ func ProcesarReservaHandler(w http.ResponseWriter, r *http.Request) {
 
 	socio := obtenerSocioLogueado(r)
 	if socio == nil {
-		http.Redirect(w, r, "/login", http.StatusSeeOther)
+		http.Redirect(w, r, "/login?return="+r.URL.Path, http.StatusSeeOther)
 		return
 	}
 
@@ -76,4 +76,26 @@ func ProcesarReservaHandler(w http.ResponseWriter, r *http.Request) {
 
 	http.Redirect(w, r, "/reservas", http.StatusSeeOther)
 }
+
+func ProcesarCancelacionHandler(w http.ResponseWriter, r *http.Request) {
+	if r.Method != http.MethodPost {
+		http.Redirect(w, r, "/reservas", http.StatusSeeOther)
+		return
+	}
+
+	socio := obtenerSocioLogueado(r)
+	if socio == nil {
+		http.Redirect(w, r, "/login?return="+r.URL.Path, http.StatusSeeOther)
+		return
+	}
+
+	r.ParseForm()
+	reservaIDStr := r.FormValue("reserva_id")
+	reservaID, _ := strconv.Atoi(reservaIDStr)
+
+	db.EliminarReserva(reservaID)
+
+	http.Redirect(w, r, "/reservas", http.StatusSeeOther)
+}
+
 

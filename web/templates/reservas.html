@@ -47,7 +47,10 @@
                         <div class="item-resultado__tipo">{{.FechaAsist}}</div>
                         <h3 class="nombre-tarjeta">{{.NombreClase}}</h3>
                         <p>ID Reserva: <span class="texto-destacado">#{{.ID}}</span></p>
-                        <button class="boton-secundario boton-bloque" style="border-color: #cc0000; color: #cc0000; margin-top: 1rem;">Cancelar Reserva</button>
+                        <form action="/reservas/cancelar" method="POST">
+                            <input type="hidden" name="reserva_id" value="{{.ID}}">
+                            <button type="submit" class="boton-secundario boton-bloque" style="border-color: #cc0000; color: #cc0000; margin-top: 1rem;">Cancelar Reserva</button>
+                        </form>
                     </div>
                 </article>
                 {{else}}

@@ -14,7 +14,7 @@ func TramitarPedidoHandler(w http.ResponseWriter, r *http.Request) {
 
 	usuario := db.ObtenerUsuarioPorCorreo(cookie.Value)
 	if usuario == nil {
-		http.Redirect(w, r, "/login", http.StatusSeeOther)
+		http.Redirect(w, r, "/login?return="+r.URL.Path, http.StatusSeeOther)
 		return
 	}
 

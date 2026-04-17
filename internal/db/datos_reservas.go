@@ -14,6 +14,7 @@ var ClasesLista = []models.Clases{
 }
 
 var ReservasActuales = []models.Reserva{}
+var contadorReservas = 0
 
 func CrearReserva(socioID int, actividadID int, fecha string) bool {
 	// Verificar aforo simple (como simulación)
@@ -33,8 +34,9 @@ func CrearReserva(socioID int, actividadID int, fecha string) bool {
 		}
 	}
 
+	contadorReservas++
 	nuevaReserva := models.Reserva{
-		ID:          len(ReservasActuales) + 1,
+		ID:          contadorReservas,
 		SocioID:     socioID,
 		ActividadID: actividadID,
 		FechaAsist:  fecha,
@@ -52,3 +54,14 @@ func ObtenerReservasDeSocio(socioID int) []models.Reserva {
 	}
 	return result
 }
+
+func EliminarReserva(reservaID int) bool {
+	for i, r := range ReservasActuales {
+		if r.ID == reservaID {
+			ReservasActuales = append(ReservasActuales[:i], ReservasActuales[i+1:]...)
+			return true
+		}
+	}
+	return false
+}
+

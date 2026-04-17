@@ -32,6 +32,7 @@ func main() {
 	http.HandleFunc("/logout", handlers.LogoutHandler)
 	http.HandleFunc("/reservas", handlers.ReservasHandler)
 	http.HandleFunc("/reservas/reservar", handlers.ProcesarReservaHandler)
+	http.HandleFunc("/reservas/cancelar", handlers.ProcesarCancelacionHandler)
 	http.HandleFunc("/tienda/tramitar", handlers.TramitarPedidoHandler)
 	
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
