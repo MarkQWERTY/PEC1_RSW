@@ -120,11 +120,11 @@
                         class="fas fa-paper-plane" aria-hidden="true"></i></button>
             </form>
             {{else}}
-            <div class="resena-form-card" style="text-align: center; padding: 2rem;">
-                <i class="fas fa-lock" style="font-size: 3rem; color: var(--color-texto-secundario); margin-bottom: 1rem;"></i>
-                <h3>¿Quieres dejar una reseña?</h3>
-                <p>Debes estar iniciado sesión para compartir tu experiencia con nosotros.</p>
-                <a href="/login?return=/index" class="boton-formulario" style="display: inline-block; margin-top: 1rem; text-decoration: none;">Iniciar Sesión</a>
+            <div class="resena-form-card resena-form-card--bloqueado">
+                <i class="fas fa-lock lock-icon"></i>
+                <h3>Acceso Restringido</h3>
+                <p>Solo los socios autenticados pueden dejar reseñas.</p>
+                <a href="/login?return=/index" class="boton-formulario mt-1 inline-block no-underline">Iniciar Sesión</a>
             </div>
             {{end}}
         </div>
