@@ -12,14 +12,14 @@
             </div>
 
             <div class="store-filters">
-                <input type="radio" id="f-all" name="f-tienda" checked>
-                <label for="f-all" class="f-label">Todos</label>
+                <button class="f-label active" data-filter="all">Todos</button>
+                <button class="f-label" data-filter="sup">Suplementos</button>
+                <button class="f-label" data-filter="rop">Ropa</button>
+                <button class="f-label" data-filter="acc">Accesorios</button>
+            </div>
 
-                <input type="radio" id="f-sups" name="f-tienda">
-                <label for="f-sups" class="f-label">Suplementos</label>
-
-                <input type="radio" id="f-ropa" name="f-tienda">
-                <label for="f-ropa" class="f-label">Ropa y Accesorios</label>
+            <div class="filtro-actual" style="text-align: center; margin-bottom: 1.5rem; color: var(--color-texto-muted);">
+                <p>Filtro aplicado: <strong id="nombre-filtro-actual" style="color: white;">Todos</strong></p>
             </div>
 
             <ul class="contenido-seccion">
@@ -82,7 +82,7 @@
                     </div>
                 </li>
 
-                <li class="tarjeta rop">
+                <li class="tarjeta acc">
                     <div class="caja-imagen">
                         <span class="etiqueta">Básico</span>
                         <img src="/img/shop/botella.jpg" alt="Shaker Platinum" class="imagen-tarjeta">
@@ -94,7 +94,7 @@
                     </div>
                 </li>
 
-                <li class="tarjeta rop">
+                <li class="tarjeta acc">
                     <div class="caja-imagen">
                         <span class="etiqueta">Pro</span>
                         <img src="/img/shop/cinturon.jfif" alt="Cinturón de Levantamiento" class="imagen-tarjeta">
@@ -106,7 +106,7 @@
                     </div>
                 </li>
 
-                <li class="tarjeta rop">
+                <li class="tarjeta acc">
                     <div class="caja-imagen">
                         <span class="etiqueta">Esencial</span>
                         <img src="/img/shop/straps.jpg" alt="Straps de Elevación Premium" class="imagen-tarjeta">
@@ -228,5 +228,31 @@
             cart = JSON.parse(storedCart);
             updateCartUI();
         }
+
+        // Product Filtering
+        const filterBtns = document.querySelectorAll('.store-filters .f-label');
+        const productCards = document.querySelectorAll('.contenido-seccion .tarjeta');
+        const activeFilterName = document.getElementById('nombre-filtro-actual');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                // Update text
+                activeFilterName.innerText = this.innerText;
+
+                // Filter products
+                const filter = this.getAttribute('data-filter');
+                productCards.forEach(card => {
+                    if (filter === 'all' || card.classList.contains(filter)) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 {{end}}
